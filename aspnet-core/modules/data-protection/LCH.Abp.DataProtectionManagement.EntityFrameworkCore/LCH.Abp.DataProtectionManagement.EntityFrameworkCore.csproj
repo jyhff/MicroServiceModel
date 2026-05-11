@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.DataProtectionManagement.EntityFrameworkCore</AssemblyName>
+		<PackageId>LCH.Abp.DataProtectionManagement.EntityFrameworkCore</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\data-protection\LCH.Abp.DataProtection.EntityFrameworkCore\LCH.Abp.DataProtection.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\LCH.Abp.DataProtectionManagement.Domain\LCH.Abp.DataProtectionManagement.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

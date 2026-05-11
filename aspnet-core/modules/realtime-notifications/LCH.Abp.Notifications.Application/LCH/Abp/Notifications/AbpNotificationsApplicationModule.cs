@@ -1,0 +1,17 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.Application;
+using Volo.Abp.Modularity;
+
+namespace LCH.Abp.Notifications;
+
+[DependsOn(
+    typeof(AbpNotificationsDomainModule),
+    typeof(AbpNotificationsApplicationContractsModule),
+    typeof(AbpDddApplicationModule))]
+public class AbpNotificationsApplicationModule : AbpModule
+{
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        context.Services.AddMapperlyObjectMapper<AbpNotificationsApplicationModule>();
+    }
+}

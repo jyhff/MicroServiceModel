@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Identity.Application</AssemblyName>
+		<PackageId>LCH.Abp.Identity.Application</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Identity.Application" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.Identity.Application.Contracts\LCH.Abp.Identity.Application.Contracts.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Identity.Domain\LCH.Abp.Identity.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

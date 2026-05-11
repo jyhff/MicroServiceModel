@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.Activities.IM</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.Activities.IM</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\realtime-message\LCH.Abp.IM\LCH.Abp.IM.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

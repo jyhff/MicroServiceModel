@@ -1,0 +1,27 @@
+﻿using LCH.Abp.WeChat.Common.Messages;
+using System;
+using System.Collections.Generic;
+
+namespace LCH.Abp.WeChat.Official.Messages;
+public class AbpWeChatOfficialMessageResolveOptions
+{
+    public List<IMessageResolveContributor> MessageResolvers { get; }
+    public IDictionary<string, Func<IMessageResolveContext, WeChatEventMessage>> EventMaps { get; }
+    public IDictionary<string, Func<IMessageResolveContext, WeChatGeneralMessage>> MessageMaps { get; }
+    public AbpWeChatOfficialMessageResolveOptions()
+    {
+        MessageResolvers = new List<IMessageResolveContributor>();
+        EventMaps = new Dictionary<string, Func<IMessageResolveContext, WeChatEventMessage>>();
+        MessageMaps = new Dictionary<string, Func<IMessageResolveContext, WeChatGeneralMessage>>();
+    }
+
+    public void MapEvent(string eventName, Func<IMessageResolveContext, WeChatEventMessage> mapFunc)
+    {
+        EventMaps[eventName] = mapFunc;
+    }
+
+    public void MapMessage(string messageType, Func<IMessageResolveContext, WeChatGeneralMessage> mapFunc)
+    {
+        MessageMaps[messageType] = mapFunc;
+    }
+}

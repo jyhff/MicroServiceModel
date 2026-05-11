@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.TextTemplating.Domain</AssemblyName>
+		<PackageId>LCH.Abp.TextTemplating.Domain</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Mapperly" />
+		<PackageReference Include="Volo.Abp.Caching" />
+		<PackageReference Include="Volo.Abp.Ddd.Domain" />
+		<PackageReference Include="Volo.Abp.TextTemplating.Core" />
+		<PackageReference Include="Polly" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.Abp.TextTemplating.Domain.Shared\LCH.Abp.TextTemplating.Domain.Shared.csproj" />
+	</ItemGroup>
+</Project>

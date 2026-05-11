@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+	  <RootNamespace />
+	  <Configurations>Debug;Release;PostgreSQL</Configurations>
+	  <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\framework\common\LCH.Abp.Wrapper\LCH.Abp.Wrapper.csproj" />
+    <ProjectReference Include="..\..\framework\dapr\LCH.Abp.Dapr.Actors.AspNetCore\LCH.Abp.Dapr.Actors.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\framework\mvc\LCH.Abp.AspNetCore.Mvc.Wrapper\LCH.Abp.AspNetCore.Mvc.Wrapper.csproj" />
+    <ProjectReference Include="..\LCH.Abp.Dapr.Tests\LCH.Abp.Dapr.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

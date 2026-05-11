@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.EntityFrameworkCore.MySql</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.EntityFrameworkCore.MySql</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\Elsa\EntityFrameworkCore\MySql\Migrations\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\Elsa\EntityFrameworkCore\MySql\Migrations\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+		<PackageReference Include="Elsa.Webhooks.Persistence.EntityFramework.MySql" />
+		<PackageReference Include="Elsa.WorkflowSettings.Persistence.EntityFramework.MySql" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL.Pomelo" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.Elsa.EntityFrameworkCore\LCH.Abp.Elsa.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

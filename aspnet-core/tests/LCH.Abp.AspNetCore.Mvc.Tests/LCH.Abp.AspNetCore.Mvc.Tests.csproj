@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace />
+		<IsPackable>false</IsPackable>
+		<Configurations>Debug;Release;PostgreSQL</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="LCH\Abp\AspNetCore\Mvc\Localization\Resources\en.json" />
+		<Content Remove="LCH\Abp\AspNetCore\Mvc\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="LCH\Abp\AspNetCore\Mvc\Localization\Resources\en.json" />
+		<EmbeddedResource Include="LCH\Abp\AspNetCore\Mvc\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\mvc\LCH.Abp.AspNetCore.Mvc.Wrapper\LCH.Abp.AspNetCore.Mvc.Wrapper.csproj" />
+		<ProjectReference Include="..\LCH.Abp.AspNetCore.Tests\LCH.Abp.AspNetCore.Tests.csproj" />
+	</ItemGroup>
+
+</Project>

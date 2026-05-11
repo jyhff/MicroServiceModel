@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Identity.Jobs</AssemblyName>
+		<PackageId>LCH.Abp.Identity.Jobs</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\Identity\Jobs\Localization\Resources\*.json" />
+		<EmbeddedResource Include="LCH\Abp\Identity\Jobs\Localization\Resources\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\identity\LCH.Abp.Identity.Domain\LCH.Abp.Identity.Domain.csproj" />
+		<ProjectReference Include="..\..\identity\LCH.Abp.Identity.Notifications\LCH.Abp.Identity.Notifications.csproj" />
+		<ProjectReference Include="..\LCH.Abp.BackgroundTasks.Abstractions\LCH.Abp.BackgroundTasks.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

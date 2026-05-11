@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+		<IsPackable>false</IsPackable>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\Exporter\Pdf\Resources\test.xlsx" />
+		<EmbeddedResource Include="LCH\Abp\Exporter\Pdf\Resources\test.xlsx" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\exporter\LCH.Abp.Exporter.Pdf\LCH.Abp.Exporter.Pdf.csproj" />
+		<ProjectReference Include="..\LCH.Abp.TestBase\LCH.Abp.TestsBase.csproj" />
+	</ItemGroup>
+
+</Project>

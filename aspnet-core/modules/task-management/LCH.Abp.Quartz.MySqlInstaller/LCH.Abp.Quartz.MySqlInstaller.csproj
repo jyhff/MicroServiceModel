@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+		<AssemblyName>LCH.Abp.Quartz.MySqlInstaller</AssemblyName>
+		<PackageId>LCH.Abp.Quartz.MySqlInstaller</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\Quartz\MySqlInstaller\Scripts\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\Quartz\MySqlInstaller\Scripts\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.VirtualFileSystem" />
+		<PackageReference Include="MySqlConnector" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.Abp.Quartz.SqlInstaller\LCH.Abp.Quartz.SqlInstaller.csproj" />
+	</ItemGroup>
+
+</Project>

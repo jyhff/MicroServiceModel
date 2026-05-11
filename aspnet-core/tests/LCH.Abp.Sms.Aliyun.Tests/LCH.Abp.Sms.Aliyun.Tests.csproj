@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+	  <RootNamespace />
+	  <IsPackable>false</IsPackable>
+	  <Configurations>Debug;Release;PostgreSQL</Configurations>
+	  <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.NET.Test.Sdk" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\framework\common\LCH.Abp.Sms.Aliyun\LCH.Abp.Sms.Aliyun.csproj" />
+    <ProjectReference Include="..\LCH.Abp.Aliyun.Tests\LCH.Abp.Aliyun.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

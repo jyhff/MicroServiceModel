@@ -1,0 +1,104 @@
+﻿using LCH.Abp.Webhooks;
+using LCH.Abp.WebhooksManagement.ObjectExtending;
+using Microsoft.Extensions.DependencyInjection;
+using System.Threading;
+using System.Threading.Tasks;
+using Volo.Abp;
+using Volo.Abp.Data;
+using Volo.Abp.DependencyInjection;
+using Volo.Abp.Domain.Entities.Events.Distributed;
+using Volo.Abp.Mapperly;
+using Volo.Abp.Modularity;
+using Volo.Abp.ObjectExtending.Modularity;
+using Volo.Abp.Threading;
+
+namespace LCH.Abp.WebhooksManagement;
+
+[DependsOn(
+    typeof(AbpMapperlyModule),
+    typeof(AbpWebhooksModule),
+    typeof(WebhooksManagementDomainSharedModule))]
+public class WebhooksManagementDomainModule : AbpModule
+{
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+    private readonly static OneTimeRunner OneTimeRunner = new();
+
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        context.Services.AddMapperlyObjectMapper<WebhooksManagementDomainModule>();
+
+        Configure<AbpDistributedEntityEventOptions>(options =>
+        {
+            options.EtoMappings.Add<WebhookEventRecord, WebhookEventEto>(typeof(WebhooksManagementDomainModule));
+            options.EtoMappings.Add<WebhookSendRecord, WebhookSendAttemptEto>(typeof(WebhooksManagementDomainModule));
+            options.EtoMappings.Add<WebhookSubscription, WebhookSubscriptionEto>(typeof(WebhooksManagementDomainModule));
+
+            options.AutoEventSelectors.Add<WebhookEventRecord>();
+            options.AutoEventSelectors.Add<WebhookSendRecord>();
+            options.AutoEventSelectors.Add<WebhookSubscription>();
+        });
+
+        if (context.Services.IsDataMigrationEnvironment())
+        {
+            Configure<WebhooksManagementOptions>(options =>
+            {
+                options.SaveStaticWebhooksToDatabase = false;
+                options.IsDynamicWebhookStoreEnabled = false;
+            });
+        }
+    }
+
+    public override void PostConfigureServices(ServiceConfigurationContext context)
+    {
+        OneTimeRunner.Run(() =>
+        {
+            WebhooksDefinitionConsts.MinimumTimeoutDuration = WebhookSubscriptionConsts.TimeoutDurationMinimum;
+            WebhooksDefinitionConsts.MaximumTimeoutDuration = WebhookSubscriptionConsts.TimeoutDurationMaximum;
+
+            // 扩展实体配置
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToEntity(
+                WebhooksManagementModuleExtensionConsts.ModuleName,
+                WebhooksManagementModuleExtensionConsts.EntityNames.WebhookEvent,
+                typeof(WebhookEventRecord)
+            );
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToEntity(
+                WebhooksManagementModuleExtensionConsts.ModuleName,
+                WebhooksManagementModuleExtensionConsts.EntityNames.WebhookSubscription,
+                typeof(WebhookSubscription)
+            );
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToEntity(
+                WebhooksManagementModuleExtensionConsts.ModuleName,
+                WebhooksManagementModuleExtensionConsts.EntityNames.WebhookSendAttempt,
+                typeof(WebhookSendRecord)
+            );
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToEntity(
+                WebhooksManagementModuleExtensionConsts.ModuleName,
+                WebhooksManagementModuleExtensionConsts.EntityNames.WebhookGroupDefinition,
+                typeof(WebhookGroupDefinitionRecord)
+            );
+            ModuleExtensionConfigurationHelper.ApplyEntityConfigurationToEntity(
+                WebhooksManagementModuleExtensionConsts.ModuleName,
+                WebhooksManagementModuleExtensionConsts.EntityNames.WebhookDefinition,
+                typeof(WebhookDefinitionRecord)
+            );
+        });
+    }
+
+    public override void OnApplicationInitialization(ApplicationInitializationContext context)
+    {
+        AsyncHelper.RunSync(() => OnApplicationInitializationAsync(context));
+    }
+
+    public async override Task OnApplicationInitializationAsync(ApplicationInitializationContext context)
+    {
+        var rootServiceProvider = context.ServiceProvider.GetRequiredService<IRootServiceProvider>();
+        var initializer = rootServiceProvider.GetRequiredService<WebhookDynamicInitializer>();
+        await initializer.InitializeAsync(true, _cancellationTokenSource.Token);
+    }
+
+    public override Task OnApplicationShutdownAsync(ApplicationShutdownContext context)
+    {
+        _cancellationTokenSource.Cancel();
+        return Task.CompletedTask;
+    }
+}

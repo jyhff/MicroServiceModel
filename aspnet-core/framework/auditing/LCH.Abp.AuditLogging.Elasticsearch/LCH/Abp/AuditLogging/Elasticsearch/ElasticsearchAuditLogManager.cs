@@ -1,0 +1,443 @@
+﻿using Elastic.Clients.Elasticsearch;
+using Elastic.Clients.Elasticsearch.QueryDsl;
+using LCH.Abp.Elasticsearch;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Volo.Abp;
+using Volo.Abp.Auditing;
+using Volo.Abp.DependencyInjection;
+using Volo.Abp.Timing;
+
+namespace LCH.Abp.AuditLogging.Elasticsearch;
+
+[Dependency(ReplaceServices = true)]
+public class ElasticsearchAuditLogManager : IAuditLogManager, ITransientDependency
+{
+    private readonly AbpAuditingOptions _auditingOptions;
+    private readonly AbpElasticsearchOptions _elasticsearchOptions;
+    private readonly AbpAuditLoggingElasticsearchOptions _loggingEsOptions;
+    private readonly IIndexNameNormalizer _indexNameNormalizer;
+    private readonly IElasticsearchClientFactory _clientFactory;
+    private readonly IAuditLogInfoToAuditLogConverter _converter;
+    private readonly IClock _clock;
+
+    public ILogger<ElasticsearchAuditLogManager> Logger { protected get; set; }
+
+    public ElasticsearchAuditLogManager(
+        IClock clock,
+        IIndexNameNormalizer indexNameNormalizer,
+        IOptions<AbpElasticsearchOptions> elasticsearchOptions,
+        IElasticsearchClientFactory clientFactory,
+        IOptions<AbpAuditingOptions> auditingOptions,
+        IAuditLogInfoToAuditLogConverter converter,
+        IOptionsMonitor<AbpAuditLoggingElasticsearchOptions> loggingEsOptions)
+    {
+        _clock = clock;
+        _converter = converter;
+        _clientFactory = clientFactory;
+        _auditingOptions = auditingOptions.Value;
+        _elasticsearchOptions = elasticsearchOptions.Value;
+        _indexNameNormalizer = indexNameNormalizer;
+        _loggingEsOptions = loggingEsOptions.CurrentValue;
+
+        Logger = NullLogger<ElasticsearchAuditLogManager>.Instance;
+    }
+
+
+    public async virtual Task<long> GetCountAsync(
+        DateTime? startTime = null,
+        DateTime? endTime = null,
+        string httpMethod = null,
+        string url = null,
+        Guid? userId = null,
+        string userName = null,
+        string applicationName = null,
+        string correlationId = null,
+        string clientId = null,
+        string clientIpAddress = null,
+        int? maxExecutionDuration = null,
+        int? minExecutionDuration = null,
+        bool? hasException = null,
+        HttpStatusCode? httpStatusCode = null,
+        CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        var querys = BuildQueryDescriptor(
+            startTime,
+            endTime,
+            httpMethod,
+            url,
+            userId,
+            userName,
+            applicationName,
+            correlationId,
+            clientId,
+            clientIpAddress,
+            maxExecutionDuration,
+            minExecutionDuration,
+            hasException,
+            httpStatusCode);
+
+        var response = await client.CountAsync<AuditLog>(dsl =>
+            dsl.Indices(CreateIndex())
+               .Query(new BoolQuery
+               {
+                   Must = querys
+               }),
+            cancellationToken);
+
+        return response.Count;
+    }
+
+    public async virtual Task<List<AuditLog>> GetListAsync(
+        string sorting = null,
+        int maxResultCount = 50,
+        int skipCount = 0,
+        DateTime? startTime = null,
+        DateTime? endTime = null,
+        string httpMethod = null,
+        string url = null,
+        Guid? userId = null,
+        string userName = null,
+        string applicationName = null,
+        string correlationId = null,
+        string clientId = null,
+        string clientIpAddress = null,
+        int? maxExecutionDuration = null,
+        int? minExecutionDuration = null,
+        bool? hasException = null,
+        HttpStatusCode? httpStatusCode = null,
+        bool includeDetails = false,
+        CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        var sortOrder = !sorting.IsNullOrWhiteSpace() && sorting.EndsWith("asc", StringComparison.InvariantCultureIgnoreCase)
+            ? SortOrder.Asc : SortOrder.Desc;
+        sorting = !sorting.IsNullOrWhiteSpace()
+            ? sorting.Split()[0]
+            : nameof(AuditLog.ExecutionTime);
+
+        var querys = BuildQueryDescriptor(
+            startTime,
+            endTime,
+            httpMethod,
+            url,
+            userId,
+            userName,
+            applicationName,
+            correlationId,
+            clientId,
+            clientIpAddress,
+            maxExecutionDuration,
+            minExecutionDuration,
+            hasException,
+            httpStatusCode);
+
+        var searchResponse = await client.SearchAsync<AuditLog>(dsl =>
+        {
+            dsl.Indices(CreateIndex())
+                .Query(new BoolQuery
+                {
+                    Must = querys
+                })
+                .Sort(s => s.Field(new FieldSort(GetField(sorting))
+                {
+                    Order = sortOrder
+                }))
+               .From(skipCount)
+               .Size(maxResultCount);
+
+            // 字段过滤
+            if (!includeDetails)
+            {
+                dsl.SourceExcludes(
+                    ex => ex.Actions, 
+                    ex => ex.Comments,
+                    ex => ex.Exceptions,
+                    ex => ex.EntityChanges);
+            }
+        }, cancellationToken);
+
+        return searchResponse.Documents.ToList();
+    }
+
+    public async virtual Task<AuditLog> GetAsync(
+        Guid id,
+        bool includeDetails = false,
+        CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        var response = await client.GetAsync<AuditLog>(
+            id.ToString(),
+            dsl =>
+            {
+                dsl.Index(CreateIndex());
+                if (!includeDetails)
+                {
+                    dsl.SourceExcludes(
+                        ex => ex.Actions,
+                        ex => ex.Comments,
+                        ex => ex.Exceptions,
+                        ex => ex.EntityChanges);
+                }
+            },
+            cancellationToken);
+
+        return response.Source;
+    }
+
+    public async virtual Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        await client.DeleteAsync<AuditLog>(
+            id.ToString(),
+            dsl => dsl.Index(CreateIndex()),
+            cancellationToken);
+    }
+
+    public async virtual Task DeleteManyAsync(List<Guid> ids, CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        var idValues = ids.Select(id => FieldValue.String(id.ToString())).ToList();
+        await client.DeleteByQueryAsync<AuditLog>(
+            x => x.Indices(CreateIndex())
+                  .Query(query =>
+                    query.Terms(terms =>
+                        terms.Field(field => field.Id)
+                            .Terms(new TermsQueryField(idValues)))),
+            cancellationToken);
+    }
+
+    public async virtual Task<string> SaveAsync(
+        AuditLogInfo auditInfo,
+        CancellationToken cancellationToken = default)
+    {
+        if (!_loggingEsOptions.IsAuditLogEnabled)
+        {
+            Logger.LogInformation(auditInfo.ToString());
+            return "";
+        }
+
+        if (!_auditingOptions.HideErrors)
+        {
+            return await SaveLogAsync(auditInfo, cancellationToken);
+        }
+
+        try
+        {
+            return await SaveLogAsync(auditInfo, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogWarning("Could not save the audit log object: " + Environment.NewLine + auditInfo.ToString());
+            Logger.LogException(ex, LogLevel.Error);
+        }
+        return "";
+    }
+
+    protected async virtual Task<string> SaveLogAsync(
+        AuditLogInfo auditLogInfo,
+        CancellationToken cancellationToken = default)
+    {
+        var client = _clientFactory.Create();
+
+        var auditLog = await _converter.ConvertAsync(auditLogInfo);
+
+        //var response = await client.IndexAsync(
+        //    auditLog,
+        //    (x) => x.Index(CreateIndex())
+        //            .Id(auditLog.Id),
+        //    cancellationToken);
+
+        // 使用 Bulk 命令传输可能存在参数庞大的日志结构
+        var response = await client.BulkAsync(
+            dsl => dsl.Index(CreateIndex())
+                      .Create(auditLog, ct =>  ct.Id(auditLog.Id)));
+        if (!response.IsValidResponse)
+        {
+            if (response.TryGetOriginalException(out var ex))
+            {
+                throw ex;
+            }
+            else if (response.ElasticsearchServerError != null)
+            {
+                throw new AbpException(response.ElasticsearchServerError.ToString());
+            }
+            else if (response.ItemsWithErrors.Any())
+            {
+                var reasonBuilder = new StringBuilder();
+                foreach (var itemError in response.ItemsWithErrors)
+                {
+                    if (itemError.Error?.Reason.IsNullOrWhiteSpace() == false)
+                    {
+                        reasonBuilder.AppendLine(itemError.Error.Reason);
+                    }
+                }
+                if (reasonBuilder.Length > 0)
+                {
+                    throw new AbpException(reasonBuilder.ToString());
+                }
+            }
+        }
+
+        return response.Items?.FirstOrDefault()?.Id;
+    }
+
+    protected virtual List<Query> BuildQueryDescriptor(
+        DateTime? startTime = null,
+        DateTime? endTime = null,
+        string httpMethod = null,
+        string url = null,
+        Guid? userId = null,
+        string userName = null,
+        string applicationName = null,
+        string correlationId = null,
+        string clientId = null,
+        string clientIpAddress = null,
+        int? maxExecutionDuration = null,
+        int? minExecutionDuration = null,
+        bool? hasException = null,
+        HttpStatusCode? httpStatusCode = null)
+    {
+        var queries = new List<Query>();
+
+        if (startTime.HasValue)
+        {
+            queries.Add(new DateRangeQuery(GetField(nameof(AuditLog.ExecutionTime)))
+            {
+                Gte = _clock.Normalize(startTime.Value)
+            });
+        }
+        if (endTime.HasValue)
+        {
+            queries.Add(new DateRangeQuery(GetField(nameof(AuditLog.ExecutionTime)))
+            {
+                Lte = _clock.Normalize(endTime.Value)
+            });
+        }
+        if (!httpMethod.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.HttpMethod)), httpMethod));
+        }
+        if (!url.IsNullOrWhiteSpace())
+        {
+            queries.Add(new WildcardQuery(GetField(nameof(AuditLog.Url)))
+            {
+                Value = $"*{url}*"
+            });
+        }
+        if (userId.HasValue)
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.UserId)), userId.Value.ToString()));
+        }
+        if (!userName.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.UserName)), userName));
+        }
+        if (!applicationName.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.ApplicationName)), applicationName));
+        }
+        if (!correlationId.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.CorrelationId)), correlationId));
+        }
+        if (!clientId.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.ClientId)), clientId));
+        }
+        if (!clientIpAddress.IsNullOrWhiteSpace())
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.ClientIpAddress)), clientIpAddress));
+        }
+        if (maxExecutionDuration.HasValue)
+        {
+            queries.Add(new NumberRangeQuery(GetField(nameof(AuditLog.ExecutionDuration)))
+            {
+                Lte = maxExecutionDuration.Value
+            });
+        }
+        if (minExecutionDuration.HasValue)
+        {
+            queries.Add(new NumberRangeQuery(GetField(nameof(AuditLog.ExecutionDuration)))
+            {
+                Gte = minExecutionDuration.Value
+            });
+        }
+
+
+        if (hasException.HasValue)
+        {
+            if (hasException.Value)
+            {
+                queries.Add(new ExistsQuery(GetField("Exceptions")));
+            }
+            else
+            {
+                queries.Add(new BoolQuery
+                {
+                    MustNot = new List<Query>
+                    {
+                        new ExistsQuery(GetField("Exceptions"))
+                    }
+                });
+            }
+        }
+
+        if (httpStatusCode.HasValue)
+        {
+            queries.Add(new TermQuery(GetField(nameof(AuditLog.HttpStatusCode)), ((int)httpStatusCode.Value).ToString()));
+        }
+
+        return queries;
+    }
+
+    protected virtual string CreateIndex()
+    {
+        return _indexNameNormalizer.NormalizeIndex("audit-log");
+    }
+
+    private readonly static IDictionary<string, string> _fieldMaps = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+    {
+        { "Id", "Id.keyword" },
+        { "ApplicationName", "ApplicationName.keyword" },
+        { "UserId", "UserId.keyword" },
+        { "UserName", "UserName.keyword" },
+        { "TenantId", "TenantId.keyword" },
+        { "TenantName", "TenantName.keyword" },
+        { "ImpersonatorUserId", "ImpersonatorUserId.keyword" },
+        { "ImpersonatorTenantId", "ImpersonatorTenantId.keyword" },
+        { "ClientName", "ClientName.keyword" },
+        { "ClientIpAddress", "ClientIpAddress.keyword" },
+        { "ClientId", "ClientId.keyword" },
+        { "CorrelationId", "CorrelationId.keyword" },
+        { "BrowserInfo", "BrowserInfo.keyword" },
+        { "HttpMethod", "HttpMethod.keyword" },
+        { "Url", "Url.keyword" },
+        { "ExecutionDuration", "ExecutionDuration" },
+        { "ExecutionTime", "ExecutionTime" },
+        { "HttpStatusCode", "HttpStatusCode" },
+    };
+    protected virtual string GetField(string field)
+    {
+        if (_fieldMaps.TryGetValue(field, out string mapField))
+        {
+            return _elasticsearchOptions.FieldCamelCase ? mapField.ToCamelCase() : mapField.ToPascalCase();
+        }
+
+        return _elasticsearchOptions.FieldCamelCase ? field.ToCamelCase() : field.ToPascalCase();
+    }
+}

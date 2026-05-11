@@ -1,0 +1,64 @@
+﻿using LCH.Abp.Tests;
+using LCH.Abp.Tests.Features;
+using LCH.Abp.WeChat.Work.Features;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
+using Volo.Abp.Caching;
+using Volo.Abp.Caching.StackExchangeRedis;
+using Volo.Abp.Modularity;
+
+namespace LCH.Abp.WeChat.Work;
+
+[DependsOn(
+    typeof(AbpWeChatWorkModule),
+    typeof(AbpCachingStackExchangeRedisModule),
+    typeof(AbpTestsBaseModule))]
+public class AbpWeChatWorkTestModule : AbpModule
+{
+    private const string UserSecretsId = "5709C35E-27FF-4F5A-BBFD-F451285AA012";
+
+    public override void PreConfigureServices(ServiceConfigurationContext context)
+    {
+        context.Services.ReplaceConfiguration(ConfigurationHelper.BuildConfiguration(builderAction: builder =>
+        {
+            builder.AddUserSecrets(UserSecretsId);
+        }));
+    }
+
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        var configuration = context.Services.GetConfiguration();
+        Configure<AbpDistributedCacheOptions>(options =>
+        {
+            configuration.GetSection("DistributedCache").Bind(options);
+        });
+
+        Configure<RedisCacheOptions>(options =>
+        {
+            var redisConfig = ConfigurationOptions.Parse(options.Configuration);
+            options.ConfigurationOptions = redisConfig;
+            options.InstanceName = configuration["Redis:InstanceName"];
+        });
+        Configure<FakeFeatureOptions>(options =>
+        {
+            options.Map(WeChatWorkFeatureNames.Enable, (feature) =>
+            {
+                return true.ToString();
+            });
+            options.Map(WeChatWorkFeatureNames.Message.Enable, (feature) =>
+            {
+                return true.ToString();
+            });
+            options.Map(WeChatWorkFeatureNames.AppChat.Message.Enable, (feature) =>
+            {
+                return true.ToString();
+            });
+            options.Map(WeChatWorkFeatureNames.Webhook.Enable, (feature) =>
+            {
+                return true.ToString();
+            });
+        });
+    }
+}

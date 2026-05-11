@@ -1,0 +1,105 @@
+﻿using LCH.Abp.WeChat.Work.Media.Models;
+using LCH.Abp.WeChat.Work.Token;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Volo.Abp.Content;
+using Volo.Abp.DependencyInjection;
+
+namespace LCH.Abp.WeChat.Work.Media;
+public class WeChatWorkMediaProvider : IWeChatWorkMediaProvider, ISingletonDependency
+{
+    protected IHttpClientFactory HttpClientFactory { get; }
+    protected IWeChatWorkTokenProvider WeChatWorkTokenProvider { get; }
+
+    public WeChatWorkMediaProvider(
+        IHttpClientFactory httpClientFactory,
+        IWeChatWorkTokenProvider weChatWorkTokenProvider)
+    {
+        HttpClientFactory = httpClientFactory;
+        WeChatWorkTokenProvider = weChatWorkTokenProvider;
+    }
+
+    public async virtual Task<IRemoteStreamContent> GetAsync(
+        string mediaId,
+        CancellationToken cancellationToken = default)
+    {
+        var token = await WeChatWorkTokenProvider.GetTokenAsync(cancellationToken);
+        var client = HttpClientFactory.CreateWeChatWorkApiClient();
+
+        using var response = await client.GetMediaAsync(
+            token.AccessToken,
+            mediaId,
+            cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            var errorResponse = await response.DeserializeObjectAsync<WeChatWorkResponse>();
+            errorResponse.ThrowIfNotSuccess();
+        }
+
+        var mediaStream = await response.Content.ReadAsStreamAsync();
+        string fileName = null;
+        string contentType = null;
+
+        if (response.Headers.TryGetValues("Content-Disposition", out var contentDispositions))
+        {
+            var contentDisposition = contentDispositions.FirstOrDefault();
+            if (!contentDisposition.IsNullOrWhiteSpace())
+            {
+                var startIndex = contentDisposition.IndexOf("filename=", StringComparison.OrdinalIgnoreCase);
+                if (startIndex >= 0)
+                {
+                    startIndex += "filename=".Length;
+                    var endIndex = contentDisposition.IndexOf(";", startIndex);
+                    if (endIndex < 0)
+                    {
+                        endIndex = contentDisposition.Length;
+                    }
+                    fileName = contentDisposition.Substring(startIndex, endIndex - startIndex).Trim('\"');
+                }
+            }
+        }
+
+        if (response.Headers.TryGetValues("Content-Type", out var contentTypes))
+        {
+            contentType = contentTypes.FirstOrDefault();
+        }
+
+        return new RemoteStreamContent(
+            mediaStream,
+            fileName: fileName,
+            contentType: contentType);
+    }
+
+    public async virtual Task<WeChatWorkMediaResponse> UploadAsync(
+        string type, 
+        IRemoteStreamContent media, 
+        CancellationToken cancellationToken = default)
+    {
+        var token = await WeChatWorkTokenProvider.GetTokenAsync(cancellationToken);
+        var client = HttpClientFactory.CreateWeChatWorkApiClient();
+
+        var request = new WeChatWorkMediaRequest(
+            token.AccessToken,
+            media);
+
+        return await client.UploadMediaAsync(type, request, cancellationToken);
+    }
+
+    public async virtual Task<WeChatWorkImageResponse> UploadImageAsync(
+        IRemoteStreamContent image,
+        CancellationToken cancellationToken = default)
+    {
+        var token = await WeChatWorkTokenProvider.GetTokenAsync(cancellationToken);
+        var client = HttpClientFactory.CreateWeChatWorkApiClient();
+
+        var request = new WeChatWorkMediaRequest(
+            token.AccessToken,
+            image);
+
+        return await client.UploadImageAsync(request, cancellationToken);
+    }
+}

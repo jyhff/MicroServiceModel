@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  ui:
+    build:
+      context: .
+    restart: always
+    environment:
+      - VITE_GLOB_AUTHORITY=http://127.0.0.1:44385
+    ports:
+      - "40080:80"
+    networks:
+      - abp-next-admin
+
+networks:
+  abp-next-admin:
+    driver: bridge

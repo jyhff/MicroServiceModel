@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace />
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="LCH\Abp\AspNetCore\**" />
+	  <Content Remove="LCH\Abp\AspNetCore\**" />
+	  <EmbeddedResource Remove="LCH\Abp\AspNetCore\**" />
+	  <None Remove="LCH\Abp\AspNetCore\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="NSubstitute" />
+		<PackageReference Include="Shouldly" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\mvc\LCH.Abp.AspNetCore.Mvc.Wrapper\LCH.Abp.AspNetCore.Mvc.Wrapper.csproj" />
+		<ProjectReference Include="..\..\framework\open-api\LCH.Abp.OpenApi.Authorization\LCH.Abp.OpenApi.Authorization.csproj" />
+		<ProjectReference Include="..\LCH.Abp.AspNetCore.Tests\LCH.Abp.AspNetCore.Tests.csproj" />
+	</ItemGroup>
+
+</Project>

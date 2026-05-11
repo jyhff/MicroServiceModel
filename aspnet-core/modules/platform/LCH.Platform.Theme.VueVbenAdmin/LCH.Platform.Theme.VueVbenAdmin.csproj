@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Platform.Theme.VueVbenAdmin</AssemblyName>
+		<PackageId>LCH.Platform.Theme.VueVbenAdmin</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Platform.Application.Contracts\LCH.Platform.Application.Contracts.csproj" />
+		<ProjectReference Include="..\LCH.Platform.Domain\LCH.Platform.Domain.csproj" />
+		<ProjectReference Include="..\LCH.Platform.Settings.VueVbenAdmin\LCH.Platform.Settings.VueVbenAdmin.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>PackageName.CompanyName.ProjectName</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AgileConfig.Client" />
+		<PackageReference Include="DotNetCore.CAP.Dashboard" />
+		<PackageReference Include="DotNetCore.CAP.MySql" Condition="'$(MySQL)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.SqlServer" Condition="'$(SqlServer)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.Oracle" Condition="'$(Oracle)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.Oracle" Condition="'$(OracleDevart)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" Condition="'$(PostgreSql)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.Sqlite" Condition="'$(Sqlite)'=='true'" />
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
+		<PackageReference Include="LCH.Abp.Claims.Mapping" />
+		<PackageReference Include="LCH.Abp.AspNetCore.HttpOverrides" />
+		<PackageReference Include="LCH.Abp.AspNetCore.Mvc.Wrapper" />
+		<PackageReference Include="LCH.Abp.AuditLogging.Elasticsearch" />
+		<PackageReference Include="LCH.Abp.Data.DbMigrator" />
+		<PackageReference Include="LCH.Abp.Dapr.Client.Wrapper" />
+		<PackageReference Include="LCH.Abp.EventBus.CAP" />
+		<PackageReference Include="LCH.Abp.ExceptionHandling.Emailing" />
+		<PackageReference Include="LCH.Abp.Exporter.MiniExcel" />
+		<PackageReference Include="LCH.Abp.Localization.CultureMap" />
+		<PackageReference Include="LCH.Abp.Identity.Session.AspNetCore" />
+		<PackageReference Include="LCH.Abp.LocalizationManagement.EntityFrameworkCore" />
+		<PackageReference Include="LCH.Abp.Saas.EntityFrameworkCore" />
+		<PackageReference Include="LCH.Abp.Serilog.Enrichers.Application" />
+		<PackageReference Include="LCH.Abp.Serilog.Enrichers.UniqueId" />
+		<PackageReference Include="LCH.Abp.TextTemplating.EntityFrameworkCore" />
+		<PackageReference Include="LCH.Abp.Telemetry.SkyWalking" />
+		<PackageReference Include="LCH.Abp.Telemetry.OpenTelemetry" />
+		<PackageReference Include="LCH.Abp.Emailing.Platform" />
+		<PackageReference Include="LCH.Abp.Sms.Platform" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" />
+		<PackageReference Include="DistributedLock.Redis" />
+		<PackageReference Include="Serilog.AspNetCore" />
+		<PackageReference Include="Serilog.Enrichers.Environment" />
+		<PackageReference Include="Serilog.Enrichers.Assembly" />
+		<PackageReference Include="Serilog.Enrichers.Process" />
+		<PackageReference Include="Serilog.Enrichers.Thread" />
+		<PackageReference Include="Serilog.Settings.Configuration" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" />
+		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" />
+		<PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.DistributedLocking" />
+		<PackageReference Include="Volo.Abp.Swashbuckle" />
+		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\migrations\PackageName.CompanyName.ProjectName.DbMigrator.EntityFrameworkCore\PackageName.CompanyName.ProjectName.DbMigrator.EntityFrameworkCore.csproj" />
+	  <ProjectReference Include="..\..\src\PackageName.CompanyName.ProjectName.Application\PackageName.CompanyName.ProjectName.Application.csproj" />
+	  <ProjectReference Include="..\..\src\PackageName.CompanyName.ProjectName.HttpApi\PackageName.CompanyName.ProjectName.HttpApi.csproj" />
+	  <ProjectReference Include="..\..\src\PackageName.CompanyName.ProjectName.SettingManagement\PackageName.CompanyName.ProjectName.SettingManagement.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.Notifications</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.Notifications</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\realtime-notifications\LCH.Abp.Notifications\LCH.Abp.Notifications.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

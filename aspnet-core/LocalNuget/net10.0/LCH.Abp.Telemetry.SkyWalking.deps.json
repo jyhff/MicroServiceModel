@@ -1,0 +1,871 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "LCH.Abp.Telemetry.SkyWalking/10.0.2": {
+        "dependencies": {
+          "SkyAPM.Agent.Hosting": "2.2.0",
+          "SkyAPM.Diagnostics.AspNetCore": "2.2.0",
+          "SkyAPM.Diagnostics.CAP": "2.2.0",
+          "Volo.Abp.Core": "10.0.2"
+        },
+        "runtime": {
+          "LCH.Abp.Telemetry.SkyWalking.dll": {}
+        }
+      },
+      "AspectCore.Extensions.Reflection/2.3.0": {
+        "runtime": {
+          "lib/net7.0/AspectCore.Extensions.Reflection.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
+          }
+        }
+      },
+      "DotNetCore.CAP/7.0.1": {
+        "runtime": {
+          "lib/net6.0/DotNetCore.CAP.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
+        }
+      },
+      "Google.Protobuf/3.21.5": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.21.5.0",
+            "fileVersion": "3.21.5.0"
+          }
+        }
+      },
+      "Grpc/2.37.0": {
+        "dependencies": {
+          "Grpc.Core": "2.37.0"
+        }
+      },
+      "Grpc.Core/2.37.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.47.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Grpc.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.37.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libgrpc_csharp_ext.arm64.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libgrpc_csharp_ext.x64.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libgrpc_csharp_ext.x64.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/grpc_csharp_ext.x64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/grpc_csharp_ext.x86.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Grpc.Core.Api/2.47.0": {
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.47.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Client/2.47.0": {
+        "dependencies": {
+          "Grpc.Net.Common": "2.47.0"
+        },
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Client.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.47.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Common/2.47.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.47.0"
+        },
+        "runtime": {
+          "lib/net6.0/Grpc.Net.Common.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.47.0.0"
+          }
+        }
+      },
+      "JetBrains.Annotations/2025.2.2": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2025.2.2.0"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Nito.AsyncEx.Context/5.1.2": {
+        "dependencies": {
+          "Nito.AsyncEx.Tasks": "5.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Nito.AsyncEx.Context.dll": {
+            "assemblyVersion": "5.1.2.0",
+            "fileVersion": "5.1.2.0"
+          }
+        }
+      },
+      "Nito.AsyncEx.Tasks/5.1.2": {
+        "dependencies": {
+          "Nito.Disposables": "2.2.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Nito.AsyncEx.Tasks.dll": {
+            "assemblyVersion": "5.1.2.0",
+            "fileVersion": "5.1.2.0"
+          }
+        }
+      },
+      "Nito.Disposables/2.2.1": {
+        "runtime": {
+          "lib/netstandard2.1/Nito.Disposables.dll": {
+            "assemblyVersion": "2.2.1.0",
+            "fileVersion": "2.2.1.0"
+          }
+        }
+      },
+      "Serilog/2.10.0": {
+        "runtime": {
+          "lib/netstandard2.1/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.10.0.0"
+          }
+        }
+      },
+      "Serilog.Extensions.Logging/3.1.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Async/1.5.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.Async.dll": {
+            "assemblyVersion": "1.5.0.0",
+            "fileVersion": "1.5.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.File/5.0.0": {
+        "dependencies": {
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "SkyAPM.Abstractions/2.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/SkyAPM.Abstractions.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Agent.Hosting/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore.Npgsql": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore.Pomelo.MySql": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore.Sqlite": "2.2.0",
+          "SkyAPM.Diagnostics.HttpClient": "2.2.0",
+          "SkyAPM.Diagnostics.SqlClient": "2.2.0",
+          "SkyAPM.PeerFormatters.MySqlConnector": "2.2.0",
+          "SkyAPM.PeerFormatters.SqlClient": "2.2.0",
+          "SkyAPM.Transport.Grpc": "2.2.0",
+          "SkyAPM.Utilities.Configuration": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0",
+          "SkyAPM.Utilities.Logging": "2.2.0",
+          "SkyApm.Diagnostics.Grpc": "2.2.0",
+          "SkyApm.Diagnostics.Grpc.Net.Client": "2.2.0",
+          "SkyApm.Diagnostics.MSLogging": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Agent.Hosting.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Core/2.2.0": {
+        "dependencies": {
+          "AspectCore.Extensions.Reflection": "2.3.0",
+          "SkyAPM.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkyAPM.Core.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.AspNetCore/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.AspNetCore.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.CAP/2.2.0": {
+        "dependencies": {
+          "DotNetCore.CAP": "7.0.1",
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.CAP.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.EntityFrameworkCore/2.2.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.1",
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.EntityFrameworkCore.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.EntityFrameworkCore.Npgsql/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.EntityFrameworkCore.Npgsql.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.EntityFrameworkCore.Pomelo.MySql/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.EntityFrameworkCore.Pomelo.MySql.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.EntityFrameworkCore.Sqlite/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Diagnostics.EntityFrameworkCore": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.EntityFrameworkCore.Sqlite.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyApm.Diagnostics.Grpc/2.2.0": {
+        "dependencies": {
+          "Grpc": "2.37.0",
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyApm.Diagnostics.Grpc.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyApm.Diagnostics.Grpc.Net.Client/2.2.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.47.0",
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyApm.Diagnostics.Grpc.Net.Client.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.HttpClient/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.HttpClient.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyApm.Diagnostics.MSLogging/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyApm.Diagnostics.MSLogging.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Diagnostics.SqlClient/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Core": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Diagnostics.SqlClient.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.PeerFormatters.MySqlConnector/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.PeerFormatters.MySqlConnector.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.PeerFormatters.SqlClient/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Utilities.DependencyInjection": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.PeerFormatters.SqlClient.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Transport.Grpc/2.2.0": {
+        "dependencies": {
+          "Grpc.Net.Client": "2.47.0",
+          "SkyAPM.Abstractions": "2.2.0",
+          "SkyAPM.Transport.Grpc.Protocol": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkyAPM.Transport.Grpc.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Transport.Grpc.Protocol/2.2.0": {
+        "dependencies": {
+          "Google.Protobuf": "3.21.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkyAPM.Transport.Grpc.Protocol.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Utilities.Configuration/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Utilities.Configuration.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Utilities.DependencyInjection/2.2.0": {
+        "dependencies": {
+          "SkyAPM.Core": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Utilities.DependencyInjection.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "SkyAPM.Utilities.Logging/2.2.0": {
+        "dependencies": {
+          "Serilog.Extensions.Logging": "3.1.0",
+          "Serilog.Sinks.Async": "1.5.0",
+          "Serilog.Sinks.File": "5.0.0",
+          "SkyAPM.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/SkyAPM.Utilities.Logging.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "System.CodeDom/10.0.0": {
+        "runtime": {
+          "lib/net10.0/System.CodeDom.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "System.Linq.Dynamic.Core/1.6.7": {
+        "runtime": {
+          "lib/net9.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.6.7.0",
+            "fileVersion": "1.6.7.0"
+          }
+        }
+      },
+      "System.Management/10.0.0": {
+        "dependencies": {
+          "System.CodeDom": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/System.Management.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net10.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
+      "Volo.Abp.Core/10.0.2": {
+        "dependencies": {
+          "JetBrains.Annotations": "2025.2.2",
+          "Nito.AsyncEx.Context": "5.1.2",
+          "System.Linq.Dynamic.Core": "1.6.7",
+          "System.Management": "10.0.0"
+        },
+        "runtime": {
+          "lib/net10.0/Volo.Abp.Core.dll": {
+            "assemblyVersion": "10.0.2.0",
+            "fileVersion": "10.0.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LCH.Abp.Telemetry.SkyWalking/10.0.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AspectCore.Extensions.Reflection/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+W7SEK90nl5vK2bbbv9sJPz8RgiSoLJd10e7reHN4eEijxoB6uTGDKBKQNe4DOgYkmJPneK/qJ7VpnthG/zubA==",
+      "path": "aspectcore.extensions.reflection/2.3.0",
+      "hashPath": "aspectcore.extensions.reflection.2.3.0.nupkg.sha512"
+    },
+    "DotNetCore.CAP/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BhyqFhUbkUvmHBIo4VAdU3ourL9zPkgZPcM2N72BQ85S/xPsjNYhQlLXwzYfSQTBVBh24XQGX7Vra4YM7XvvJg==",
+      "path": "dotnetcore.cap/7.0.1",
+      "hashPath": "dotnetcore.cap.7.0.1.nupkg.sha512"
+    },
+    "Google.Protobuf/3.21.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d7zwRm0edg2cxqRynMD31F8HUUyicBT0l5M74EIsU6GAaq3dxxaZ/PpSPlso010W9nIXoVVKUYZSsiOspAOO/A==",
+      "path": "google.protobuf/3.21.5",
+      "hashPath": "google.protobuf.3.21.5.nupkg.sha512"
+    },
+    "Grpc/2.37.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hl4+qpEfTvKP95diLRZMi3nAaPp91myTuM8Z/lmC9XsbxUroMR4OM0HMKNC9rty2Gz+CHq4mq/E7CBqbcVdnPA==",
+      "path": "grpc/2.37.0",
+      "hashPath": "grpc.2.37.0.nupkg.sha512"
+    },
+    "Grpc.Core/2.37.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bOmeCLyygA3ZWB7XOjPH5qWcfsw20XNWUA1AMQbFvBig3pXQR0Tz7FMSqLFW0oa34E0iiIlgROFoncOVBfVnRw==",
+      "path": "grpc.core/2.37.0",
+      "hashPath": "grpc.core.2.37.0.nupkg.sha512"
+    },
+    "Grpc.Core.Api/2.47.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oZXapxH/2WHAVALghNauo+r/bp6zjgQ6r0v8FizLLQg0/j/FkK2u3WZ7cLOL9Y5H4oLg+wLclO8FSvNTQpNR5Q==",
+      "path": "grpc.core.api/2.47.0",
+      "hashPath": "grpc.core.api.2.47.0.nupkg.sha512"
+    },
+    "Grpc.Net.Client/2.47.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DLbUC3T8dMmhA2iqpaJo0X4g7fAi3FyVbDd0/jBXrlqc/bcyA1wPBzLx6mWOWoGUb5S89xL2svnsM8SfzzNa2Q==",
+      "path": "grpc.net.client/2.47.0",
+      "hashPath": "grpc.net.client.2.47.0.nupkg.sha512"
+    },
+    "Grpc.Net.Common/2.47.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cv76h7noEN2s9cwIdEspOeDjeqcU6Nm34OmjSbRhD/FDBXFmG7rmSfJTPCEB1LYjZWfmf7uUH+nYcHR1I7oQqw==",
+      "path": "grpc.net.common/2.47.0",
+      "hashPath": "grpc.net.common.2.47.0.nupkg.sha512"
+    },
+    "JetBrains.Annotations/2025.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0X56ZRizuHdrnPpgXjWV7f2tQO1FlQg5O1967OGKnI/4ZRNOK642J8L7brM1nYvrxTTU5TP1yRyXLRLaXLPQ8A==",
+      "path": "jetbrains.annotations/2025.2.2",
+      "hashPath": "jetbrains.annotations.2025.2.2.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uvzJkdmqbB50COlCiNaBjWc4cl3kHBO9P7glPk6wK8xyLrli4xeVip+pmMyT/kYc2shWm1YdxegxFqKeCvQXAA==",
+      "path": "microsoft.entityframeworkcore/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pPaoi2RHAkrsJ2kcGZGBiJFUXSS1LC+qET6HCn4hXP+X/kvIriJLv8lx6ddI6gTluGvm/lDgPAA0zZDXYaKf3A==",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F4EYKRhtnkjxp4BhKF3XDn+D3AKok6KIRZYAfaj6knx80CsjFeEUxFpSoqlB9r7ZJTgz30f2oZpHOO4qasIkhA==",
+      "path": "microsoft.entityframeworkcore.relational/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.relational.7.0.1.nupkg.sha512"
+    },
+    "Nito.AsyncEx.Context/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rMwL7Nj3oNyvFu/jxUzQ/YBobEkM2RQHe+5mpCDRyq6mfD7vCj7Z3rjB6XgpM6Mqcx1CA2xGv0ascU/2Xk8IIg==",
+      "path": "nito.asyncex.context/5.1.2",
+      "hashPath": "nito.asyncex.context.5.1.2.nupkg.sha512"
+    },
+    "Nito.AsyncEx.Tasks/5.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jEkCfR2/M26OK/U4G7SEN063EU/F4LiVA06TtpZILMdX/quIHCg+wn31Zerl2LC+u1cyFancjTY3cNAr2/89PA==",
+      "path": "nito.asyncex.tasks/5.1.2",
+      "hashPath": "nito.asyncex.tasks.5.1.2.nupkg.sha512"
+    },
+    "Nito.Disposables/2.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6sZ5uynQeAE9dPWBQGKebNmxbY4xsvcc5VplB5WkYEESUS7oy4AwnFp0FhqxTSKm/PaFrFqLrYr696CYN8cugg==",
+      "path": "nito.disposables/2.2.1",
+      "hashPath": "nito.disposables.2.2.1.nupkg.sha512"
+    },
+    "Serilog/2.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+QX0hmf37a0/OZLxM3wL7V6/ADvC1XihXN4Kq/p6d8lCPfgkRdiuhbWlMaFjR9Av0dy5F0+MBeDmDdRZN/YwQA==",
+      "path": "serilog/2.10.0",
+      "hashPath": "serilog.2.10.0.nupkg.sha512"
+    },
+    "Serilog.Extensions.Logging/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IWfem7wfrFbB3iw1OikqPFNPEzfayvDuN4WP7Ue1AVFskalMByeWk3QbtUXQR34SBkv1EbZ3AySHda/ErDgpcg==",
+      "path": "serilog.extensions.logging/3.1.0",
+      "hashPath": "serilog.extensions.logging.3.1.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Async/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-csHYIqAwI4Gy9oAhXYRwxGrQEAtBg3Ep7WaCzsnA1cZuBZjVAU0n7hWaJhItjO7hbLHh/9gRVxALCUB4Dv+gZw==",
+      "path": "serilog.sinks.async/1.5.0",
+      "hashPath": "serilog.sinks.async.1.5.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.File/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
+      "path": "serilog.sinks.file/5.0.0",
+      "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
+    },
+    "SkyAPM.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vm12ea9CM788Rr+CmFFnC/8K1mrLsVGo6IKfJzYo1gju5J73vKw7+uwsX9gFSKny7NDdSaPxpET5E/Ebm44fmQ==",
+      "path": "skyapm.abstractions/2.2.0",
+      "hashPath": "skyapm.abstractions.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Agent.Hosting/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6HHUwLVE/4bicni0Kz39VoHQ05JszeWVojit3cfo6ycgGGPOdGwocPZZJ9Zo02e+IA1XTHaWKbhntubQEhS2zQ==",
+      "path": "skyapm.agent.hosting/2.2.0",
+      "hashPath": "skyapm.agent.hosting.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Core/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WD+CYplRZhAh03OVaV5zC0Qk1re9WDZqB6WOyN/Wu+NFKWxziFQ5rZZPc0oeqG9B85w1248c5KuaS7Gz/buhlQ==",
+      "path": "skyapm.core/2.2.0",
+      "hashPath": "skyapm.core.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.AspNetCore/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OXQWDBiIvirxDPH64a1ao+qoQjCmfF63Wq6e7MEMWR+kovGJ3gvZIMyrQ+EIoSc1dLIQitmlPK4CyycmfwTpfQ==",
+      "path": "skyapm.diagnostics.aspnetcore/2.2.0",
+      "hashPath": "skyapm.diagnostics.aspnetcore.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.CAP/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ex+Pld4+yvPEdBl6xfWANRS4zjGShSRdJpdE/gEIUbHbcHSnngnSmKLqus1n/q6nJl5YrMEfZh1xgjHZg4xHTw==",
+      "path": "skyapm.diagnostics.cap/2.2.0",
+      "hashPath": "skyapm.diagnostics.cap.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.EntityFrameworkCore/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tKMjOscYeCNRhFUf0rPJdDTfa8gWnBuChngow15+uwGaCBQD+Bx2b+H5jFHGnni6xNDBhEC6sLOciHoj1NKBgg==",
+      "path": "skyapm.diagnostics.entityframeworkcore/2.2.0",
+      "hashPath": "skyapm.diagnostics.entityframeworkcore.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.EntityFrameworkCore.Npgsql/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k5ZLzT6xya+DJy/YNTdRKrph42Yss39UQS7kyYRRkYbFbON59gE73XHTP2ZoBRJgk0uI2J0ddHDoyBihbmzJrQ==",
+      "path": "skyapm.diagnostics.entityframeworkcore.npgsql/2.2.0",
+      "hashPath": "skyapm.diagnostics.entityframeworkcore.npgsql.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.EntityFrameworkCore.Pomelo.MySql/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ohmE3UNPgtVeN80QjHhAtxsSrNZnLc2rMyUssGsZ4JfZf4PJFPlRODIhS0ohICOGC2/YbbaGg0Q6sgbCAUUysQ==",
+      "path": "skyapm.diagnostics.entityframeworkcore.pomelo.mysql/2.2.0",
+      "hashPath": "skyapm.diagnostics.entityframeworkcore.pomelo.mysql.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.EntityFrameworkCore.Sqlite/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4YCtrXhaLcujataTD7SJfJoKXdEPrmq6HBm3JTDAHVtv75izmfEO0y7sy6WpvRn+zsZb/VM75hmKKL8k24gy+w==",
+      "path": "skyapm.diagnostics.entityframeworkcore.sqlite/2.2.0",
+      "hashPath": "skyapm.diagnostics.entityframeworkcore.sqlite.2.2.0.nupkg.sha512"
+    },
+    "SkyApm.Diagnostics.Grpc/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-i21Lfjuzb6JpKU1zfNXZ6DREbY3gV4bKeO9S3u0afEjk4TiOwN6qEhCL9TUUBHJwJVoS6Vlj3PK8DgGFe5UWQw==",
+      "path": "skyapm.diagnostics.grpc/2.2.0",
+      "hashPath": "skyapm.diagnostics.grpc.2.2.0.nupkg.sha512"
+    },
+    "SkyApm.Diagnostics.Grpc.Net.Client/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oxCPC4+i9MT0EpQ+RgiT8/pOsrO27YDgBk2xwIw3UXCI5O/ShOPIROorQe+mKy8qA0F+VVKjth5icE6KuTsydw==",
+      "path": "skyapm.diagnostics.grpc.net.client/2.2.0",
+      "hashPath": "skyapm.diagnostics.grpc.net.client.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.HttpClient/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D7p7TaX0N5zob73Tct9Dg7YQcez8SM5eK5VpVOEoAaDKIRNYvZ+qX8NodajWOR4f4dlhK7H2jbT9LhS1RGrxnQ==",
+      "path": "skyapm.diagnostics.httpclient/2.2.0",
+      "hashPath": "skyapm.diagnostics.httpclient.2.2.0.nupkg.sha512"
+    },
+    "SkyApm.Diagnostics.MSLogging/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o6PvYNL/tH5rJ/3QMRiXiQkFpiyGTRGTOgWhCZBo4vpY3NiGRZj38sAZsSIzj7p7HfcbG55K7tECE79Z7kTPrw==",
+      "path": "skyapm.diagnostics.mslogging/2.2.0",
+      "hashPath": "skyapm.diagnostics.mslogging.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Diagnostics.SqlClient/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z6qhL3n5xbTva0NGqGIk0Z2BQBhON9ltci9dLlRw/RqS/AjAZOyc3/K7vzMWui8R829XrAxIIsPE7qqx46k7Fg==",
+      "path": "skyapm.diagnostics.sqlclient/2.2.0",
+      "hashPath": "skyapm.diagnostics.sqlclient.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.PeerFormatters.MySqlConnector/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zSsTjTFdCH0aaL3gnlsoH8grRUPzerd8rpY4fmXc2P0W52vR3zVFe18PssHUX+qpWzlmL2ldEvo0p7iwf7kV/g==",
+      "path": "skyapm.peerformatters.mysqlconnector/2.2.0",
+      "hashPath": "skyapm.peerformatters.mysqlconnector.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.PeerFormatters.SqlClient/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GvA1Xl16aaCE5mduILH5HPea93rzeyPGvhQP+ofytAuNfZACMIIfNiUWdGWjhS0HTgDrzSp555GmYX04cyxK1w==",
+      "path": "skyapm.peerformatters.sqlclient/2.2.0",
+      "hashPath": "skyapm.peerformatters.sqlclient.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Transport.Grpc/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EZIx3AmYsFlbP/9j2oYoZ7xkiHy7RaVGoH3IhJOxIeTQgPHtFYRUNJzAnARvzMSD/YdruhQVG0bBS7IIIl++yw==",
+      "path": "skyapm.transport.grpc/2.2.0",
+      "hashPath": "skyapm.transport.grpc.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Transport.Grpc.Protocol/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VM9pr+AhuTDQAYofI42EdZtPyjMjPa/qXaHtLCCJcN+1PTPYkSwr2j6sqbKv8OeboMbbpVn329K2q4N/IkDSmw==",
+      "path": "skyapm.transport.grpc.protocol/2.2.0",
+      "hashPath": "skyapm.transport.grpc.protocol.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Utilities.Configuration/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2703T4PAfgm/KmecmoItd+xMnMVadu+qQNCJSgs3SGM9laRZtFoDSociKZv115dtSMWl0SOhTNjNTPFNCwk52g==",
+      "path": "skyapm.utilities.configuration/2.2.0",
+      "hashPath": "skyapm.utilities.configuration.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Utilities.DependencyInjection/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OrQi+iDFVqHEiqL2VFM2vGcVqC2wu6R4OX29/sdXUa0gDkOSXT302GFG7jbZgxc+GwvaKXKP2ZngSxxL6y2I3Q==",
+      "path": "skyapm.utilities.dependencyinjection/2.2.0",
+      "hashPath": "skyapm.utilities.dependencyinjection.2.2.0.nupkg.sha512"
+    },
+    "SkyAPM.Utilities.Logging/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QipV9Mjkt+Y0zDpuRAKBhbaq63xvfHsL69iVQucQBF3/sgZbkHYs0ORgMDvdUCxPo0Qkbuvw9o8Qq1NjdC6G/Q==",
+      "path": "skyapm.utilities.logging/2.2.0",
+      "hashPath": "skyapm.utilities.logging.2.2.0.nupkg.sha512"
+    },
+    "System.CodeDom/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QWERdKi/tQAx+MbrPxTGcpchqMANnVXNiv2r2tILBBB38E74buD+fABSUhozZ1G9kjbadFB0m+HPFMkhJPeFvA==",
+      "path": "system.codedom/10.0.0",
+      "hashPath": "system.codedom.10.0.0.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.6.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lH+YgtovXbxD6JImHl2VXUtXRUvN8BMEZB2ReZNvS+J5GnGGZV9ivxslQ2nJWmKlBjFTReAKsevnQKE4yLP2pA==",
+      "path": "system.linq.dynamic.core/1.6.7",
+      "hashPath": "system.linq.dynamic.core.1.6.7.nupkg.sha512"
+    },
+    "System.Management/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LE3rDZoPzulou78Tsq+3ALhUs4vatQ03v2QWbYVIenVPneUH/+LTUmHyyl098OxIFLQI6sNkZs8YHbUnT/sm3A==",
+      "path": "system.management/10.0.0",
+      "hashPath": "system.management.10.0.0.nupkg.sha512"
+    },
+    "Volo.Abp.Core/10.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1dA0KywjFiyHGwl7QUHC5zJmPdpDVIMClo7LKbscMO9qYlh26n394KP55jQby5791jBCpfC/leLIFRwWzVaLwQ==",
+      "path": "volo.abp.core/10.0.2",
+      "hashPath": "volo.abp.core.10.0.2.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+  FROM 10.8.101.252:5000/mcr.microsoft.com/dotnet/aspnet:10.0
+  COPY / app/
+  WORKDIR /app
+  ENTRYPOINT ["dotnet", "LCH.AIO.Applications.Single.dll"]

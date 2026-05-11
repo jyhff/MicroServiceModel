@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net9.0;net10.0</TargetFrameworks>
+		<AssemblyName>LCH.Abp.Aliyun</AssemblyName>
+		<PackageId>LCH.Abp.Aliyun</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+		<Description>阿里云SDK基础框架</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\Aliyun\Localization\Resources\en.json" />
+		<None Remove="LCH\Abp\Aliyun\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="LCH\Abp\Aliyun\Localization\Resources\en.json" />
+		<EmbeddedResource Include="LCH\Abp\Aliyun\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="aliyun-net-sdk-core" />
+		<PackageReference Include="Volo.Abp.Caching" />
+		<PackageReference Include="Volo.Abp.Features" />
+		<PackageReference Include="Volo.Abp.Localization" />
+		<PackageReference Include="Volo.Abp.Json" />
+		<PackageReference Include="Volo.Abp.Settings" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\common\LCH.Abp.Features.LimitValidation\LCH.Abp.Features.LimitValidation.csproj" />
+	</ItemGroup>
+
+</Project>

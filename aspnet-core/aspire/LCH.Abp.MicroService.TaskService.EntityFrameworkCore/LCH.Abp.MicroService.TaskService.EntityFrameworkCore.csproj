@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>LCH.Abp.MicroService.TaskService</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.EntityFrameworkCore\LCH.Abp.Saas.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\task-management\LCH.Abp.Quartz.PostgresSqlInstaller\LCH.Abp.Quartz.PostgresSqlInstaller.csproj" />
+		<ProjectReference Include="..\..\modules\task-management\LCH.Abp.TaskManagement.EntityFrameworkCore\LCH.Abp.TaskManagement.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>

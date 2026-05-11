@@ -1,0 +1,32 @@
+﻿using JetBrains.Annotations;
+using LCH.Abp.BackgroundTasks.Activities;
+using LCH.Abp.BackgroundTasks.Localization;
+using LCH.Abp.Notifications;
+using Microsoft.Extensions.Localization;
+using System.Threading.Tasks;
+using Volo.Abp.MultiTenancy;
+using Volo.Abp.TextTemplating;
+
+namespace LCH.Abp.BackgroundTasks.Notifications;
+
+public class JobExecutedSuccessedNotificationProvider : NotificationJobExecutedProvider
+{
+    public const string Name = "JobExecutedSuccessedNofiter";
+    public override string DefaultNotificationName => BackgroundTasksNotificationNames.JobExecuteSucceeded;
+
+    public JobExecutedSuccessedNotificationProvider(
+        ICurrentTenant currentTenant, 
+        INotificationSender notificationSender, 
+        ITemplateRenderer templateRenderer, 
+        IStringLocalizer<BackgroundTasksResource> stringLocalizer) 
+        : base(currentTenant, notificationSender, templateRenderer, stringLocalizer)
+    {
+    }
+
+    public async override Task NotifySuccessAsync([NotNull] JobActionExecuteContext context)
+    {
+        var title = StringLocalizer["Notifications:JobExecuteSucceeded"].Value;
+
+        await SendNofiterAsync(context, title, NotificationSeverity.Success);
+    }
+}

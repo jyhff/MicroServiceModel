@@ -1,0 +1,1473 @@
+{
+  "modules": {
+    "notifications": {
+      "rootPath": "notifications",
+      "remoteServiceName": "Notifications",
+      "controllers": {
+        "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionController": {
+          "controllerName": "NotificationGroupDefinition",
+          "controllerGroupName": "NotificationGroupDefinition",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionController",
+          "interfaces": [
+            {
+              "type": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService",
+              "name": "INotificationGroupDefinitionAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto>"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/notifications/definitions/groups",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService"
+            },
+            "DeleteAsyncByName": {
+              "uniqueName": "DeleteAsyncByName",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/notifications/definitions/groups/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService"
+            },
+            "GetAsyncByName": {
+              "uniqueName": "GetAsyncByName",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/definitions/groups/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/definitions/groups",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionGetListInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService"
+            },
+            "UpdateAsyncByNameAndInput": {
+              "uniqueName": "UpdateAsyncByNameAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/notifications/definitions/groups/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Groups.NotificationGroupDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Groups.INotificationGroupDefinitionAppService"
+            }
+          }
+        },
+        "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionController": {
+          "controllerName": "NotificationDefinition",
+          "controllerGroupName": "NotificationDefinition",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionController",
+          "interfaces": [
+            {
+              "type": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService",
+              "name": "INotificationDefinitionAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                    "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput",
+                      "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto>"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/notifications/definitions/notifications",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService"
+            },
+            "DeleteAsyncByName": {
+              "uniqueName": "DeleteAsyncByName",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/notifications/definitions/notifications/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService"
+            },
+            "GetAsyncByName": {
+              "uniqueName": "GetAsyncByName",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/definitions/notifications/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/definitions/notifications",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionGetListInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "GroupName",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Template",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "AllowSubscriptionToClients",
+                  "jsonName": null,
+                  "type": "System.Boolean?",
+                  "typeSimple": "boolean?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "NotificationLifetime",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "NotificationType",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ContentType",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService"
+            },
+            "UpdateAsyncByNameAndInput": {
+              "uniqueName": "UpdateAsyncByNameAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/notifications/definitions/notifications/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                  "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto",
+                "typeSimple": "LCH.Abp.Notifications.Definitions.Notifications.NotificationDefinitionDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.Definitions.Notifications.INotificationDefinitionAppService"
+            }
+          }
+        },
+        "LCH.Abp.Notifications.MyNotificationController": {
+          "controllerName": "MyNotification",
+          "controllerGroupName": "MyNotification",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "LCH.Abp.Notifications.MyNotificationController",
+          "interfaces": [
+            {
+              "type": "LCH.Abp.Notifications.IMyNotificationAppService",
+              "name": "IMyNotificationAppService",
+              "methods": [
+                {
+                  "name": "MarkReadStateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.NotificationMarkReadStateInput, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                      "typeSimple": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Int64, System.Private.CoreLib",
+                      "type": "System.Int64",
+                      "typeSimple": "number",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.UserNotificationDto",
+                    "typeSimple": "LCH.Abp.Notifications.UserNotificationDto"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.UserNotificationGetByPagedDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.UserNotificationGetByPagedDto",
+                      "typeSimple": "LCH.Abp.Notifications.UserNotificationGetByPagedDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserNotificationDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserNotificationDto>"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Int64, System.Private.CoreLib",
+                      "type": "System.Int64",
+                      "typeSimple": "number",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "MarkReadStateAsyncByInput": {
+              "uniqueName": "MarkReadStateAsyncByInput",
+              "name": "MarkReadStateAsync",
+              "httpMethod": "PUT",
+              "url": "api/notifications/my-notifilers/mark-read-state",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.NotificationMarkReadStateInput, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationMarkReadStateInput",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMyNotificationAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/notifications/my-notifilers/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Int64>"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/my-notifilers/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.UserNotificationDto",
+                "typeSimple": "LCH.Abp.Notifications.UserNotificationDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<LCH.Abp.Notifications.UserNotificationDto,LCH.Abp.Notifications.UserNotificationDto,System.Int64,LCH.Abp.Notifications.UserNotificationGetByPagedDto>"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/my-notifilers",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.UserNotificationGetByPagedDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.UserNotificationGetByPagedDto",
+                  "typeSimple": "LCH.Abp.Notifications.UserNotificationGetByPagedDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ReadState",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserNotificationDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserNotificationDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<LCH.Abp.Notifications.UserNotificationDto,LCH.Abp.Notifications.UserNotificationDto,System.Int64,LCH.Abp.Notifications.UserNotificationGetByPagedDto>"
+            }
+          }
+        },
+        "LCH.Abp.Notifications.MySubscriptionController": {
+          "controllerName": "MySubscription",
+          "controllerGroupName": "MySubscription",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "LCH.Abp.Notifications.MySubscriptionController",
+          "interfaces": [
+            {
+              "type": "LCH.Abp.Notifications.IMySubscriptionAppService",
+              "name": "IMySubscriptionAppService",
+              "methods": [
+                {
+                  "name": "IsSubscribedAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "LCH.Abp.Notifications.UserSubscriptionsResult",
+                    "typeSimple": "LCH.Abp.Notifications.UserSubscriptionsResult"
+                  }
+                },
+                {
+                  "name": "SubscribeAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "UnSubscribeAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto",
+                      "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>"
+                  }
+                },
+                {
+                  "name": "GetAllListAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetAllListAsync": {
+              "uniqueName": "GetAllListAsync",
+              "name": "GetAllListAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/my-subscribes/all",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMySubscriptionAppService"
+            },
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/my-subscribes",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto",
+                  "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByPagedDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<LCH.Abp.Notifications.UserSubscreNotificationDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMySubscriptionAppService"
+            },
+            "IsSubscribedAsyncByInput": {
+              "uniqueName": "IsSubscribedAsyncByInput",
+              "name": "IsSubscribedAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/my-subscribes/is-subscribed/{Name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "LCH.Abp.Notifications.UserSubscriptionsResult",
+                "typeSimple": "LCH.Abp.Notifications.UserSubscriptionsResult"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMySubscriptionAppService"
+            },
+            "SubscribeAsyncByInput": {
+              "uniqueName": "SubscribeAsyncByInput",
+              "name": "SubscribeAsync",
+              "httpMethod": "POST",
+              "url": "api/notifications/my-subscribes",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMySubscriptionAppService"
+            },
+            "UnSubscribeAsyncByInput": {
+              "uniqueName": "UnSubscribeAsyncByInput",
+              "name": "UnSubscribeAsync",
+              "httpMethod": "DELETE",
+              "url": "api/notifications/my-subscribes",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.SubscriptionsGetByNameDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "typeSimple": "LCH.Abp.Notifications.SubscriptionsGetByNameDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.IMySubscriptionAppService"
+            }
+          }
+        },
+        "LCH.Abp.Notifications.NotificationController": {
+          "controllerName": "Notification",
+          "controllerGroupName": "Notification",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "LCH.Abp.Notifications.NotificationController",
+          "interfaces": [
+            {
+              "type": "LCH.Abp.Notifications.INotificationAppService",
+              "name": "INotificationAppService",
+              "methods": [
+                {
+                  "name": "GetAssignableProvidersAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationProviderDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationProviderDto>"
+                  }
+                },
+                {
+                  "name": "GetAssignableNotifiersAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationGroupDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationGroupDto>"
+                  }
+                },
+                {
+                  "name": "GetAssignableTemplatesAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationTemplateDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationTemplateDto>"
+                  }
+                },
+                {
+                  "name": "SendAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.NotificationSendDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.NotificationSendDto",
+                      "typeSimple": "LCH.Abp.Notifications.NotificationSendDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "SendTemplateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "LCH.Abp.Notifications.NotificationTemplateSendDto, LCH.Abp.Notifications.Application.Contracts",
+                      "type": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                      "typeSimple": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "SendAsyncByInput": {
+              "uniqueName": "SendAsyncByInput",
+              "name": "SendAsync",
+              "httpMethod": "POST",
+              "url": "api/notifications/send",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.NotificationSendDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.NotificationSendDto",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationSendDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.NotificationSendDto",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationSendDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.INotificationAppService"
+            },
+            "SendTemplateAsyncByInput": {
+              "uniqueName": "SendTemplateAsyncByInput",
+              "name": "SendTemplateAsync",
+              "httpMethod": "POST",
+              "url": "api/notifications/send/template",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "LCH.Abp.Notifications.NotificationTemplateSendDto, LCH.Abp.Notifications.Application.Contracts",
+                  "type": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                  "typeSimple": "LCH.Abp.Notifications.NotificationTemplateSendDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.INotificationAppService"
+            },
+            "GetAssignableNotifiersAsync": {
+              "uniqueName": "GetAssignableNotifiersAsync",
+              "name": "GetAssignableNotifiersAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/assignables",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationGroupDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationGroupDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.INotificationAppService"
+            },
+            "GetAssignableTemplatesAsync": {
+              "uniqueName": "GetAssignableTemplatesAsync",
+              "name": "GetAssignableTemplatesAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/assignable-templates",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationTemplateDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationTemplateDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.INotificationAppService"
+            },
+            "GetAssignableProvidersAsync": {
+              "uniqueName": "GetAssignableProvidersAsync",
+              "name": "GetAssignableProvidersAsync",
+              "httpMethod": "GET",
+              "url": "api/notifications/assignable-providers",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationProviderDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<LCH.Abp.Notifications.NotificationProviderDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "LCH.Abp.Notifications.INotificationAppService"
+            }
+          }
+        }
+      }
+    }
+  },
+  "types": {}
+}

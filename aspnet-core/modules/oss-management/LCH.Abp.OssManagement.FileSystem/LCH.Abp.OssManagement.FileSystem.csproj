@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.OssManagement.FileSystem</AssemblyName>
+		<PackageId>LCH.Abp.OssManagement.FileSystem</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<LangVersion>latest</LangVersion>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.BlobStoring.FileSystem" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.OssManagement.Domain\LCH.Abp.OssManagement.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

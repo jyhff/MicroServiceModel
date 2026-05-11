@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>LCH.Abp.MicroService.AdminService</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\settings\LCH.Abp.SettingManagement.Application.Contracts\LCH.Abp.SettingManagement.Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\account\LCH.Abp.Account.Application.Contracts\LCH.Abp.Account.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\auditing\LCH.Abp.Auditing.Application.Contracts\LCH.Abp.Auditing.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\caching-management\LCH.Abp.CachingManagement.Application.Contracts\LCH.Abp.CachingManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\data-protection\LCH.Abp.DataProtectionManagement.Application.Contracts\LCH.Abp.DataProtectionManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\feature-management\LCH.Abp.FeatureManagement.Application.Contracts\LCH.Abp.FeatureManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\gdpr\LCH.Abp.Gdpr.Application.Contracts\LCH.Abp.Gdpr.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.Application.Contracts\LCH.Abp.Identity.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\identityServer\LCH.Abp.IdentityServer.Application.Contracts\LCH.Abp.IdentityServer.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\localization-management\LCH.Abp.LocalizationManagement.Application.Contracts\LCH.Abp.LocalizationManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\openIddict\LCH.Abp.OpenIddict.Application.Contracts\LCH.Abp.OpenIddict.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\oss-management\LCH.Abp.OssManagement.Application.Contracts\LCH.Abp.OssManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\permissions-management\LCH.Abp.PermissionManagement.Application.Contracts\LCH.Abp.PermissionManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Platform.Application.Contracts\LCH.Platform.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\project\LCH.Abp.ProjectManagement.Application.Contracts\LCH.Abp.ProjectManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-message\LCH.Abp.MessageService.Application.Contracts\LCH.Abp.MessageService.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-notifications\LCH.Abp.Notifications.Application.Contracts\LCH.Abp.Notifications.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\rules-management\rules-engine\LCH.Abp.RulesEngineManagement.Application.Contracts\LCH.Abp.RulesEngineManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.Application.Contracts\LCH.Abp.Saas.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\task-management\LCH.Abp.TaskManagement.Application.Contracts\LCH.Abp.TaskManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.Application.Contracts\LCH.Abp.TextTemplating.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\webhooks\LCH.Abp.WebhooksManagement.Application.Contracts\LCH.Abp.WebhooksManagement.Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\modules\data-protection\LCH.Abp.DataProtectionManagement.EntityFrameworkCore\LCH.Abp.DataProtectionManagement.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.EntityFrameworkCore\LCH.Abp.Identity.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\localization-management\LCH.Abp.LocalizationManagement.EntityFrameworkCore\LCH.Abp.LocalizationManagement.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.EntityFrameworkCore\LCH.Abp.Saas.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.EntityFrameworkCore\LCH.Abp.TextTemplating.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>

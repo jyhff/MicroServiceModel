@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.UI.Navigation.VueVbenAdmin</AssemblyName>
+		<PackageId>LCH.Abp.UI.Navigation.VueVbenAdmin</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Data" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\navigation\LCH.Abp.UI.Navigation\LCH.Abp.UI.Navigation.csproj" />
+		<ProjectReference Include="..\LCH.Platform.Domain\LCH.Platform.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿using System.Threading.Tasks;
+using Volo.Abp;
+using Volo.Abp.Application.Dtos;
+using Volo.Abp.Application.Services;
+
+namespace LCH.Abp.Dapr.ServiceInvocation
+{
+    public interface ITestAppService : IApplicationService
+    {
+        Task<ListResultDto<NameValue>> GetAsync();
+
+        Task<NameValue> UpdateAsync(int inctement);
+
+        Task<TestNeedWrapObject> GetWrapedAsync(string name);
+    }
+}

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+	
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="DotNetCore.CAP.SqlServer" />
+		<PackageReference Include="LCH.Abp.Elsa.EntityFrameworkCore.SqlServer" />
+		<PackageReference Include="LCH.Abp.Quartz.SqlServerInstaller" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.MicroService.Applications.Single.EntityFrameworkCore\LCH.MicroService.Applications.Single.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+</Project>

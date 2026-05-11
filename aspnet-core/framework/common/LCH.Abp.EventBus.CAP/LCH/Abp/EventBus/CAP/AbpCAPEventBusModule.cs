@@ -1,0 +1,76 @@
+﻿using DotNetCore.CAP;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Threading;
+using System.Threading.Tasks;
+using Volo.Abp;
+using Volo.Abp.EventBus;
+using Volo.Abp.Modularity;
+using Volo.Abp.Threading;
+
+namespace LCH.Abp.EventBus.CAP;
+
+/// <summary>
+/// AbpCAPEventBusModule
+/// </summary>
+[DependsOn(typeof(AbpEventBusModule))]
+public class AbpCAPEventBusModule : AbpModule
+{
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+    /// <summary>
+    /// ConfigureServices
+    /// </summary>
+    /// <param name="context"></param>
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        var configuration = context.Services.GetConfiguration();
+
+        Configure<AbpCAPEventBusOptions>(configuration.GetSection("CAP:Abp"));
+
+        context.Services.AddTransient<IFailedThresholdCallbackNotifier, FailedThresholdCallbackNotifier>();
+
+        var preActions = context.Services.GetPreConfigureActions<CapOptions>();
+
+        context.Services.AddCAPEventBus(options =>
+        {
+            // 取消默认的五分钟高频清理
+            // options.CollectorCleaningInterval = 360_0000;
+
+            configuration.GetSection("CAP:EventBus").Bind(options);
+            preActions.Configure(options);
+
+            if (options.FailedThresholdCallback == null)
+            {
+                options.FailedThresholdCallback = async (failed) =>
+                {
+                    var exceptionNotifier = failed.ServiceProvider.GetService<IFailedThresholdCallbackNotifier>();
+                    if (exceptionNotifier != null)
+                    {
+                        // TODO: 作为异常处理?
+                        await exceptionNotifier.NotifyAsync(new AbpCAPExecutionFailedException(failed.MessageType, failed.Message));
+                    }
+                };
+            }
+        });
+    }
+
+    public override void OnPreApplicationInitialization(ApplicationInitializationContext context)
+    {
+        AsyncHelper.RunSync(() => OnPreApplicationInitializationAsync(context));
+    }
+
+    public async override Task OnPreApplicationInitializationAsync(ApplicationInitializationContext context)
+    {
+        await context
+            .ServiceProvider
+            .GetRequiredService<IBootstrapper>()
+            .BootstrapAsync(_cancellationTokenSource.Token);
+    }
+
+    public override Task OnApplicationShutdownAsync(ApplicationShutdownContext context)
+    {
+        _cancellationTokenSource.Cancel();
+
+        return Task.CompletedTask;
+    }
+}

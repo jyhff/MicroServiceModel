@@ -1,0 +1,22 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:13659",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "LCH.MicroService.IdentityServer.HttpApi.Host": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://127.0.0.1:30015",
+      "environmentVariables": {
+        "APPLICATION_NAME": "Identity-Server-Admin",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

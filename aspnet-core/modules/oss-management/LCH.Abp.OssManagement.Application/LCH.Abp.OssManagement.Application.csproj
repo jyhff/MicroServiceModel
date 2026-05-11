@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.OssManagement.Application</AssemblyName>
+		<PackageId>LCH.Abp.OssManagement.Application</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Mapperly" />
+		<PackageReference Include="Volo.Abp.Ddd.Application" />
+		<PackageReference Include="Volo.Abp.Caching" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\settings\LCH.Abp.Settings\LCH.Abp.Settings.csproj" />
+		<ProjectReference Include="..\LCH.Abp.OssManagement.Application.Contracts\LCH.Abp.OssManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\LCH.Abp.OssManagement.Domain\LCH.Abp.OssManagement.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

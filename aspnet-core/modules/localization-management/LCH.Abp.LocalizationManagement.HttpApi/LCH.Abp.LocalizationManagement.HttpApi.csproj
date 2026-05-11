@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.LocalizationManagement.HttpApi</AssemblyName>
+		<PackageId>LCH.Abp.LocalizationManagement.HttpApi</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\framework\localization\LCH.Abp.AspNetCore.Mvc.Localization\LCH.Abp.AspNetCore.Mvc.Localization.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.LocalizationManagement.Application.Contracts\LCH.Abp.LocalizationManagement.Application.Contracts.csproj" />
+	</ItemGroup>
+
+</Project>

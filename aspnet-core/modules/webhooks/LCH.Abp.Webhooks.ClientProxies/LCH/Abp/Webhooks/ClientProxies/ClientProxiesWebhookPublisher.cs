@@ -1,0 +1,92 @@
+﻿using LCH.Abp.WebhooksManagement;
+using LCH.Abp.WebhooksManagement.Integration;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Volo.Abp.DependencyInjection;
+
+namespace LCH.Abp.Webhooks.ClientProxies;
+
+[Dependency(ReplaceServices = true)]
+public class ClientProxiesWebhookPublisher : IWebhookPublisher, ITransientDependency
+{
+    protected IWebhookPublishIntegrationService PublishAppService { get; }
+
+    public ClientProxiesWebhookPublisher(
+        IWebhookPublishIntegrationService publishAppService)
+    {
+        PublishAppService = publishAppService;
+    }
+
+    public async virtual Task PublishAsync(string webhookName, object data, bool sendExactSameData = false, WebhookHeader headers = null)
+    {
+        var input = new WebhookPublishInput
+        {
+            WebhookName = webhookName,
+            Data = JsonConvert.SerializeObject(data),
+            SendExactSameData = sendExactSameData,
+        };
+        if (headers != null)
+        {
+            input.Header = new WebhooksHeaderInput
+            {
+                UseOnlyGivenHeaders = headers.UseOnlyGivenHeaders,
+                Headers = headers.Headers
+            };
+        }
+
+        await PublishAsync(input);
+    }
+
+    public async virtual Task PublishAsync(string webhookName, object data, Guid? tenantId, bool sendExactSameData = false, WebhookHeader headers = null)
+    {
+        var input = new WebhookPublishInput
+        {
+            WebhookName = webhookName,
+            Data = JsonConvert.SerializeObject(data),
+            SendExactSameData = sendExactSameData,
+            TenantIds = new List<Guid?>
+            {
+                tenantId
+            },
+        };
+        if (headers != null)
+        {
+            input.Header = new WebhooksHeaderInput
+            {
+                UseOnlyGivenHeaders = headers.UseOnlyGivenHeaders,
+                Headers = headers.Headers
+            };
+        }
+
+        await PublishAsync(input);
+    }
+
+    public async virtual Task PublishAsync(Guid?[] tenantIds, string webhookName, object data, bool sendExactSameData = false, WebhookHeader headers = null)
+    {
+        var input = new WebhookPublishInput
+        {
+            WebhookName = webhookName,
+            Data = JsonConvert.SerializeObject(data),
+            SendExactSameData = sendExactSameData,
+            TenantIds = tenantIds.ToList(),
+        };
+        if (headers != null)
+        {
+            input.Header = new WebhooksHeaderInput
+            {
+                UseOnlyGivenHeaders = headers.UseOnlyGivenHeaders,
+                Headers = headers.Headers
+            };
+        }
+
+        await PublishAsync(input);
+    }
+
+    protected async virtual Task PublishAsync(WebhookPublishInput input)
+    {
+        await PublishAppService.PublishAsync(input);
+    }
+}

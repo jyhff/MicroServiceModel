@@ -1,0 +1,1072 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LCH.Abp.WeChat.Work.Common</name>
+    </assembly>
+    <members>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttribute">
+            <summary>
+            成员对外属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttribute.Name">
+            <summary>
+            属性名称： 需要先确保在管理端有创建该属性，否则会忽略
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttribute.Type">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeDeserializeFactory.CreateExternalAttribute(LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType,System.Text.Json.JsonElement)">
+            <summary>
+            根据属性类型创建属性（System.Text.Json）
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeDeserializeFactory.CreateExternalAttribute(LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            根据属性类型创建属性（Newtonsoft.Json）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType.Web">
+            <summary>
+            网页
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalAttributeType.MiniProgram">
+            <summary>
+            小程序
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalMiniProgramAttribute">
+            <summary>
+            小程序类型属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalMiniProgramAttribute.MiniProgram">
+            <summary>
+            小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalMiniProgramModel.AppId">
+            <summary>
+            小程序appid，必须是有在本企业安装授权的小程序，否则会被忽略
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalMiniProgramModel.Title">
+            <summary>
+            小程序的展示标题，长度限制12个UTF8字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalMiniProgramModel.PagePath">
+            <summary>
+            小程序的页面路径
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalProfile">
+            <summary>
+            成员对外信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalProfile.ExternalCorpName">
+            <summary>
+            企业对外简称，需从已认证的企业简称中选填。可在“我的企业”页中查看企业简称认证状态。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalProfile.WechatChannels">
+            <summary>
+            视频号属性。须从企业绑定到企业微信的视频号中选择，可在“我的企业”页中查看绑定的视频号。
+            第三方仅通讯录应用可获取；对于非第三方创建的成员，第三方通讯录应用也不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalProfile.ExternalAttributes">
+            <summary>
+            属性列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalTextAttribute">
+            <summary>
+            文本类型属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalTextAttribute.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalTextModel.Value">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalWebAttribute">
+            <summary>
+            网页类型属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalWebAttribute.Web">
+            <summary>
+            网页
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalWebModel.Url">
+            <summary>
+            网页的url，必须包含http或者https头
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.ExternalWebModel.Title">
+            <summary>
+            网页的展示标题，长度限制12个UTF8字符
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.Gender.None">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.Gender.Male">
+            <summary>
+            男性
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.Gender.FeMale">
+            <summary>
+            女性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberExtendAttribute.Items">
+            <summary>
+            扩展属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberExtend.Type">
+            <summary>
+            扩展属性类型: 0-文本 1-网页
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberExtend.Name">
+            <summary>
+            扩展属性名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberExtend.Text">
+            <summary>
+            文本属性内容
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberExtend.Web">
+            <summary>
+            Web属性内容
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.MemberTextExtend">
+            <summary>
+            文本属性类型，扩展属性类型为0时填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberTextExtend.Value">
+            <summary>
+            文本属性内容
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.MemberWebExtend">
+            <summary>
+            网页类型属性，扩展属性类型为1时填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberWebExtend.Title">
+            <summary>
+            网页的展示标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.MemberWebExtend.Url">
+            <summary>
+            网页的url
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannel">
+            <summary>
+            视频号属性
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannel.NickName">
+            <summary>
+            视频号名字（设置后，成员将对外展示该视频号）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannel.Status">
+            <summary>
+            对外展示视频号状态
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannelStatus">
+            <summary>
+            视频号状态
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannelStatus.Confirmed">
+            <summary>
+            已确认
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Common.Members.Models.WechatChannelStatus.UnConfirmed">
+            <summary>
+            待确认
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.IWeChatWorkMessageResolver">
+            <summary>
+            企业微信消息解析器
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Common.Messages.IWeChatWorkMessageResolver.ResolveAsync(LCH.Abp.WeChat.Common.Messages.MessageResolveData)">
+            <summary>
+            解析企业微信消息
+            </summary>
+            <param name="messageData">企业微信消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalStatusChangeEvent">
+            <summary>
+            审批状态通知事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalStatusChangeEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalStatusChangeEvent.ApprovalInfo">
+            <summary>
+            审批信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ThirdNo">
+            <summary>
+            审批单编号，由开发者在发起申请时自定义
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.OpenSpName">
+            <summary>
+            审批模板名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.OpenTemplateId">
+            <summary>
+            审批模板id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.OpenSpStatus">
+            <summary>
+            申请单当前审批状态：
+            1-审批中；
+            2-已通过；
+            3-已驳回；
+            4-已取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApplyTime">
+            <summary>
+            提交申请时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApplyUserName">
+            <summary>
+            提交者姓名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApplyUserId">
+            <summary>
+            提交者userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApplyUserParty">
+            <summary>
+            提交者所在部门
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApplyUserImage">
+            <summary>
+            提交者头像
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApprovalNodes">
+            <summary>
+            审批流程信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.NotifyNodes">
+            <summary>
+            抄送信息，可能有多个抄送人
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalInfo.ApproverStep">
+            <summary>
+            当前审批节点：0-第一个审批节点；1-第二个审批节点…以此类推
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNode">
+            <summary>
+            审批流程信息，可以有多个审批节点
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNode.NodeStatus">
+            <summary>
+            节点审批操作状态：
+            1-审批中；
+            2-已同意；
+            3-已驳回；
+            4-已转审
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNode.NodeAttr">
+            <summary>
+            审批节点属性：
+            1-或签；
+            2-会签
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNode.NodeType">
+            <summary>
+            审批节点类型：
+            1-固定成员；
+            2-标签；
+            3-上级
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNode.Items">
+            <summary>
+            审批节点信息，当节点为标签或上级时，一个节点可能有多个分支
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem">
+            <summary>
+            审批节点分支，当节点为标签或上级时，一个节点可能有多个分支
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemName">
+            <summary>
+            分支审批人姓名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemUserId">
+            <summary>
+            分支审批人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemImage">
+            <summary>
+            分支审批人头像
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemStatus">
+            <summary>
+            分支审批审批操作状态：
+            1-审批中；
+            2-已同意；
+            3-已驳回；
+            4-已转审
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemSpeech">
+            <summary>
+            分支审批人审批意见
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ApprovalNodeItem.ItemOpTime">
+            <summary>
+            分支审批人审批意见
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.NotifyNode">
+            <summary>
+            抄送人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.NotifyNode.ItemName">
+            <summary>
+            抄送人姓名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.NotifyNode.ItemUserId">
+            <summary>
+            抄送人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.NotifyNode.ItemImage">
+            <summary>
+            抄送人头像
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.CloseInActiveAgentEvent">
+            <summary>
+            长期未使用应用临时停用事件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.CustomMenuPushEvent">
+            <summary>
+            点击菜单拉取消息的事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.CustomMenuPushEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.EnterAgentEvent">
+            <summary>
+            进入应用事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.EnterAgentEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage">
+            <summary>
+            地理位置消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage.Latitude">
+            <summary>
+            地理位置纬度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage.Longitude">
+            <summary>
+            地理位置经度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage.Scale">
+            <summary>
+            地图缩放大小
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage.Label">
+            <summary>
+            地理位置信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationMessage.AppType">
+            <summary>
+            app类型，在企业微信固定返回wxwork，在微信不返回该字段
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationSelectPushEevent">
+            <summary>
+            弹出地理位置选择器的事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationSelectPushEevent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationSelectPushEevent.SendLocationInfo">
+            <summary>
+            发送的位置信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.GeoLocationSelectPushEevent.AppType">
+            <summary>
+            app类型，在企业微信固定返回wxwork，在微信不返回该字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LocationInfo.Latitude">
+            <summary>
+            地理位置纬度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LocationInfo.Longitude">
+            <summary>
+            地理位置经度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LocationInfo.Scale">
+            <summary>
+            地图缩放大小
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LocationInfo.Label">
+            <summary>
+            地理位置信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LocationInfo.PoiName">
+            <summary>
+            POI的名字，可能为空
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.LinkMessage">
+            <summary>
+            链接消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LinkMessage.Title">
+            <summary>
+            消息标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LinkMessage.Description">
+            <summary>
+            消息描述
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.LinkMessage.Url">
+            <summary>
+            消息链接
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.MenuClickJumpLinkPushEvent">
+            <summary>
+            点击菜单跳转链接时的事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.MenuClickJumpLinkPushEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureAlbumPushEvent">
+            <summary>
+            弹出拍照或者相册发图的事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureMessage">
+            <summary>
+            图片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureMessage.PicUrl">
+            <summary>
+            图片链接（由系统生成）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureMessage.MediaId">
+            <summary>
+            图片消息媒体id，可以调用获取临时素材接口拉取数据。
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.PicturePushEvent">
+            <summary>
+            弹出系统发图的事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PicturePushEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PicturePushEvent.SendPicsInfo">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureInfo.Count">
+            <summary>
+            发送的图片数量
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureInfo.Picture">
+            <summary>
+            发送的图片数量
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.Picture.PicMd5Sum">
+            <summary>
+            图片的MD5值，开发者若需要，可用于验证接收到图片
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureSystemPushEvent">
+            <summary>
+            弹出系统拍照发图的事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.PictureWeixinPushEvent">
+            <summary>
+            弹出微信相册发图器的事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ReOpenInActiveAgentEevent">
+            <summary>
+            长期未使用应用重新启用事件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ReportingGeoLocationEvent">
+            <summary>
+            上报地理位置事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ReportingGeoLocationEvent.Latitude">
+            <summary>
+            地理位置纬度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ReportingGeoLocationEvent.Longitude">
+            <summary>
+            地理位置经度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ReportingGeoLocationEvent.Precision">
+            <summary>
+            地理位置精度
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ReportingGeoLocationEvent.AppType">
+            <summary>
+            app类型，在企业微信固定返回wxwork，在微信不返回该字段
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeEvent">
+            <summary>
+            用户扫码事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeEvent.EventKey">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeEvent.ScanCodeInfo">
+            <summary>
+            扫描信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeInfo.ScanType">
+            <summary>
+            扫描类型，一般是qrcode
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeInfo.ScanResult">
+            <summary>
+            扫描结果，即二维码对应的字符串信息
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodePushEvent">
+            <summary>
+            扫码推事件的事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ScanCodeWaitMsgPushEvent">
+            <summary>
+            扫码推事件且弹出“消息接收中”提示框的事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ShareAgentChangeEvent">
+            <summary>
+            企业互联共享应用事件
+            </summary>
+            <remarks>
+            本事件触发时机为：
+            1. 上级企业把自建应用共享给下级企业使用
+            2. 上级企业把下级企业从共享应用中移除
+            </remarks>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.ShareChainChangeEvent">
+            <summary>
+            上下游共享应用事件
+            </summary>
+            <remarks>
+            本事件触发时机为：
+            1. 上游企业把自建应用共享给下游企业使用
+            2. 上游企业把下游企业从共享应用中移除
+            </remarks>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalStatusChangeEvent">
+            <summary>
+            企业微信“审批应用”审批状态通知事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalStatusChangeEvent.ApprovalInfo">
+            <summary>
+            审批信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.SpNoStr">
+            <summary>
+            审批编号（字符串类型）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.SpName">
+            <summary>
+            审批申请类型名称（审批模板名称）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.SpStatus">
+            <summary>
+            申请单状态：1-审批中；2-已通过；3-已驳回；4-已撤销；6-通过后撤销；7-已删除；10-已支付
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.TemplateId">
+            <summary>
+            审批模板id。可在“获取审批申请详情”、“审批状态变化回调通知”中获得，也可在审批模板的模板编辑页面链接中获得。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.ApplyTime">
+            <summary>
+            审批申请提交时间,Unix时间戳
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.Applyer">
+            <summary>
+            申请人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.SpRecord">
+            <summary>
+            审批流程信息，可能有多个审批节点。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.Notifyer">
+            <summary>
+            抄送信息，可能有多个抄送节点
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.Comments">
+            <summary>
+            审批申请备注信息，可能有多个备注节点
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.ProcessList">
+            <summary>
+            审批流程列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.StatuChangeEvent">
+            <summary>
+            审批申请状态变化类型：1-提单；2-同意；3-驳回；4-转审；5-催办；6-撤销；8-通过后撤销；10-添加备注；11-回退给指定审批人；12-添加审批人；13-加签并同意； 14-已办理； 15-已转交
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalInfo.SpNo">
+            <summary>
+            审批编号
+            </summary>
+            <remarks>
+            局校审批单不返回此字段，其他类型审批单会返回此字段，不推荐使用此字段
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalApplyer.UserId">
+            <summary>
+            申请人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalApplyer.Party">
+            <summary>
+            申请人所在部门pid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecord.SpStatus">
+            <summary>
+            审批节点状态：1-审批中；2-已同意；3-已驳回；4-已转审
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecord.ApproverAttr">
+            <summary>
+            节点审批方式：1-或签；2-会签
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecord.Details">
+            <summary>
+            节点审批方式：1-或签；2-会签
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecordDetail.Approver">
+            <summary>
+            分支审批人
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecordDetail.Speech">
+            <summary>
+            审批意见字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecordDetail.SpStatus">
+            <summary>
+            分支审批人审批状态：1-审批中；2-已同意；3-已驳回；4-已转审
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecordDetail.SpTime">
+            <summary>
+            节点分支审批人审批操作时间，0为尚未操作
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalRecordDetail.Attach">
+            <summary>
+            节点分支审批人审批意见附件，赋值为media_id具体使用请参考：文档-获取临时素材
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalNotifyer.UserId">
+            <summary>
+            节点抄送人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalComment.CommentUserInfo">
+            <summary>
+            备注人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalComment.CommentTime">
+            <summary>
+            备注提交时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalComment.CommentContent">
+            <summary>
+            备注文本内容
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalComment.CommentId">
+            <summary>
+            备注id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalComment.Attach">
+            <summary>
+            备注意见附件，值是附件media_id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalCommenter.UserId">
+            <summary>
+            节点抄送人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcess.NodeList">
+            <summary>
+            流程节点
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessNode.NodeType">
+            <summary>
+            节点类型 1 审批人 2 抄送人 3办理人
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessNode.SpStatus">
+            <summary>
+            节点状态 1-审批中；2-同意；3-驳回；4-转审；11-退回给指定审批人；12-加签；13-同意并加签；14-办理；15-转交
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessNode.ApvRel">
+            <summary>
+            多人办理方式 1-会签；2-或签 3-依次审批
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessNode.SubNodeList">
+            <summary>
+            子节点列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessSubNode.UserInfo">
+            <summary>
+            处理人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessSubNode.Speech">
+            <summary>
+            审批/办理意见
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessSubNode.SpYj">
+            <summary>
+            子节点状态 1-审批中；2-同意；3-驳回；4-转审；11-退回给指定审批人；12-加签；13-同意并加签；14-办理；15-转交
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessSubNode.Sptime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcessSubNode.MediaIds">
+            <summary>
+            备注意见附件，值是附件media_id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.SysApprovalProcesser.UserId">
+            <summary>
+            处理人userid	
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardMenuPushEvent">
+            <summary>
+            通用模板卡片右上角菜单事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardMenuPushEvent.TaskId">
+            <summary>
+            与发送模板卡片消息时指定的task_id相同
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardMenuPushEvent.CardType">
+            <summary>
+            通用模板卡片的类型，
+            类型有
+            "text_notice", 
+            "news_notice", 
+            "button_interaction"
+            三种
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardMenuPushEvent.ResponseCode">
+            <summary>
+            用于调用更新卡片接口的ResponseCode
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardMenuPushEvent.EventKey">
+            <summary>
+            与发送模板卡片右上角菜单的按钮key值相同
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent">
+            <summary>
+            模板卡片事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent.TaskId">
+            <summary>
+            与发送模板卡片消息时指定的task_id相同
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent.CardType">
+            <summary>
+            通用模板卡片的类型，类型有
+            "text_notice", 
+            "news_notice",
+            "button_interaction",
+            "vote_interaction", 
+            "multiple_interaction"
+            五种
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent.ResponseCode">
+            <summary>
+            用于调用更新卡片接口的ResponseCode，72小时内有效，且只能使用一次
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent.EventKey">
+            <summary>
+            与发送模板卡片消息时指定的按钮btn:key值相同
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardPushEvent.QuestionInfo">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardQuestionInfo.Items">
+            <summary>
+            事件KEY值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardQuestion.QuestionKey">
+            <summary>
+            问题的key值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardQuestion.OptionIds">
+            <summary>
+            问题的key值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TemplateCardQuestionOption.Items">
+            <summary>
+            问题的key值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.TextMessage">
+            <summary>
+            文本消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.TextMessage.Content">
+            <summary>
+            文本消息内容
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.UserSubscribeEvent">
+            <summary>
+            用户关注事件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.UserUnSubscribeEvent">
+            <summary>
+            用户取消关注事件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.VideoMessage">
+            <summary>
+            视频消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.VideoMessage.ThumbMediaId">
+            <summary>
+            视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.VideoMessage.MediaId">
+            <summary>
+            视频消息媒体id，可以调用获取临时素材接口拉取数据。
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.Models.VoiceMessage">
+            <summary>
+            语音消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.VoiceMessage.Format">
+            <summary>
+            语音格式，如amr，speex等
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.Models.VoiceMessage.MediaId">
+            <summary>
+            语音消息媒体id，可以调用获取临时素材接口拉取该媒体
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkEventMessage">
+            <summary>
+            企业微信事件消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkEventMessage.AgentId">
+            <summary>
+            企业应用的id，整型。可在应用的设置页面查看
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkEventResolveContributor">
+            <summary>
+            企业微信事件处理器
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkGeneralMessage">
+            <summary>
+            企业微信普通消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkGeneralMessage.AgentId">
+            <summary>
+            企业应用的id，整型。可在应用的设置页面查看
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Common.Messages.WeChatWorkMessageResolveContributor">
+            <summary>
+            企业微信消息处理器
+            </summary>
+        </member>
+    </members>
+</doc>

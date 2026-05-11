@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.OssManagement.Nexus</AssemblyName>
+		<PackageId>LCH.Abp.OssManagement.Nexus</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\nexus\LCH.Abp.BlobStoring.Nexus\LCH.Abp.BlobStoring.Nexus.csproj" />
+		<ProjectReference Include="..\LCH.Abp.OssManagement.Domain\LCH.Abp.OssManagement.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

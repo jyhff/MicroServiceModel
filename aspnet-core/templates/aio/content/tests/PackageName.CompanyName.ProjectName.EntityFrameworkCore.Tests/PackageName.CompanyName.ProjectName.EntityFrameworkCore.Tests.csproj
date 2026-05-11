@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace />
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
+		<PackageReference Include="LCH.Abp.Identity.EntityFrameworkCore" />
+		<PackageReference Include="LCH.Abp.DataProtection.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\migrations\PackageName.CompanyName.ProjectName.AIO.EntityFrameworkCore\PackageName.CompanyName.ProjectName.AIO.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\src\PackageName.CompanyName.ProjectName.EntityFrameworkCore\PackageName.CompanyName.ProjectName.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\PackageName.CompanyName.ProjectName.Domain.Tests\PackageName.CompanyName.ProjectName.Domain.Tests.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net9.0;net10.0</TargetFrameworks>
+		<AssemblyName>LCH.Abp.Notifications.Common</AssemblyName>
+		<PackageId>LCH.Abp.Notifications.Common</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\Notifications\Templates\ExceptionNotifier\*.tpl" />
+	  <None Remove="LCH\Abp\Notifications\Templates\layout.tpl" />
+	  <None Remove="LCH\Abp\Notifications\Templates\NewTenantRegisterd\*.tpl" />
+	  <None Remove="LCH\Abp\Notifications\Templates\WelcomeToApplication\*.tpl" />
+	  <None Remove="LCH\Abp\Notifications\Localization\Common\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\Notifications\Templates\ExceptionNotifier\*.tpl" />
+	  <EmbeddedResource Include="LCH\Abp\Notifications\Templates\layout.tpl" />
+	  <EmbeddedResource Include="LCH\Abp\Notifications\Templates\NewTenantRegisterd\*.tpl" />
+	  <EmbeddedResource Include="LCH\Abp\Notifications\Templates\WelcomeToApplication\*.tpl" />
+	  <EmbeddedResource Include="LCH\Abp\Notifications\Localization\Common\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.Abp.Notifications\LCH.Abp.Notifications.csproj" />
+	</ItemGroup>
+
+</Project>

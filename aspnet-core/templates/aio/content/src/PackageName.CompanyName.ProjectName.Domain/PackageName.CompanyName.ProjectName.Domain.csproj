@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="../../common.props" />
+	<Import Project="../../configureawait.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>PackageName.CompanyName.ProjectName.Domain</AssemblyName>
+		<PackageId>PackageName.CompanyName.ProjectName.Domain</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="LCH.Abp.Identity.Domain" />
+		<PackageReference Include="Volo.Abp.AutoMapper" />
+		<PackageReference Include="Volo.Abp.BackgroundJobs.Abstractions" />
+		<PackageReference Include="Volo.Abp.BackgroundWorkers.Hangfire" />
+		<PackageReference Include="Volo.Abp.Caching" />
+		<PackageReference Include="Volo.Abp.Ddd.Domain" />
+		<PackageReference Include="LCH.Abp.DataProtection" />
+		<PackageReference Include="Volo.Abp.Settings" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\PackageName.CompanyName.ProjectName.Domain.Shared\PackageName.CompanyName.ProjectName.Domain.Shared.csproj" />
+	</ItemGroup>
+
+</Project>

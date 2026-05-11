@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.BackgroundTasks.ExceptionHandling</AssemblyName>
+		<PackageId>LCH.Abp.BackgroundTasks.ExceptionHandling</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\BackgroundTasks\ExceptionHandling\Localization\Resources\*.json" />
+		<None Remove="LCH\Abp\BackgroundTasks\ExceptionHandling\Templates\*.tpl" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="LCH\Abp\BackgroundTasks\ExceptionHandling\Localization\Resources\*.json" />
+		<EmbeddedResource Include="LCH\Abp\BackgroundTasks\ExceptionHandling\Templates\*.tpl" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Timing" />
+		<PackageReference Include="Volo.Abp.Emailing" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.BackgroundTasks.Activities\LCH.Abp.BackgroundTasks.Activities.csproj" />
+	</ItemGroup>
+
+</Project>

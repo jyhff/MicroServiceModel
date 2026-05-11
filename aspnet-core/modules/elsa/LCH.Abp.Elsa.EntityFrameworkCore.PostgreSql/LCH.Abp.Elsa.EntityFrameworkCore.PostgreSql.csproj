@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.EntityFrameworkCore.PostgreSql</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.EntityFrameworkCore.PostgreSql</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\Elsa\EntityFrameworkCore\PostgreSql\Migrations\Initial.sql" />
+		<EmbeddedResource Include="LCH\Abp\Elsa\EntityFrameworkCore\PostgreSql\Migrations\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Elsa.Webhooks.Persistence.EntityFramework.PostgreSql" />
+		<PackageReference Include="Elsa.WorkflowSettings.Persistence.EntityFramework.PostgreSql" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.PostgreSql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.Elsa.EntityFrameworkCore\LCH.Abp.Elsa.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.IdentityServer.SmsValidator</AssemblyName>
+		<PackageId>LCH.Abp.IdentityServer.SmsValidator</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="LCH\Abp\IdentityServer\Localization\SmsValidator\en.json" />
+		<None Remove="LCH\Abp\IdentityServer\Localization\SmsValidator\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="LCH\Abp\IdentityServer\Localization\SmsValidator\en.json" />
+		<EmbeddedResource Include="LCH\Abp\IdentityServer\Localization\SmsValidator\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" />
+		<PackageReference Include="Volo.Abp.IdentityServer.Domain" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\identity\LCH.Abp.Identity.Domain\LCH.Abp.Identity.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

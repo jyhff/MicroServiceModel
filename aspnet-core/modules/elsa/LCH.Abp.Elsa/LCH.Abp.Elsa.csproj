@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa</AssemblyName>
+		<PackageId>LCH.Abp.Elsa</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+		<Nullable>Enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AutoMapper" />
+		<PackageReference Include="Volo.Abp.Features" />
+		<PackageReference Include="Volo.Abp.Guids" />
+		<PackageReference Include="Volo.Abp.Timing" />
+		<PackageReference Include="Volo.Abp.Threading" />
+		<PackageReference Include="Volo.Abp.Json" />
+		<PackageReference Include="Elsa" />
+		<PackageReference Include="Rebus.Microsoft.Extensions.Logging" />
+		<PackageReference Include="Rebus.ServiceProvider" />
+	</ItemGroup>
+
+</Project>

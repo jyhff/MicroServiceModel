@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+	
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>LCH.MicroService.RealtimeMessage.EntityFrameworkCore</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySql.Pomelo" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-notifications\LCH.Abp.Notifications.Common\LCH.Abp.Notifications.Common.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-message\LCH.Abp.MessageService.EntityFrameworkCore\LCH.Abp.MessageService.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-notifications\LCH.Abp.Notifications.EntityFrameworkCore\LCH.Abp.Notifications.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.EntityFrameworkCore\LCH.Abp.Saas.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.EntityFrameworkCore\LCH.Abp.TextTemplating.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="LCH\Abp\Location\Amap\Localization\Resources\en.json" />
+    <None Remove="LCH\Abp\Location\Amap\Localization\Resources\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="LCH\Abp\Location\Amap\Localization\Resources\en.json" />
+    <EmbeddedResource Include="LCH\Abp\Location\Amap\Localization\Resources\zh-Hans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" />
+    <PackageReference Include="Volo.Abp.Json" />
+    <PackageReference Include="Volo.Abp.Localization" />
+    <PackageReference Include="Volo.Abp.Threading" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LCH.Abp.Location\LCH.Abp.Location.csproj" />
+  </ItemGroup>
+
+</Project>

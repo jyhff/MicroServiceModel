@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace />
+		<IsPackable>false</IsPackable>
+		<Configurations>Debug;Release;PostgreSQL</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\realtime-notifications\LCH.Abp.Notifications.TuiJuhe\LCH.Abp.Notifications.TuiJuhe.csproj" />
+		<ProjectReference Include="..\LCH.Abp.TestBase\LCH.Abp.TestsBase.csproj" />
+		<ProjectReference Include="..\LCH.Abp.TuiJuhe.Tests\LCH.Abp.TuiJuhe.Tests.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Notifications.Tests\LCH.Abp.Notifications.Tests.csproj" />
+	</ItemGroup>
+
+</Project>

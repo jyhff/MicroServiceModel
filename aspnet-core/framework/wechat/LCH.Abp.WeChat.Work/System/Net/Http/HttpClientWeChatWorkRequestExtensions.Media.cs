@@ -1,0 +1,73 @@
+﻿using LCH.Abp.WeChat.Work.Media.Models;
+using LCH.Abp.WeChat.Work.Utils;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace System.Net.Http;
+
+internal static partial class HttpClientWeChatWorkRequestExtensions
+{
+    public async static Task<HttpResponseMessage> GetMediaAsync(
+        this HttpMessageInvoker client,
+        string accessToken,
+        string mediaId,
+        CancellationToken cancellationToken = default)
+    {
+        var urlBuilder = new StringBuilder();
+        urlBuilder.Append("/cgi-bin/media/get");
+        urlBuilder.AppendFormat("?access_token={0}", accessToken);
+        urlBuilder.AppendFormat("&media_id={0}", mediaId);
+
+        using var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlBuilder.ToString());
+
+        return await client.SendAsync(httpRequest, cancellationToken);
+    }
+
+    public async static Task<WeChatWorkMediaResponse> UploadMediaAsync(
+        this HttpMessageInvoker client,
+        string type,
+        WeChatWorkMediaRequest request,
+        CancellationToken cancellationToken = default)
+    {
+        var urlBuilder = new StringBuilder();
+        urlBuilder.Append("/cgi-bin/media/upload");
+        urlBuilder.AppendFormat("?access_token={0}", request.AccessToken);
+        urlBuilder.AppendFormat("&type={0}", type);
+
+        var fileBytes = await request.Content.GetStream().GetAllBytesAsync();
+        using var httpRequest = new HttpRequestMessage(
+            HttpMethod.Post,
+            urlBuilder.ToString())
+        {
+            Content = WeChatWorkHttpContentBuildHelper.BuildUploadMediaContent("media", fileBytes, request.Content.FileName)
+        };
+
+        using var httpResponse = await client.SendAsync(httpRequest, cancellationToken);
+
+        return await httpResponse.DeserializeObjectAsync<WeChatWorkMediaResponse>();
+    }
+
+    public async static Task<WeChatWorkImageResponse> UploadImageAsync(
+        this HttpMessageInvoker client,
+        WeChatWorkMediaRequest request,
+        CancellationToken cancellationToken = default)
+    {
+        var urlBuilder = new StringBuilder();
+        urlBuilder.Append("/cgi-bin/media/uploadimg");
+        urlBuilder.AppendFormat("?access_token={0}", request.AccessToken);
+
+        var fileBytes = await request.Content.GetStream().GetAllBytesAsync();
+        using var httpRequest = new HttpRequestMessage(
+            HttpMethod.Post,
+            urlBuilder.ToString())
+        {
+            Content = WeChatWorkHttpContentBuildHelper.BuildUploadMediaContent("file", fileBytes, request.Content.FileName)
+        };
+
+        using var httpResponse = await client.SendAsync(httpRequest, cancellationToken);
+
+        return await httpResponse.DeserializeObjectAsync<WeChatWorkImageResponse>();
+    }
+}

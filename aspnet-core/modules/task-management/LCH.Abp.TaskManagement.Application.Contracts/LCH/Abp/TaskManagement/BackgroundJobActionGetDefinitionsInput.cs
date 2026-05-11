@@ -1,0 +1,8 @@
+﻿using LCH.Abp.BackgroundTasks;
+
+namespace LCH.Abp.TaskManagement;
+
+public class BackgroundJobActionGetDefinitionsInput
+{
+    public JobActionType? Type { get; set; }
+}

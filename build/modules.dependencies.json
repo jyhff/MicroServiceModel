@@ -1,0 +1,80 @@
+[
+  {
+    "tag": "net7.0",
+    "dependencies": [
+      {
+        "service": "Backend-Admin",
+        "path": "/../aspnet-core/services/LCH.MicroService.BackendAdmin.HttpApi.Host/Modules/",
+        "depPath": "/../aspnet-core/LocalNuget/net7.0/",
+        "dependencies": [
+          "LCH.Abp.Aliyun.SettingManagement.dll",
+          "LCH.Abp.Sms.Aliyun.dll",
+          "LCH.Abp.Aliyun.dll",
+          "LCH.Abp.WeChat.MiniProgram.dll",
+          "LCH.Abp.WeChat.Official.dll",
+          "LCH.Abp.WeChat.dll",
+          "LCH.Abp.WeChat.SettingManagement.dll",
+          "LCH.Abp.LocalizationManagement.Application.Contracts.dll",
+          "LCH.Abp.LocalizationManagement.Domain.Shared.dll",
+          "LCH.Abp.OssManagement.Application.Contracts.dll",
+          "LCH.Abp.OssManagement.Domain.Shared.dll",
+          "LCH.Abp.MessageService.Application.Contracts.dll",
+          "LCH.Abp.IM.dll",
+          "LCH.Abp.MessageService.Domain.Shared.dll",
+          "LCH.Abp.RealTime.dll",
+          "LCH.Platform.Application.Contracts.dll",
+          "LCH.Platform.Domain.Shared.dll",
+          "LCH.Abp.Tencent.dll",
+          "LCH.Abp.Tencent.QQ.dll",
+          "LCH.Abp.Tencent.SettingManagement.dll",
+          "LCH.Abp.WxPusher.SettingManagement.dll",
+          "LCH.Abp.PushPlus.SettingManagement.dll",
+          "LCH.Abp.TuiJuhe.SettingManagement.dll"
+        ]
+      },
+      {
+        "service": "Backend-Admin",
+        "path": "/../aspnet-core/services/LCH.MicroService.BackendAdmin.HttpApi.Host/Modules/",
+        "depPath": "/../aspnet-core/services/LCH.MicroService.IdentityServer.HttpApi.Host/bin/Debug/net7.0",
+        "dependencies": [
+          "LCH.Abp.Account.Application.Contracts.dll",
+          "Volo.Abp.Account.Application.Contracts.dll",
+          "Volo.Abp.Identity.Application.Contracts.dll",
+          "LCH.Abp.Identity.Application.Contracts.dll",
+          "LCH.Abp.Identity.Domain.Shared.dll",
+          "Volo.Abp.Identity.Domain.Shared.dll",
+          "Volo.Abp.Users.Domain.Shared.dll",
+          "Volo.Abp.Users.Abstractions.dll",
+          "LCH.Abp.IdentityServer.Application.Contracts.dll",
+          "Volo.Abp.IdentityServer.Domain.Shared.dll"
+        ]
+      }
+    ]
+  },
+  {
+    "tag": "netstandard2.0",
+    "dependencies": [
+      {
+        "service": "Backend-Admin",
+        "path": "/../aspnet-core/services/LCH.MicroService.BackendAdmin.HttpApi.Host/Modules/",
+        "depPath": "/../aspnet-core/LocalNuget/netstandard2.0/",
+        "dependencies": [
+          "LCH.Abp.Account.Templates.dll",
+          "LCH.Abp.Features.LimitValidation.dll",
+          "LCH.Abp.Features.LimitValidation.Redis.dll",
+          "LCH.Abp.BackgroundTasks.Abstractions.dll",
+          "LCH.Linq.Dynamic.Queryable.dll",
+          "LCH.Abp.Dynamic.Queryable.Application.Contracts.dll",
+          "LCH.Abp.TaskManagement.Application.Contracts.dll",
+          "LCH.Abp.TaskManagement.Domain.Shared.dll",
+          "LCH.Abp.Notifications.Core.dll",
+          "LCH.Abp.Notifications.Common.dll",
+          "LCH.Abp.Notifications.dll",
+          "LCH.Abp.PushPlus.dll",
+          "LCH.Abp.WxPusher.dll",
+          "LCH.Abp.TuiJuhe.dll"
+        ]
+      }
+    ]
+  }
+]

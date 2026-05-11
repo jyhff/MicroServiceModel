@@ -1,0 +1,41 @@
+﻿using LCH.Abp.Data.DbMigrator;
+using LCH.Abp.DataProtectionManagement.EntityFrameworkCore;
+using LCH.Abp.Saas.EntityFrameworkCore;
+using LCH.Abp.TextTemplating.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+using Volo.Abp.SettingManagement.EntityFrameworkCore;
+
+namespace LCH.MicroService.BackendAdmin.EntityFrameworkCore;
+
+[DependsOn(
+    typeof(AbpSaasEntityFrameworkCoreModule),
+    typeof(AbpSettingManagementEntityFrameworkCoreModule),
+    typeof(AbpDataProtectionManagementEntityFrameworkCoreModule),
+    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
+    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(AbpTextTemplatingEntityFrameworkCoreModule),
+    typeof(AbpEntityFrameworkCoreMySQLPomeloModule),
+    typeof(AbpDataDbMigratorModule)
+    )]
+public class BackendAdminMigrationsEntityFrameworkCoreModule : AbpModule
+{
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        context.Services.AddAbpDbContext<BackendAdminMigrationsDbContext>();
+
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseMySQL(
+                mysql =>
+                {
+                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+                    mysql.TranslateParameterizedCollectionsToConstants();
+                });
+        });
+    }
+}

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.Activities</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.Activities</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+		<Nullable>Enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Core" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.BlobStoring\LCH.Abp.Elsa.Activities.BlobStoring.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.Emailing\LCH.Abp.Elsa.Activities.Emailing.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.IM\LCH.Abp.Elsa.Activities.IM.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.Notifications\LCH.Abp.Elsa.Activities.Notifications.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.Sms\LCH.Abp.Elsa.Activities.Sms.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa.Activities.Webhooks\LCH.Abp.Elsa.Activities.Webhooks.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

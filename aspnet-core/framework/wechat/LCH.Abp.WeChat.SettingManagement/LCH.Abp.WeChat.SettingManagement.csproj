@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.WeChat.SettingManagement</AssemblyName>
+		<PackageId>LCH.Abp.WeChat.SettingManagement</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\WeChat\SettingManagement\Localization\Resources\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\WeChat\SettingManagement\Localization\Resources\*.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\settings\LCH.Abp.SettingManagement.Application.Contracts\LCH.Abp.SettingManagement.Application.Contracts.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.WeChat.MiniProgram\LCH.Abp.WeChat.MiniProgram.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.WeChat.Official\LCH.Abp.WeChat.Official.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.WeChat.Work.Contacts\LCH.Abp.WeChat.Work.Contacts.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.WeChat.Work.ExternalContact\LCH.Abp.WeChat.Work.ExternalContact.csproj" />
+	  <ProjectReference Include="..\LCH.Abp.WeChat.Work\LCH.Abp.WeChat.Work.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,2764 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LCH.Abp.WeChat.Work</name>
+    </assembly>
+    <members>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.ProviderName">
+            <summary>
+             企业微信对应的Provider名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.GrantType">
+            <summary>
+            企业微信授权类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.ProfileKey">
+            <summary>
+            企业微信个人信息标识
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.AgentId">
+            <summary>
+            企业微信授权应用标识参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.Code">
+            <summary>
+            企业微信授权Code参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.DisplayName">
+            <summary>
+            企业微信授权显示名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.AbpWeChatWorkGlobalConsts.AuthenticationMethod">
+             <summary>
+            企业微信授权方法名称
+             </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkAuthorizeGenerator.GenerateOAuth2AuthorizeAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            构造网页授权链接
+            </summary>
+            <remarks>
+            参考：<see href="https://developer.work.weixin.qq.com/document/path/91022"/>
+            </remarks>
+            <param name="redirectUri"></param>
+            <param name="state"></param>
+            <param name="responseType"></param>
+            <param name="scope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkAuthorizeGenerator.GenerateOAuth2LoginAsync(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            构建网页登录链接
+            </summary>
+            <param name="redirectUri"></param>
+            <param name="state"></param>
+            <param name="loginType"></param>
+            <param name="agentId"></param>
+            <param name="lang"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkUserClaimProvider">
+            <summary>
+            企业微信用户身份提供者
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkUserClaimProvider.FindUserIdentifierAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            通过用户标识查询企业微信用户标识
+            </summary>
+            <param name="userId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkUserClaimProvider.FindUserIdentifierListAsync(System.Collections.Generic.IEnumerable{System.Guid},System.Threading.CancellationToken)">
+            <summary>
+            通过用户标识列表查询企业微信用户标识列表
+            </summary>
+            <param name="userIdList"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkUserClaimProvider.BindUserAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            绑定用户企业微信
+            </summary>
+            <param name="userId">用户Id</param>
+            <param name="weChatUserId">企业微信用户Id</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.IWeChatWorkUserFinder">
+            <summary>
+            企业微信用户信息查询接口
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkGender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkGender.None">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkGender.Man">
+            <summary>
+            男性
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkGender.Women">
+            <summary>
+            女性
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail">
+            <summary>
+            企业微信用户详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.UserId">
+            <summary>
+            成员UserID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.Gender">
+            <summary>
+            性别。
+            0表示未定义，
+            1表示男性，
+            2表示女性。
+            仅在用户同意snsapi_privateinfo授权时返回真实值，否则返回0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.Avatar">
+            <summary>
+            头像url。
+            仅在用户同意snsapi_privateinfo授权时返回真实头像，否则返回默认头像
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.QrCode">
+            <summary>
+            员工个人二维码（扫描可添加为外部联系人）
+            仅在用户同意snsapi_privateinfo授权时返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.Mobile">
+            <summary>
+            手机
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.Email">
+            <summary>
+            邮箱
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.WorkEmail">
+            <summary>
+            企业邮箱
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserDetail.Address">
+            <summary>
+            地址
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserInfo">
+            <summary>
+            企业微信用户信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserInfo.UserId">
+            <summary>
+            成员UserID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Models.WeChatWorkUserInfo.UserTicket">
+            <summary>
+            成员票据，最大为512字节，有效期为1800s
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse">
+            <summary>
+            企业微信用户详情响应
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.UserId">
+            <summary>
+            成员UserID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.Gender">
+            <summary>
+            性别。
+            0表示未定义，
+            1表示男性，
+            2表示女性。
+            仅在用户同意snsapi_privateinfo授权时返回真实值，否则返回0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.Avatar">
+            <summary>
+            头像url。
+            仅在用户同意snsapi_privateinfo授权时返回真实头像，否则返回默认头像
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.QrCode">
+            <summary>
+            员工个人二维码（扫描可添加为外部联系人）
+            仅在用户同意snsapi_privateinfo授权时返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.Mobile">
+            <summary>
+            手机
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.Email">
+            <summary>
+            邮箱
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.WorkEmail">
+            <summary>
+            企业邮箱
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserDetailResponse.Address">
+            <summary>
+            地址
+            仅在用户同意snsapi_privateinfo授权时返回，第三方应用不可获取
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserInfoResponse">
+            <summary>
+            企业微信用户信息响应
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserInfoResponse.UserId">
+            <summary>
+            成员UserID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Authorize.Response.WeChatWorkUserInfoResponse.UserTicket">
+            <summary>
+            成员票据，最大为512字节，有效期为1800s
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Chat.IWeChatWorkAppChatManager">
+            <summary>
+            群聊操作接口
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/90244
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Chat.IWeChatWorkAppChatManager.CreateAsync(LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatCreateRequest,System.Threading.CancellationToken)">
+            <summary>
+            创建群聊会话
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/90245
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Chat.IWeChatWorkAppChatManager.UpdateAsync(LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest,System.Threading.CancellationToken)">
+            <summary>
+            修改群聊会话
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/98913
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Chat.IWeChatWorkAppChatManager.GetAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取群聊会话
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/98914
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Models.WeChatWorkAppChatInfo.Name">
+            <summary>
+            群聊名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Models.WeChatWorkAppChatInfo.Owner">
+            <summary>
+            群主id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Models.WeChatWorkAppChatInfo.Users">
+            <summary>
+            群成员id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Models.WeChatWorkAppChatInfo.ChatId">
+            <summary>
+            群聊唯一标志
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatCreateRequest.Name">
+            <summary>
+            群聊名，最多50个utf8字符，超过将截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatCreateRequest.Owner">
+            <summary>
+            指定群主的id。
+            如果不指定，系统会随机从userlist中选一人作为群主
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatCreateRequest.Users">
+            <summary>
+            群成员id列表。
+            至少2人，至多2000人
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatCreateRequest.ChatId">
+            <summary>
+            群聊的唯一标志，不能与已有的群重复；
+            字符串类型，最长32个字符。
+            只允许字符0-9及字母a-zA-Z。
+            如果不填，系统会随机生成群id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatRequest.AgentId">
+            <summary>
+            应用标识
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest.Name">
+            <summary>
+            新的群聊名。若不需更新，请忽略此参数。最多50个utf8字符，超过将截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest.Owner">
+            <summary>
+            新群主的id。
+            若不需更新，请忽略此参数。课程群聊群主必须在设置的群主列表内
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest.AddUsers">
+            <summary>
+            添加成员的id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest.DelUsers">
+            <summary>
+            踢出成员的id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Request.WeChatWorkAppChatUpdateRequest.ChatId">
+            <summary>
+            群聊id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Response.WeChatWorkAppChatCreateResponse.ChatId">
+            <summary>
+            群聊的唯一标志
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Chat.Response.WeChatWorkAppChatInfoResponse.ChatInfo">
+            <summary>
+            群聊信息
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Enable">
+            <summary>
+            启用企业微信
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Message.Enable">
+            <summary>
+            启用消息推送
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Message.Limit">
+            <summary>
+            发送次数上限
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Message.LimitInterval">
+            <summary>
+            发送次数上限时长
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.AppChat.Message.Enable">
+            <summary>
+            启用消息推送
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.AppChat.Message.Limit">
+            <summary>
+            发送次数上限
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.AppChat.Message.LimitInterval">
+            <summary>
+            发送次数上限时长
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Webhook.Enable">
+            <summary>
+            启用消息推送
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Webhook.Limit">
+            <summary>
+            发送次数上限
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Features.WeChatWorkFeatureNames.Webhook.LimitInterval">
+            <summary>
+            发送次数上限时长
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.JsSdk.IJsApiTicketProvider">
+            <summary>
+            JS-SDK临时票据提供者
+            See: https://developer.work.weixin.qq.com/document/path/90506
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.JsSdk.IJsApiTicketProvider.GetTicketInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取企业 jsapi_ticket
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.JsSdk.IJsApiTicketProvider.GetAgentTicketInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取应用 jsapi_ticket
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.JsSdk.IJsApiTicketProvider.GenerateSignature(LCH.Abp.WeChat.Work.JsSdk.Models.JsApiTicketInfo,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取JS-SDK签名
+            </summary>
+            <param name="ticketInfo">JS-SDK临时票据</param>
+            <param name="url">生成签名的url</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.JsSdk.JsApiTicketHelper.GenerateSignature(System.String,System.String,System.String,System.String)">
+            <summary>
+            生成JS-SDK签名
+            See: <see href="https://developer.work.weixin.qq.com/document/path/90506"/>
+            </summary>
+            <param name="jsapiTicket">企业 jsapi_ticket</param>
+            <param name="nonce">随机字符串</param>
+            <param name="timestamp">当前时间戳，单位为秒</param>
+            <param name="url">当前页面的 URL，不包含“#”及后面部分</param>
+            <returns></returns>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.JsSdk.Models.JsApiTicketInfo.Ticket">
+            <summary>
+            生成签名所需的 jsapi_ticket，最长为512字节
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.JsSdk.Models.JsApiTicketInfo.ExpiresIn">
+            <summary>
+            凭证的有效时间（秒）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.JsSdk.Models.JsApiTicketInfoResponse.Ticket">
+            <summary>
+            生成签名所需的 jsapi_ticket，最长为512字节
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.JsSdk.Models.JsApiTicketInfoResponse.ExpiresIn">
+            <summary>
+            凭证的有效时间（秒）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Media.IWeChatWorkMediaProvider">
+            <summary>
+            素材管理接口
+            </summary>
+            <remarks>
+            API: <see href="https://developer.work.weixin.qq.com/document/path/91054"/>
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Media.IWeChatWorkMediaProvider.UploadAsync(System.String,Volo.Abp.Content.IRemoteStreamContent,System.Threading.CancellationToken)">
+            <summary>
+            上传临时素材
+            </summary>
+            <remarks>
+            API: <see href="https://developer.work.weixin.qq.com/document/path/90253"/>
+            </remarks>
+            <param name="type">媒体文件类型</param>
+            <param name="media">待上传文件</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Media.IWeChatWorkMediaProvider.GetAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取临时素材
+            </summary>
+            <remarks>
+            API: <see href="https://developer.work.weixin.qq.com/document/path/90254"/>
+            </remarks>
+            <param name="mediaId">媒体文件id</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Media.IWeChatWorkMediaProvider.UploadImageAsync(Volo.Abp.Content.IRemoteStreamContent,System.Threading.CancellationToken)">
+            <summary>
+            上传图片
+            </summary>
+            <remarks>
+            API: <see href="https://developer.work.weixin.qq.com/document/path/90256"/>
+            </remarks>
+            <param name="image">待上传图片</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Media.Models.WeChatWorkImageResponse.Url">
+            <summary>
+            上传后得到的图片URL。永久有效
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Media.Models.WeChatWorkMediaResponse.Type">
+            <summary>
+            媒体文件类型
+            </summary>
+            <remarks>
+            图片（image）
+            语音（voice）
+            视频（video）
+            普通文件(file)
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Media.Models.WeChatWorkMediaResponse.MediaId">
+            <summary>
+            媒体文件上传后获取的唯一标识，3天内有效
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Media.Models.WeChatWorkMediaResponse.CreatedAt">
+            <summary>
+            媒体文件上传时间戳
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageManager">
+            <summary>
+            企业微信消息管理器
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageManager.ReCallMessageAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            撤回应用消息
+            </summary>
+            <remarks>
+            参考：<see href="https://developer.work.weixin.qq.com/document/path/94867"/>
+            </remarks>
+            <param name="messageId">消息ID。从应用发送消息接口 <see cref="T:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageSender"/> 处获得。</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageSender">
+            <summary>
+            消息发送接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageSender.SendAsync(LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage,System.Threading.CancellationToken)">
+            <summary>
+            发送应用消息
+            </summary>
+            <remarks>
+            参考：<see href="https://developer.work.weixin.qq.com/document/path/90236"/>
+            </remarks>
+            <param name="message">继承自 <see cref="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage"/> 的企业微信消息载体</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageSender.SendAsync(LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage,System.Threading.CancellationToken)">
+            <summary>
+            发送群聊消息
+            </summary>
+            <remarks>
+            参考：<see href="https://developer.work.weixin.qq.com/document/path/90248"/>
+            </remarks>
+            <param name="message">继承自 <see cref="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage"/> 的企业微信群聊消息载体</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.IWeChatWorkMessageSender.SendAsync(System.String,LCH.Abp.WeChat.Work.Messages.WeChatWorkWebhookMessage,System.Threading.CancellationToken)">
+            <summary>
+            发送Webhook消息
+            </summary>
+            <remarks>
+            参考：<see href="https://developer.work.weixin.qq.com/document/path/99110"/>
+            </remarks>
+            <param name="webhookKey">消息推送的webhook Key</param>
+            <param name="message">继承自 <see cref="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkWebhookMessage"/> 的企业微信Webhook消息载体</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.MarkdownMessage">
+            <summary>
+            markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MarkdownMessage.Content">
+            <summary>
+            markdown内容，最长不超过2048个字节，必须是utf8编码
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.MediaMessage">
+            <summary>
+            媒体文件消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MediaMessage.MediaId">
+             <summary>
+            媒体文件id，可以调用上传临时素材接口获取
+             </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage">
+            <summary>
+            小程序通知消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.AppId">
+            <summary>
+            小程序appid，必须是与当前应用关联的小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.Title">
+            <summary>
+            消息标题，长度限制4-12个汉字（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.Page">
+            <summary>
+            点击消息卡片后的小程序页面，最长1024个字节，仅限本小程序内的页面。该字段不填则消息点击后不跳转。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.Description">
+            <summary>
+            消息描述，长度限制4-12个汉字（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.EmphasisFirstItem">
+            <summary>
+            是否放大第一个content_item
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramMessage.ContentItems">
+            <summary>
+            消息内容键值对，最多允许10个item
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramContent.Key">
+            <summary>
+            长度10个汉字以内
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MiniProgramContent.Value">
+            <summary>
+            长度30个汉字以内（支持id转译）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessagePayload">
+            <summary>
+            图文消息（mp）载体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessagePayload.Articles">
+            <summary>
+            图文消息（mp）列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage">
+            <summary>
+            图文消息（mp）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.Title">
+            <summary>
+            标题，不超过128个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.ThumbMediaId">
+            <summary>
+            图文消息缩略图的media_id, 可以通过素材管理接口获得。此处thumb_media_id即上传接口返回的media_id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.Author">
+            <summary>
+            图文消息的作者，不超过64个字节
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.ContentSourceUrl">
+            <summary>
+            图文消息点击“阅读原文”之后的页面链接
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.Content">
+            <summary>
+            图文消息的内容，支持html标签，不超过666 K个字节（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.MpNewMessage.Description">
+            <summary>
+            图文消息的描述，不超过512个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.NewMessagePayload">
+            <summary>
+            图文消息载体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessagePayload.Articles">
+            <summary>
+            图文消息列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.NewMessage">
+            <summary>
+            图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.Title">
+            <summary>
+            标题，不超过128个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.Description">
+            <summary>
+            描述，不超过512个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.Url">
+            <summary>
+            点击后跳转的链接。
+            最长2048字节，请确保包含了协议头(http/https)，小程序或者url必须填写一个
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.PictureUrl">
+            <summary>
+            图文消息的图片链接，最长2048字节，支持JPG、PNG格式，较好的效果为大图 1068*455，小图150*150。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.AppId">
+            <summary>
+            小程序appid，必须是与当前应用关联的小程序，appid和pagepath必须同时填写，填写后会忽略url字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.NewMessage.PagePath">
+            <summary>
+            点击消息卡片后的小程序页面，最长128字节，仅限本小程序内的页面。appid和pagepath必须同时填写，填写后会忽略url字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCard.Type">
+            <summary>
+            模板卡片类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCard.TaskId">
+            <summary>
+            任务id，同一个应用任务id不能重复，只能由数字、字母和“_-@”组成，最长128字节
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardAction">
+            <summary>
+            卡片操作按钮
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardAction.Key">
+            <summary>
+            操作key值，用户点击后，会产生回调事件将本参数作为EventKey返回，回调事件会带上该key值，最长支持1024字节，不可重复
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardAction.Text">
+            <summary>
+            操作的描述文案
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardActionMenu">
+            <summary>
+            卡片右上角更多操作按钮
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardActionMenu.Description">
+            <summary>
+            卡片副交互辅助文本说明
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardActionMenu.Actions">
+            <summary>
+            操作列表，列表长度取值范围为 [1, 3]
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardCardAction">
+            <summary>
+            整体卡片的点击跳转事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardCardAction.Type">
+            <summary>
+            跳转链接类型，0或不填代表不是链接，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardCardAction.Url">
+            <summary>
+            跳转链接的url，card_action.type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardCardAction.AppId">
+            <summary>
+            跳转链接的小程序的appid，必须是与当前应用关联的小程序，card_action.type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardCardAction.PagePath">
+            <summary>
+            跳转链接的小程序的pagepath，card_action.type是2时选填
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardEmphasisContent">
+            <summary>
+            关键数据样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardEmphasisContent.Title">
+            <summary>
+            关键数据样式的数据内容，建议不超过14个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardEmphasisContent.Description">
+            <summary>
+            关键数据样式的数据描述内容，建议不超过22个字
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent">
+            <summary>
+            二级标题+文本
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.Type">
+            <summary>
+            链接类型，0或不填代表不是链接，1 代表跳转url，2 代表下载附件，3 代表点击跳转成员详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.KeyName">
+            <summary>
+            二级标题，建议不超过5个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.Value">
+            <summary>
+            二级文本，如果horizontal_content_list.type是2，该字段代表文件名称（要包含文件类型），建议不超过30个字，（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.Url">
+            <summary>
+            链接跳转的url，horizontal_content_list.type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.MediaId">
+            <summary>
+            附件的media_id，horizontal_content_list.type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardHorizontalContent.UserId">
+            <summary>
+            成员详情的userid，horizontal_content_list.type是3时必填
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump">
+            <summary>
+            跳转指引样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump.Type">
+            <summary>
+            跳转链接类型，0或不填代表不是链接，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump.Title">
+            <summary>
+            跳转链接样式的文案内容，建议不超过18个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump.Url">
+            <summary>
+            跳转链接的url，jump_list.type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump.AppId">
+            <summary>
+            跳转链接的小程序的appid，必须是与当前应用关联的小程序，jump_list.type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardJump.PagePath">
+            <summary>
+            跳转链接的小程序的pagepath，jump_list.type是2时选填
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardMainTitle">
+            <summary>
+            卡票标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardMainTitle.Title">
+            <summary>
+            一级标题，建议不超过36个字，文本通知型卡片本字段非必填，但不可本字段和sub_title_text都不填，（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardMainTitle.Description">
+            <summary>
+            标题辅助信息，建议不超过44个字，（支持id转译）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea">
+            <summary>
+            引用文献样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.Type">
+            <summary>
+            引用文献样式区域点击事件，0或不填代表没有点击事件，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.Url">
+            <summary>
+            点击跳转的url，quote_area.type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.AppId">
+            <summary>
+            点击跳转的小程序的appid，必须是与当前应用关联的小程序，quote_area.type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.PagePath">
+            <summary>
+            点击跳转的小程序的pagepath，quote_area.type是2时选填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.Title">
+            <summary>
+            引用文献样式的标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardQuoteArea.Text">
+            <summary>
+            引用文献样式的引用文案
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.DescriptionColor">
+            <summary>
+            来源文字颜色
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardSource">
+            <summary>
+            卡片来源样式信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardSource.IconUrl">
+            <summary>
+            来源图片的url，来源图片的尺寸建议为72*72
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardSource.Description">
+            <summary>
+            来源图片的描述，建议不超过20个字，（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TemplateCardSource.DescriptionColor">
+            <summary>
+            来源文字的颜色，目前支持：0(默认) 灰色，1 黑色，2 红色，3 绿色
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TextCardMessage">
+            <summary>
+            文本卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextCardMessage.Title">
+            <summary>
+            标题，不超过128个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextCardMessage.Description">
+            <summary>
+            描述，不超过512个字节，超过会自动截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextCardMessage.Url">
+            <summary>
+            点击后跳转的链接。最长2048字节，请确保包含了协议头(http/https)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextCardMessage.ButtonText">
+            <summary>
+            按钮文字。 默认为“详情”， 不超过4个文字，超过自动截断。
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TextMessage">
+            <summary>
+            文本消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextMessage.Content">
+            <summary>
+            消息内容，最长不超过2048个字节，超过将截断（支持id转译）
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard">
+            <summary>
+            文本模板卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.Source">
+            <summary>
+            卡片来源样式信息，不需要来源样式可不填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.ActionMenu">
+            <summary>
+            卡片右上角更多操作按钮
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.MainTitle">
+            <summary>
+            一级标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.SubTitle">
+            <summary>
+            二级普通文本，建议不超过160个字，（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.QuoteArea">
+            <summary>
+            引用文献样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.EmphasisContent">
+            <summary>
+            关键数据样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.HorizontalContents">
+            <summary>
+            二级标题+文本列表，该字段可为空数组，但有数据的话需确认对应字段是否必填，列表长度不超过6
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.Jumps">
+            <summary>
+            跳转指引样式的列表，该字段可为空数组，但有数据的话需确认对应字段是否必填，列表长度不超过3
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.TextTemplateCard.CardAction">
+            <summary>
+            整体卡片的点击跳转事件，text_notice必填本字段
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.VideoMessage">
+            <summary>
+            视频消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.VideoMessage.Title">
+            <summary>
+            视频消息的标题，不超过128个字节，超过会自动截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.VideoMessage.Description">
+            <summary>
+            视频消息的描述，不超过512个字节，超过会自动截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.VideoMessage.MediaId">
+            <summary>
+            视频媒体文件id，可以调用上传临时素材接口获取
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookFileMessage">
+            <summary>
+            Webhook文件消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookFileMessage.MediaId">
+            <summary>
+            文件id，通过下文的文件上传接口获取
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookFileMessage.#ctor(System.String)">
+            <summary>
+            创建一个Webhook文件消息体
+            </summary>
+            <param name="mediaId">文件id，通过下文的文件上传接口获取</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookImageMessage">
+            <summary>
+            Webhook图片消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookImageMessage.Base64">
+            <summary>
+            图片内容的base64编码
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookImageMessage.Md5">
+            <summary>
+            图片的md5
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookImageMessage.#ctor(System.String,System.String)">
+            <summary>
+            创建一个Webhook图片消息体
+            </summary>
+            <param name="base64">图片内容的base64编码</param>
+            <param name="md5">图片的md5</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownMessage">
+            <summary>
+            Webhook Markdown消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownMessage.Content">
+            <summary>
+            markdown内容，最长不超过4096个字节，必须是utf8编码
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownMessage.#ctor(System.String)">
+            <summary>
+            创建一个Webhook Markdown消息体
+            </summary>
+            <param name="content">markdown内容，最长不超过4096个字节，必须是utf8编码</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownV2Message">
+            <summary>
+            Webhook MarkdownV2消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownV2Message.Content">
+            <summary>
+            markdown_v2内容，最长不超过4096个字节，必须是utf8编码。
+            </summary>
+            <remarks>
+            1. markdown_v2不支持字体颜色、@群成员的语法， 具体支持的语法可参考下面说明<br />
+            2. 消息内容在客户端 4.1.36 版本以下(安卓端为4.1.38以下) 消息表现为纯文本，建议使用最新客户端版本体验
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownV2Message.#ctor(System.String)">
+            <summary>
+            创建一个Webhook MarkdownV2消息体
+            </summary>
+            <param name="content">markdown_v2内容，最长不超过4096个字节，必须是utf8编码</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsMessage">
+            <summary>
+            Webhook图文消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsMessage.Articles">
+            <summary>
+            图文消息，一个图文消息支持1到8条图文
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsMessage.#ctor(System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage})">
+            <summary>
+            创建一个Webhook图文消息体
+            </summary>
+            <param name="articles">图文消息列表</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage.Title">
+            <summary>
+            标题，不超过128个字节，超过会自动截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage.Description">
+            <summary>
+            描述，不超过512个字节，超过会自动截断
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage.Url">
+            <summary>
+            点击后跳转的链接。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage.PictureUrl">
+            <summary>
+            图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图 1068*455，小图150*150。
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookArticleMessage.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建一个图文消息
+            </summary>
+            <param name="title">标题</param>
+            <param name="url">点击后跳转的链接</param>
+            <param name="description">描述</param>
+            <param name="pictureUrl">图文消息的图片链接</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsNoticeCardMessage">
+            <summary>
+            Webhook 图文展示模版卡片消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsNoticeCardMessage.CardImage">
+            <summary>
+            图片样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsNoticeCardMessage.ImageTextArea">
+            <summary>
+            左图右文样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsNoticeCardMessage.VerticalContents">
+            <summary>
+            卡片二级垂直内容，该字段可为空数组，但有数据的话需确认对应字段是否必填，列表长度不超过4
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsNoticeCardMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImage,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea,System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent},System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardVerticalContent},System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump})">
+            <summary>
+            创建一个Webhook 图文展示模版卡片消息体
+            </summary>
+            <param name="cardImage">图片样式</param>
+            <param name="action">整体卡片的点击跳转事件</param>
+            <param name="mainTitle">模版卡片的主要内容</param>
+            <param name="imageTextArea">左图右文样式</param>
+            <param name="source">卡片来源样式信息</param>
+            <param name="quoteArea">引用文献样式</param>
+            <param name="horizontalContents">二级标题+文本列表,列表长度不超过6</param>
+            <param name="verticalContents">卡片二级垂直内容,列表长度不超过4</param>
+            <param name="jumps">跳转指引样式的列表,列表长度不超过3</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction">
+            <summary>
+            卡片的点击跳转事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.Type">
+            <summary>
+            卡片跳转类型，1 代表跳转url，2 代表打开小程序。text_notice模版卡片中该字段取值范围为[1,2]
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.Url">
+            <summary>
+            跳转链接的url，type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.AppId">
+            <summary>
+            点击跳转的小程序的appid，type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.PagePath">
+            <summary>
+            点击跳转的小程序的pagepath，type是2时选填
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.Link(System.String)">
+            <summary>
+            创建一个跳转链接卡片事件
+            </summary>
+            <param name="url">跳转链接的url</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction.MiniProgram(System.String,System.String)">
+            <summary>
+            创建一个跳转小程序卡片事件
+            </summary>
+            <param name="appId">小程序的appid</param>
+            <param name="pagePath">小程序的pagePath</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardEmphasisContent">
+            <summary>
+            关键数据样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardEmphasisContent.Title">
+            <summary>
+            关键数据样式的数据内容，建议不超过10个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardEmphasisContent.Description">
+            <summary>
+            关键数据样式的数据描述内容，建议不超过15个字
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardEmphasisContent.#ctor(System.String,System.String)">
+            <summary>
+            创建一个关键数据样式
+            </summary>
+            <param name="title">关键数据样式的数据内容</param>
+            <param name="description">关键数据样式的数据描述内容</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent">
+            <summary>
+            二级标题+文本
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.Type">
+            <summary>
+            模版卡片的二级标题信息内容支持的类型，1是url，2是文件附件，3 代表点击跳转成员详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.KeyName">
+            <summary>
+            二级标题，建议不超过5个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.Value">
+            <summary>
+            二级文本，如果type是2，该字段代表文件名称（要包含文件类型），建议不超过26个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.Url">
+            <summary>
+            链接跳转的url，type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.MediaId">
+            <summary>
+            附件的media_id，type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.UserId">
+            <summary>
+            成员详情的userid，type是3时必填
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.Default(System.String,System.String)">
+            <summary>
+            创建一个默认二级标题+文本
+            </summary>
+            <param name="keyName">二级标题</param>
+            <param name="value">二级文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.Link(System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转链接的二级标题+文本
+            </summary>
+            <param name="keyName">二级标题</param>
+            <param name="url">链接跳转的url</param>
+            <param name="value">二级文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.File(System.String,System.String,System.String)">
+            <summary>
+            创建一个引用文件的二级标题+文本
+            </summary>
+            <param name="keyName">二级标题</param>
+            <param name="fileName">文件名称</param>
+            <param name="mediaId">附件的mediaId</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent.UserInfo(System.String,System.String)">
+            <summary>
+            创建一个成员详情的二级标题+文本
+            </summary>
+            <param name="keyName">二级标题</param>
+            <param name="userId">成员的userid</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImage">
+            <summary>
+            图片样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImage.Url">
+            <summary>
+            图片的url
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImage.AspectRatio">
+            <summary>
+            图片的宽高比，宽高比要小于2.25，大于1.3，不填该参数默认1.3
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImage.#ctor(System.String,System.Nullable{System.Single})">
+            <summary>
+            创建一个图片样式
+            </summary>
+            <param name="url">图片的url</param>
+            <param name="aspectRatio">图片的宽高比,不填该参数默认1.3</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea">
+            <summary>
+            左图右文样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.Type">
+            <summary>
+            左图右文样式区域点击事件，0或不填代表没有点击事件，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.ImageUrl">
+            <summary>
+            左图右文样式的图片url
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.Url">
+            <summary>
+            点击跳转的url，type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.AppId">
+            <summary>
+            点击跳转的小程序的appid，type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.PagePath">
+            <summary>
+            点击跳转的小程序的pagepath，type是2时选填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.Title">
+            <summary>
+            左图右文样式的标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.Description">
+            <summary>
+            左图右文样式的描述
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.Link(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转链接左图右文样式
+            </summary>
+            <param name="imageUrl">左图右文样式的图片url</param>
+            <param name="url">点击跳转的url</param>
+            <param name="title">左图右文样式的标题</param>
+            <param name="description">左图右文样式的描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardImageTextArea.MiniProgram(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转小程序左图右文样式
+            </summary>
+            <param name="imageUrl">左图右文样式的图片url</param>
+            <param name="appId">小程序AppId</param>
+            <param name="pagePath">小程序PagePath</param>
+            <param name="title">左图右文样式的标题</param>
+            <param name="description">左图右文样式的描述</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump">
+            <summary>
+            跳转指引样式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.Type">
+            <summary>
+            跳转链接类型，0或不填代表不是链接，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.Title">
+            <summary>
+            跳转链接样式的文案内容，建议不超过13个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.Url">
+            <summary>
+            跳转链接的url，type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.AppId">
+            <summary>
+            点击跳转的小程序的appid，type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.PagePath">
+            <summary>
+            点击跳转的小程序的pagepath，type是2时选填
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.Default(System.String)">
+            <summary>
+            创建一个默认指引样式
+            </summary>
+            <param name="title">跳转链接样式的文案内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.Link(System.String,System.String)">
+            <summary>
+            创建一个跳转链接的指引样式
+            </summary>
+            <param name="title">跳转链接样式的文案内容</param>
+            <param name="url">跳转链接的url</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump.MiniProgram(System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转小程序的指引样式
+            </summary>
+            <param name="title">跳转链接样式的文案内容</param>
+            <param name="appId">跳转链接的小程序的appid</param>
+            <param name="pagePath">跳转链接的小程序的pagepath</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle">
+            <summary>
+            模版卡片的主要内容
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle.Title">
+            <summary>
+            一级标题，建议不超过26个字。模版卡片主要内容的一级标题main_title.title和二级普通文本sub_title_text必须有一项填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle.Description">
+            <summary>
+            标题辅助信息，建议不超过30个字
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle.#ctor(System.String,System.String)">
+            <summary>
+            创建一个模版卡片的主要内容
+            </summary>
+            <param name="title">一级标题</param>
+            <param name="description">标题辅助信息</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage">
+            <summary>
+            Webhook模板卡片消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.CardType">
+            <summary>
+            模版卡片的模版类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.Source">
+            <summary>
+            卡片来源样式信息，不需要来源样式可不填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.MainTitle">
+            <summary>
+            模版卡片的主要内容，包括一级标题和标题辅助信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.QuoteArea">
+            <summary>
+            引用文献样式，建议不与关键数据共用
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.HorizontalContents">
+            <summary>
+            二级标题+文本列表，该字段可为空数组，但有数据的话需确认对应字段是否必填，列表长度不超过6
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.Jumps">
+            <summary>
+            跳转指引样式的列表，该字段可为空数组，但有数据的话需确认对应字段是否必填，列表长度不超过3
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.Action">
+            <summary>
+            整体卡片的点击跳转事件，text_notice模版卡片中该字段为必填项
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage.#ctor(System.String,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea,System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent},System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump})">
+            <summary>
+            创建一个Webhook模板卡片消息体
+            </summary>
+            <param name="cardType">模版卡片的模版类型</param>
+            <param name="action">整体卡片的点击跳转事件</param>
+            <param name="mainTitle">模版卡片的主要内容</param>
+            <param name="source">卡片来源样式信息</param>
+            <param name="quoteArea">引用文献样式</param>
+            <param name="horizontalContents">二级标题+文本列表,列表长度不超过6</param>
+            <param name="jumps">跳转指引样式的列表,列表长度不超过3</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea">
+            <summary>
+            引用文献
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.Type">
+            <summary>
+            引用文献样式区域点击事件，0或不填代表没有点击事件，1 代表跳转url，2 代表跳转小程序
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.Url">
+            <summary>
+            点击跳转的url，type是1时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.AppId">
+            <summary>
+            点击跳转的小程序的appid，type是2时必填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.PagePath">
+            <summary>
+            点击跳转的小程序的pagepath，type是2时选填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.Title">
+            <summary>
+            引用文献样式的标题
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.QuoteText">
+            <summary>
+            引用文献样式的引用文案
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.Default(System.String,System.String)">
+            <summary>
+            创建一个默认引用文献
+            </summary>
+            <param name="title">引用文献样式的标题</param>
+            <param name="quoteText">引用文献样式的引用文案</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.Link(System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转链接的引用文献
+            </summary>
+            <param name="title">引用文献样式的标题</param>
+            <param name="url">点击跳转的url</param>
+            <param name="quoteText">引用文献样式的引用文案</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea.MiniProgram(System.String,System.String,System.String,System.String)">
+            <summary>
+            创建一个跳转小程序的引用文献
+            </summary>
+            <param name="title">引用文献样式的标题</param>
+            <param name="appId">跳转链接的小程序的appid</param>
+            <param name="pagePath">跳转链接的小程序的pagepath</param>
+            <param name="quoteText">引用文献样式的引用文案</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource">
+            <summary>
+            卡片来源样式信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.IconUrl">
+            <summary>
+            来源图片的url
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.Description">
+            <summary>
+            来源图片的描述，建议不超过13个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.DescriptionColor">
+            <summary>
+            来源文字的颜色，目前支持：0(默认) 灰色，1 黑色，2 红色，3 绿色
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.Grey(System.String,System.String)">
+            <summary>
+            创建一个灰色卡片来源样式
+            </summary>
+            <param name="iconUrl">来源图片的url</param>
+            <param name="description">来源图片的描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.Black(System.String,System.String)">
+            <summary>
+            创建一个黑色卡片来源样式
+            </summary>
+            <param name="iconUrl">来源图片的url</param>
+            <param name="description">来源图片的描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.Red(System.String,System.String)">
+            <summary>
+            创建一个红色卡片来源样式
+            </summary>
+            <param name="iconUrl">来源图片的url</param>
+            <param name="description">来源图片的描述</param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource.Green(System.String,System.String)">
+            <summary>
+            创建一个绿色卡片来源样式
+            </summary>
+            <param name="iconUrl">来源图片的url</param>
+            <param name="description">来源图片的描述</param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardVerticalContent">
+            <summary>
+            卡片二级垂直内容
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardVerticalContent.Title">
+            <summary>
+            卡片二级标题，建议不超过26个字
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardVerticalContent.Description">
+            <summary>
+            二级普通文本，建议不超过112个字
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardVerticalContent.#ctor(System.String,System.String)">
+            <summary>
+            创建一个卡片二级垂直内容
+            </summary>
+            <param name="title">卡片二级标题</param>
+            <param name="description">二级普通文本</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage">
+            <summary>
+            Webhook文本消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage.Content">
+            <summary>
+            消文本内容，最长不超过2048个字节，必须是utf8编码
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage.MentionedList">
+            <summary>
+            userid的列表，提醒群中的指定成员(@某个成员)，@all表示提醒所有人，如果开发者获取不到userid，可以使用mentioned_mobile_list
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage.MentionedMobileList">
+            <summary>
+            手机号列表，提醒手机号对应的群成员(@某个成员)，@all表示提醒所有人
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage.#ctor(System.String)">
+            <summary>
+            创建一个Webhook文本消息体
+            </summary>
+            <param name="content">消息内容</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextNoticeCardMessage">
+            <summary>
+            Webhook 文本通知模版卡片消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextNoticeCardMessage.SubTitleText">
+            <summary>
+            二级普通文本，建议不超过112个字。模版卡片主要内容的一级标题main_title.title和二级普通文本sub_title_text必须有一项填写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextNoticeCardMessage.EmphasisContent">
+            <summary>
+            关键数据样式
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookTextNoticeCardMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardAction,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMainTitle,System.String,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardEmphasisContent,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardSource,LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardQuoteArea,System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardHorizontalContent},System.Collections.Generic.List{LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardJump})">
+            <summary>
+            创建一个Webhook 文本通知模版卡片消息体
+            </summary>
+            <param name="action">整体卡片的点击跳转事件</param>
+            <param name="mainTitle">模版卡片的主要内容</param>
+            <param name="subTitleText">二级普通文本</param>
+            <param name="emphasisContent">关键数据样式</param>
+            <param name="source">卡片来源样式信息</param>
+            <param name="quoteArea">引用文献样式</param>
+            <param name="horizontalContents">二级标题+文本列表,列表长度不超过6</param>
+            <param name="jumps">跳转指引样式的列表,列表长度不超过3</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WebhookVoiceMessage">
+            <summary>
+            Webhook语音消息体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WebhookVoiceMessage.MediaId">
+            <summary>
+            语音文件id，通过下文的文件上传接口获取
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WebhookVoiceMessage.#ctor(System.String)">
+            <summary>
+            创建一个Webhook语音消息体
+            </summary>
+            <param name="mediaId">语音文件id</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatFileMessage">
+            <summary>
+            企业微信群聊文件消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatFileMessage.File">
+            <summary>
+            媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatFileMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatImageMessage">
+            <summary>
+            企业微信群聊图片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatImageMessage.Image">
+            <summary>
+            图片媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatImageMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMarkdownMessage">
+            <summary>
+            企业微信群聊markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMarkdownMessage.Markdown">
+            <summary>
+            markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMarkdownMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0不保密
+            1保密
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMpNewMessage">
+            <summary>
+            企业微信群聊文本图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMpNewMessage.News">
+            <summary>
+            图文消息（mp）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatMpNewMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0不保密
+            1保密
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatNewMessage">
+            <summary>
+            企业微信群聊文本图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatNewMessage.News">
+            <summary>
+            图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatNewMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0不保密
+            1保密
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextCardMessage">
+            <summary>
+            企业微信群聊文本卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextCardMessage.TextCard">
+            <summary>
+            卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextCardMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextMessage">
+            <summary>
+            企业微信群聊文本消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextMessage.Text">
+            <summary>
+            消息内容，最长不超过2048个字节，超过将截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatTextMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatVideoMessage">
+            <summary>
+            企业微信群聊语言消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatVideoMessage.Video">
+            <summary>
+            视频媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatVideoMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatVoiceMessage">
+            <summary>
+            企业微信群聊语言消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkAppChatVoiceMessage.Voice">
+            <summary>
+            语音媒体文件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkFileMessage">
+            <summary>
+            企业微信文件消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkFileMessage.File">
+            <summary>
+            媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkFileMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkFileMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkFileMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage">
+            <summary>
+            企业微信图片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage.Image">
+            <summary>
+            图片媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkImageMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMarkdownMessage">
+            <summary>
+            企业微信markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMarkdownMessage.Markdown">
+            <summary>
+            markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMarkdownMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMarkdownMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage">
+            <summary>
+            企业微信小程序通知消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.ToUser">
+            <summary>
+            指定接收消息的成员，成员ID列表（多个接收者用‘|’分隔，最多支持1000个）。
+            特殊情况：指定为"@all"，则向该企业应用的全部成员发送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.ToParty">
+            <summary>
+            指定接收消息的部门，部门ID列表，多个接收者用‘|’分隔，最多支持100个。
+            当touser为"@all"时忽略本参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.ToTag">
+            <summary>
+            指定接收消息的标签，标签ID列表，多个接收者用‘|’分隔，最多支持100个。
+            当touser为"@all"时忽略本参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.MsgType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMiniProgramMessage.MiniProgram">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage">
+            <summary>
+            企业微信文本图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage.News">
+            <summary>
+            图文消息（mp）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            2表示仅限在企业内分享，默认为0；
+            注意仅mpnews类型的消息支持safe值为2，其他消息类型不支持
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkMpNewMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkNewMessage">
+            <summary>
+            企业微信文本图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkNewMessage.News">
+            <summary>
+            图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkNewMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkNewMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkNewMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTemplateCardMessage">
+            <summary>
+            企业微信模板卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTemplateCardMessage.Template">
+            <summary>
+            模板卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTemplateCardMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTemplateCardMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTemplateCardMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextCardMessage">
+            <summary>
+            企业微信文本卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextCardMessage.TextCard">
+            <summary>
+            卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextCardMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextCardMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextCardMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage">
+            <summary>
+            企业微信文本消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage.Text">
+            <summary>
+            消息内容，最长不超过2048个字节，超过将截断（支持id转译）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage.EnableIdTrans">
+            <summary>
+            表示是否开启id转译，0表示否，1表示是，默认0。
+            仅第三方应用需要用到
+            企业自建应用可以忽略。
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkTextMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVideoMessage">
+            <summary>
+            企业微信语言消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVideoMessage.Video">
+            <summary>
+            视频媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVideoMessage.Safe">
+            <summary>
+            表示是否是保密消息，
+            0表示可对外分享，
+            1表示不能分享且内容显示水印，
+            默认为0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVideoMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVideoMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVoiceMessage">
+            <summary>
+            企业微信语言消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVoiceMessage.Voice">
+            <summary>
+            语音媒体文件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVoiceMessage.EnableDuplicateCheck">
+            <summary>
+            表示是否开启重复消息检查，0表示否，1表示是，默认0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkVoiceMessage.DuplicateCheckInterval">
+            <summary>
+            表示是否重复消息检查的时间间隔，默认1800s，最大不超过4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookFileMessage">
+            <summary>
+            企业微信Webhook文件消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookFileMessage.File">
+            <summary>
+            文件消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookFileMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookFileMessage)">
+            <summary>
+            创建一个企业微信Webhook文件消息
+            </summary>
+            <param name="file">文件消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookImageMessage">
+            <summary>
+            企业微信Webhook图片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookImageMessage.Image">
+            <summary>
+            图片消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookImageMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookImageMessage)">
+            <summary>
+            创建一个企业微信Webhook图片消息
+            </summary>
+            <param name="image">图片消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownMessage">
+            <summary>
+            企业微信Webhook Markdown消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownMessage.Markdown">
+            <summary>
+            Markdown消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownMessage)">
+            <summary>
+            创建一个企业微信Webhook Markdown消息
+            </summary>
+            <param name="markdown">Markdown消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownV2Message">
+            <summary>
+            企业微信Webhook MarkdownV2消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownV2Message.Markdown">
+            <summary>
+            markdown_v2消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookMarkdownV2Message.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookMarkdownV2Message)">
+            <summary>
+            创建一个企业微信Webhook MarkdownV2消息
+            </summary>
+            <param name="markdown">markdown_v2消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookNewsMessage">
+            <summary>
+            企业微信Webhook图文消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookNewsMessage.News">
+            <summary>
+            图文消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookNewsMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookNewsMessage)">
+            <summary>
+            创建一个企业微信Webhook图文消息
+            </summary>
+            <param name="news">图文消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTemplateCardMessage">
+            <summary>
+            企业微信Webhook模版卡片消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTemplateCardMessage.TemplateCard">
+            <summary>
+            模版卡片消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTemplateCardMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookTemplateCardMessage)">
+            <summary>
+            创建一个企业微信Webhook模版卡片消息
+            </summary>
+            <param name="templateCard">模版卡片消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTextMessage">
+            <summary>
+            企业微信Webhook文本消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTextMessage.Text">
+            <summary>
+            文本消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookTextMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookTextMessage)">
+            <summary>
+            创建一个企业微信Webhook文本消息
+            </summary>
+            <param name="text">文本消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookVoiceMessage">
+            <summary>
+            企业微信Webhook语音消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookVoiceMessage.Voice">
+            <summary>
+            语音消息体
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Messages.Models.WeChatWorkWebhookVoiceMessage.#ctor(LCH.Abp.WeChat.Work.Messages.Models.WebhookVoiceMessage)">
+            <summary>
+            创建一个企业微信Webhook语音消息
+            </summary>
+            <param name="voice">语音消息体</param>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Request.WeChatWorkMessageReCallRequest">
+            <summary>
+            撤回消息请求载体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Request.WeChatWorkMessageReCallRequest.AccessToken">
+            <summary>
+            调用接口凭证
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Request.WeChatWorkMessageReCallRequest.MessageId">
+            <summary>
+            消息ID
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse">
+            <summary>
+            企业微信发送消息响应
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.InvalidUser">
+            <summary>
+            不合法的userid，不区分大小写，统一转为小写
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.InvalidParty">
+            <summary>
+            不合法的partyid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.InvalidTag">
+            <summary>
+            不合法的标签id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.UnLicensedUser">
+            <summary>
+            没有基础接口许可(包含已过期)的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.MsgId">
+            <summary>
+            消息id，用于撤回应用消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.Response.WeChatWorkMessageResponse.ResponseCode">
+            <summary>
+            仅消息类型为“按钮交互型”，“投票选择型”和“多项选择型”的模板卡片消息返回，
+            应用可使用response_code调用更新模版卡片消息接口，72小时内有效，且只能使用一次
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage">
+            <summary>
+            企业微信群聊消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage.ChatId">
+            <summary>
+            群聊id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage.MsgType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkAppChatMessage.AgentId">
+            <summary>
+            企业应用的id
+            </summary>
+            <remarks>
+            由于需要换取token, 因此需要传递应用标识
+            </remarks>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage">
+            <summary>
+            企业微信消息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage.ToUser">
+            <summary>
+            指定接收消息的成员，成员ID列表（多个接收者用‘|’分隔，最多支持1000个）。
+            特殊情况：指定为"@all"，则向该企业应用的全部成员发送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage.ToParty">
+            <summary>
+            指定接收消息的部门，部门ID列表，多个接收者用‘|’分隔，最多支持100个。
+            当touser为"@all"时忽略本参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage.ToTag">
+            <summary>
+            指定接收消息的标签，标签ID列表，多个接收者用‘|’分隔，最多支持100个。
+            当touser为"@all"时忽略本参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage.MsgType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkMessage.AgentId">
+            <summary>
+            企业应用的id，整型。
+            企业内部开发，可在应用的设置页面查看；
+            第三方服务商，可通过接口 获取企业授权信息 获取该参数值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Messages.WeChatWorkWebhookMessage">
+            <summary>
+            企业微信Webhook消息结构体
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Messages.WeChatWorkWebhookMessage.MsgType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Claims.AbpWeChatWorkClaimTypes.UserId">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Claims.AbpWeChatWorkClaimTypes.QrCode">
+            <summary>
+            二维码名片
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Claims.AbpWeChatWorkClaimTypes.BizMail">
+            <summary>
+            企业邮箱
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Claims.AbpWeChatWorkClaimTypes.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Security.IWeChatWorkServerProvider.GetWeChatServerAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取企业微信域名IP信息
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/100079
+            </remarks>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.Domain">
+            <summary>
+            域名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.UniversalDomian">
+            <summary>
+            泛域名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.Protocol">
+            <summary>
+            协议 如TCP UDP
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.Port">
+            <summary>
+            端口号列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.IsNecessary">
+            <summary>
+            是否必要，0-否 1-是， 如果必要的域名或IP被拦截，将导致企业微信的功能出现异常
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatDomainModel.Description">
+            <summary>
+            IP涉及到的功能的描述信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatIpModel.Ip">
+            <summary>
+            ip地址
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatIpModel.Protocol">
+            <summary>
+            协议 如TCP UDP
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatIpModel.Port">
+            <summary>
+            端口号列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatIpModel.IsNecessary">
+            <summary>
+            是否必要，0-否 1-是， 如果必要的域名或IP被拦截，将导致企业微信的功能出现异常
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatIpModel.Description">
+            <summary>
+            IP涉及到的功能的描述信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatServerDomainModel.Domains">
+            <summary>
+            域名列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatServerDomainModel.Ips">
+            <summary>
+            Ip列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatServerDomainResponse.Domains">
+            <summary>
+            域名列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Security.Models.WeChatServerDomainResponse.Ips">
+            <summary>
+            Ip列表
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.EnabledQuickLogin">
+            <summary>
+            启用快捷登录
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.Connection.CorpId">
+            <summary>
+            企业Id
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.Connection.AgentId">
+            <summary>
+            应用Id
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.Connection.Secret">
+            <summary>
+            应用密钥
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.Connection.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.Settings.WeChatWorkSettingNames.Connection.EncodingAESKey">
+            <summary>
+            EncodingAESKey
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Token.IWeChatWorkTokenProvider">
+            <summary>
+            企业微信AccessToken接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Token.IWeChatWorkTokenProvider.GetTokenAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取应用Token
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/91039
+            </remarks>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Token.IWeChatWorkTokenProvider.GetTokenAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取应用Token
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/91039
+            </remarks>
+            <param name="corpId">企业标识</param>
+            <param name="agentId">应用标识</param>
+            <param name="secret">应用密钥</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkToken">
+            <summary>
+            企业微信令牌
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkToken.AccessToken">
+            <summary>
+            访问令牌
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkToken.ExpiresIn">
+            <summary>
+            过期时间,单位(s)
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkTokenResponse">
+            <summary>
+            微信访问令牌返回对象
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkTokenResponse.AccessToken">
+            <summary>
+            访问令牌
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.Token.Models.WeChatWorkTokenResponse.ExpiresIn">
+            <summary>
+            过期时间,单位(s)
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Token.WeChatWorkTokenProviderBase.InternalGetTokenAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取缓存中的Token配置
+            </summary>
+            <param name="corpId"></param>
+            <param name="agentId"></param>
+            <param name="secret"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.Token.WeChatWorkTokenProviderBase.GetCacheItemAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取或刷新分布式缓存中的Token配置
+            </summary>
+            <param name="cacheKey"></param>
+            <param name="provider"></param>
+            <param name="corpId"></param>
+            <param name="agentId"></param>
+            <param name="secret"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.WeChatWorkResponse">
+            <summary>
+            企业微信请求响应
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.WeChatWorkResponse.ErrorCode">
+            <summary>
+            错误码
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.WeChatWorkResponse.ErrorMessage">
+            <summary>
+            错误消息
+            </summary>
+        </member>
+    </members>
+</doc>

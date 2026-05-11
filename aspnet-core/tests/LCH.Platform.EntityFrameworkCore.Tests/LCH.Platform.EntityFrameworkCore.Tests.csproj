@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+	<RootNamespace />
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="NSubstitute" />
+		<PackageReference Include="Shouldly" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\platform\LCH.Platform.EntityFrameworkCore\LCH.Platform.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\LCH.Abp.EntityFrameworkCore.Tests\LCH.Abp.EntityFrameworkCore.Tests.csproj" />
+    <ProjectReference Include="..\LCH.Platform.Domain.Tests\LCH.Platform.Domain.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+export { useAbpConfigApi } from './useAbpConfigApi';

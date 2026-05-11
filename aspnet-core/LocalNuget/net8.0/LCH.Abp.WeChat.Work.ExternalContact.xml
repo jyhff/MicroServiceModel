@@ -1,0 +1,3077 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LCH.Abp.WeChat.Work.ExternalContact</name>
+    </assembly>
+    <members>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.AbpWeChatWorkExternalContactModule">
+            <summary>
+            企业微信客户联系模块
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Attachments.IWeChatWorkAttachmentProvider">
+            <summary>
+            附件资源接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Attachments.IWeChatWorkAttachmentProvider.UploadAsync(LCH.Abp.WeChat.Work.ExternalContact.Attachments.Request.WeChatWorkUploadAttachmentRequest,System.Threading.CancellationToken)">
+            <summary>
+            上传附件资源
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/90253"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.AttachmentType">
+            <summary>
+            附件类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.AttachmentType.Moments">
+            <summary>
+            朋友圈
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.AttachmentType.ProductCatalogue">
+            <summary>
+            商品图册
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.MediaType">
+            <summary>
+            媒体文件类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.MediaType.Image">
+            <summary>
+            图片
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.MediaType.Video">
+            <summary>
+            视频
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Models.MediaType.File">
+            <summary>
+            普通文件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Request.WeChatWorkUploadAttachmentRequest">
+            <summary>
+            上传附件资源请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/95098" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Request.WeChatWorkUploadAttachmentRequest.MediaType">
+            <summary>
+            媒体文件类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Request.WeChatWorkUploadAttachmentRequest.AttachmentType">
+            <summary>
+            附件类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Request.WeChatWorkUploadAttachmentRequest.Content">
+            <summary>
+            媒体文件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Response.WeChatWorkUploadAttachmentResponse">
+            <summary>
+            上传附件资源响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/95098" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Response.WeChatWorkUploadAttachmentResponse.MediaType">
+            <summary>
+            媒体文件类型，分别有图片（image）、语音（voice）、视频（video），普通文件(file)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Response.WeChatWorkUploadAttachmentResponse.MediaId">
+            <summary>
+            媒体文件上传后获取的唯一标识，三天有效，可使用获取临时素材接口获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Attachments.Response.WeChatWorkUploadAttachmentResponse.CreatedAt">
+            <summary>
+            媒体文件上传时间戳
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Contacts.IWeChatWorkExternalContactProvider">
+            <summary>
+            外部联系人接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Contacts.IWeChatWorkExternalContactProvider.GetExternalContactListAsync(LCH.Abp.WeChat.Work.ExternalContact.Contacts.Request.WeChatWorkGetExternalContactListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取已服务的外部联系人
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/99434" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo">
+            <summary>
+            外部联系人
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.IsCustomer">
+            <summary>
+            是否被成员标记为客户
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.TmpOpenId">
+            <summary>
+            外部联系人临时ID
+            </summary>
+            <remarks>
+            
+            外部联系人临时id是一个外部联系人的唯一标识，企业可根据此id对外部联系人进行去重统计。<br />
+            但外部联系人临时id仅在一轮遍历查询（从首个分页查询开始到最后一个分页查询完毕）中唯一；<br />
+            每次请求首个数据分页（cursor为空）时，返回的外部联系人临时id和next_cursor将发生变化。
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.ExternalUserId">
+            <summary>
+            外部联系人的externaluserid（如果是客户才返回）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.Name">
+            <summary>
+            脱敏后的外部联系人昵称（如果是其他外部联系人才返回）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.FollowUserId">
+            <summary>
+            添加此外部联系人的企业成员或外部联系人所在群聊的群主userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.ChatId">
+            <summary>
+            外部联系人所在的群聊ID（如果群聊被成员标记为客户群才返回）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.ChatName">
+            <summary>
+            外部联系人所在群聊的群名（如果群聊未被成员标记为客户群才返回）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Models.ExternalContactInfo.AddTime">
+            <summary>
+            外部联系人首次添加/进群的时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Request.WeChatWorkGetExternalContactListRequest">
+            <summary>
+            获取已服务的外部联系人请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/99434" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Request.WeChatWorkGetExternalContactListRequest.Cursor">
+            <summary>
+            用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
+            </summary>
+            <remarks>
+            cursor具有有效期，请勿缓存后使用
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Request.WeChatWorkGetExternalContactListRequest.Limit">
+            <summary>
+            返回的最大记录数，整型，默认为1000
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Response.WeChatWorkGetExternalContactListResponse">
+            <summary>
+            获取已服务的外部联系人响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92994" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Response.WeChatWorkGetExternalContactListResponse.InfoList">
+            <summary>
+            外部联系人列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Contacts.Response.WeChatWorkGetExternalContactListResponse.NextCursor">
+            <summary>
+            分页游标，再下次请求时填写以获取之后分页的记录，如果已经没有更多的数据则返回空,有效期为4小时
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerProvider">
+            <summary>
+            客户管理接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerProvider.GetCustomerListAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取客户列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92113" />
+            </remarks>
+            <param name="userId">企业成员的userid</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerProvider.BulkGetCustomerAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkBulkGetCustomerRequest,System.Threading.CancellationToken)">
+            <summary>
+            批量获取客户详情
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92994" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerProvider.GetCustomerAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            获取客户详情
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92114" />
+            </remarks>
+            <param name="externalUserid">外部联系人的userid，注意不是企业成员的账号</param>
+            <param name="cursor">上次请求返回的next_cursor</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerProvider.UpdateCustomerRemarkAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest,System.Threading.CancellationToken)">
+            <summary>
+            修改客户备注信息
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92115" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider">
+            <summary>
+            客户联系规则组管理
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883" />
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.GetCustomerStrategyListAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取规则组列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E5%88%97%E8%A1%A8" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.GetCustomerStrategyAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取规则组
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E8%AF%A6%E6%83%85" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.GetCustomerStrategyRangeAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRangeRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取规则组管理范围
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E7%AE%A1%E7%90%86%E8%8C%83%E5%9B%B4" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.CreateCustomerStrategyAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest,System.Threading.CancellationToken)">
+            <summary>
+            创建新的规则组
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%A7%84%E5%88%99%E7%BB%84" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.UpdateCustomerStrategyAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest,System.Threading.CancellationToken)">
+            <summary>
+            编辑规则组及其管理范围
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E7%BC%96%E8%BE%91%E8%A7%84%E5%88%99%E7%BB%84%E5%8F%8A%E5%85%B6%E7%AE%A1%E7%90%86%E8%8C%83%E5%9B%B4" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Customers.IWeChatWorkCustomerStrategyProvider.DeleteCustomerStrategyAsync(LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkDeleteCustomerStrategyRequest,System.Threading.CancellationToken)">
+            <summary>
+            删除规则组
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99%E7%BB%84" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategy">
+            <summary>
+            规则组
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategy.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo">
+            <summary>
+            规则组详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo.ParentId">
+            <summary>
+            父规则组id， 如果当前规则组没父规则组，则为0
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo.StrategyName">
+            <summary>
+            规则组名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo.CreateTime">
+            <summary>
+            规则组创建时间戳
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo.AdminList">
+            <summary>
+            规则组管理员userid列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyInfo.Privilege">
+            <summary>
+            规则组权限
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege">
+            <summary>
+            规则组权限
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ViewCustomerList">
+            <summary>
+            查看客户列表，基础权限，不可取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ViewCustomerData">
+            <summary>
+            查看客户统计数据，基础权限，不可取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ViewRoomList">
+            <summary>
+            查看群聊列表，基础权限，不可取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ContactMe">
+            <summary>
+            可使用联系我，基础权限，不可取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.JoinRoom">
+            <summary>
+            可加入群聊，基础权限，不可取消
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ShareCustomer">
+            <summary>
+            允许分享客户给其他成员，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.OperResignCustomer">
+            <summary>
+            允许分配离职成员客户，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.OperResignGroup">
+            <summary>
+            允许分配离职成员客户群，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.SendCustomerMsg">
+            <summary>
+            允许给企业客户发送消息，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.EditWelcomeMsg">
+            <summary>
+            允许配置欢迎语，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ViewBehaviorData">
+            <summary>
+            允许查看成员联系客户统计，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ViewRoomData">
+            <summary>
+            	允许查看群聊数据统计，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.SendGroupMsg">
+            <summary>
+            允许发送消息到企业的客户群，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.RoomDeduplication">
+            <summary>
+            允许对企业客户群进行去重，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.RapidReply">
+            <summary>
+            配置快捷回复，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.OnjobCustomerTransfer">
+            <summary>
+            转接在职成员的客户，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.EditAntiSpamRule">
+            <summary>
+            编辑企业成员防骚扰规则，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ExportCustomerList">
+            <summary>
+            导出客户列表，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ExportCustomerData">
+            <summary>
+            导出成员客户统计，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ExportCustomerGroupList">
+            <summary>
+            导出客户群列表，默认为true
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyPrivilege.ManageCustomerTag">
+            <summary>
+            配置企业客户标签，默认为true
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRange">
+            <summary>
+            规则组管理范围
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRange.Type">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRange.UserId">
+            <summary>
+            管理范围内配置的成员userid，仅 Type为<see cref="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRangeType.Member"/> 时返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRange.PartyId">
+            <summary>
+            管理范围内配置的部门partyid，仅 Type为<see cref="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRangeType.Part"/> 时返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRangeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRangeType.Member">
+            <summary>
+            成员
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.CustomerStrategyRangeType.Part">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactGender">
+            <summary>
+            外部联系人性别
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactGender.None">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactGender.Male">
+            <summary>
+            男性
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactGender.FeMale">
+            <summary>
+            女性
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo">
+            <summary>
+            外部联系人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.ExternalUserId">
+            <summary>
+            外部联系人的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.Name">
+            <summary>
+            外部联系人的名称
+            </summary>
+            <remarks>
+            如果是微信用户，则返回其微信昵称。<br />
+            如果是企业微信联系人，则返回其设置对外展示的别名或实名
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.Avatar">
+            <summary>
+            外部联系人头像
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.Type">
+            <summary>
+            外部联系人的类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.Gender">
+            <summary>
+            外部联系人性别
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.UnionId">
+            <summary>
+            外部联系人在微信开放平台的唯一身份标识（微信unionid），通过此字段企业可将外部联系人与公众号/小程序用户关联起来。<br />
+            仅当联系人类型是微信用户，且企业绑定了微信开发者ID有此字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.Position">
+            <summary>
+            外部联系人的职位，如果外部企业或用户选择隐藏职位，则不返回，仅当联系人类型是企业微信用户时有此字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.CorpName">
+            <summary>
+            外部联系人所在企业的简称，仅当联系人类型是企业微信用户时有此字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.CorpFullName">
+            <summary>
+            外部联系人所在企业的主体名称，仅当联系人类型是企业微信用户时有此字段<br />
+            仅企业自建应用可获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactInfo.ExternalProfile">
+            <summary>
+            外部联系人的自定义展示信息
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactList">
+            <summary>
+            外部联系人列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactList.ExternalContact">
+            <summary>
+            客户的基本信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactList.FollowUser">
+            <summary>
+            企业成员客户跟进信息
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactType">
+            <summary>
+            外部联系人类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactType.WeChat">
+            <summary>
+            微信用户
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.ExternalContactType.WeChatWork">
+            <summary>
+            企业微信用户
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser">
+            <summary>
+            添加了外部联系人的企业成员
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.UserId">
+            <summary>
+            添加了此外部联系人的企业成员userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.OperUserId">
+            <summary>
+            发起添加的userid<br />
+            如果成员主动添加，为成员的userid；<br />
+            如果是客户主动添加，则为客户的外部联系人userid；<br />
+            如果是内部成员共享/管理员分配，则为对应的成员/管理员userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.State">
+            <summary>
+            企业自定义的state参数，用于区分客户具体是通过哪个「联系我」或获客链接添加
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.Remark">
+            <summary>
+            该成员对此外部联系人的备注
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.Description">
+            <summary>
+            该成员对此外部联系人的描述
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.Createtime">
+            <summary>
+            该成员添加此外部联系人的时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.Tags">
+            <summary>
+            外部联系人所打标签列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.RemarkCorpName">
+            <summary>
+            该成员对此微信客户备注的企业名称（仅微信客户有该字段）
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.RemarkMobiles">
+            <summary>
+            该成员对此客户备注的手机号码，代开发自建应用需要管理员授权才可以获取
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.AddWay">
+            <summary>
+            该成员添加此客户的来源
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUser.WechatChannel">
+            <summary>
+            该成员添加此客户的来源add_way为10时，对应的视频号信息
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay">
+            <summary>
+            客户来源
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.None">
+            <summary>
+            未知来源
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.ScanQrCode">
+            <summary>
+            扫描二维码
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SearchPhoneNumber">
+            <summary>
+            搜索手机号
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SharedCard">
+            <summary>
+            名片分享
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.GroupChat">
+            <summary>
+            群聊
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.PhoneBook">
+            <summary>
+            手机通讯录
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.WeChatContact">
+            <summary>
+            微信联系人
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.InstallThirdPartyApp">
+            <summary>
+            安装第三方应用时自动添加的客服人员
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SearchEmail">
+            <summary>
+            搜索邮箱
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.WechatChannel">
+            <summary>
+            视频号添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SchedulePart">
+            <summary>
+            通过日程参与人添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.MeetPart">
+            <summary>
+            通过会议参与人添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.WeChatFriend">
+            <summary>
+            添加微信好友对应的企业微信
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SmartHardware">
+            <summary>
+            通过智慧硬件专属客服添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.DoorService">
+            <summary>
+            通过上门服务客服添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.CustomerAcqLink">
+            <summary>
+            通过获客链接添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.CustomDevelopment">
+            <summary>
+            通过定制开发添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.DemandResponse">
+            <summary>
+            通过需求回复添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.ThirdPartyPreSales">
+            <summary>
+            通过第三方售前客服添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.PotentialBusPart">
+            <summary>
+            通过可能的商务伙伴添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.WeChatFriendRequest">
+            <summary>
+            通过接受微信账号收到的好友申请添加
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.SharedByInternalMembers">
+            <summary>
+            内部成员共享
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserAddWay.AllocationByAdmin">
+            <summary>
+            管理员/负责人分配
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTag">
+            <summary>
+            外部联系人所打标签
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTag.GroupName">
+            <summary>
+            该成员添加此外部联系人所打标签的分组名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTag.TagName">
+            <summary>
+            该成员添加此外部联系人所打标签名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTag.Type">
+            <summary>
+            该成员添加此外部联系人所打标签类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTag.TagId">
+            <summary>
+            该成员添加此外部联系人所打企业标签的id，用户自定义类型标签（type=2）不返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTagType">
+            <summary>
+            标签类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTagType.EnterpriseSettings">
+            <summary>
+            企业设置
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTagType.UserCustom">
+            <summary>
+            用户自定义
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserTagType.RuleGroupTags">
+            <summary>
+            规则组标签
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannel">
+            <summary>
+            视频号信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannel.NickName">
+            <summary>
+            视频号名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannel.Source">
+            <summary>
+            视频号添加场景
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannelSource">
+            <summary>
+            视频号添加场景
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannelSource.None">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannelSource.Home">
+            <summary>
+            视频号主页
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannelSource.LiveRoom">
+            <summary>
+            视频号直播间
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Customers.Models.FollowUserWechatChannelSource.RetentionService">
+            <summary>
+            视频号留资服务
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkBulkGetCustomerRequest">
+            <summary>
+            创建新的规则组请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%A7%84%E5%88%99%E7%BB%84" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkBulkGetCustomerRequest.UserIds">
+            <summary>
+            企业成员的userid列表，字符串类型，最多支持100个
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkBulkGetCustomerRequest.Cursor">
+            <summary>
+            用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkBulkGetCustomerRequest.Limit">
+            <summary>
+            返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest">
+            <summary>
+            批量获取客户详情请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92994" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest.ParentId">
+            <summary>
+            父规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest.StrategyName">
+            <summary>
+            规则组名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest.AdminList">
+            <summary>
+            规则组管理员userid列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest.Privilege">
+            <summary>
+            规则组权限
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkCreateCustomerStrategyRequest.Range">
+            <summary>
+            规则组管理范围
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkDeleteCustomerStrategyRequest">
+            <summary>
+            删除规则组请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99%E7%BB%84" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkDeleteCustomerStrategyRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyListRequest">
+            <summary>
+            获取规则组列表请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E5%88%97%E8%A1%A8" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyListRequest.Cursor">
+            <summary>
+            分页查询游标，首次调用可不填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyListRequest.Limit">
+            <summary>
+            分页大小,默认为1000，最大不超过1000
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRangeRequest">
+            <summary>
+            获取规则组管理范围请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E7%AE%A1%E7%90%86%E8%8C%83%E5%9B%B4" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRangeRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRangeRequest.Cursor">
+            <summary>
+            分页查询游标，首次调用可不填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRangeRequest.Limit">
+            <summary>
+            每个分页的成员/部门节点数，默认为1000，最大为1000
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRequest">
+            <summary>
+            获取规则组请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E8%8E%B7%E5%8F%96%E8%A7%84%E5%88%99%E7%BB%84%E8%AF%A6%E6%83%85" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkGetCustomerStrategyRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest">
+            <summary>
+            修改客户备注信息请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92115" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.UserId">
+            <summary>
+            企业成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.ExternalUserId">
+            <summary>
+            外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.Remark">
+            <summary>
+            此用户对外部联系人的备注，最多20个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.Description">
+            <summary>
+            此用户对外部联系人的描述，最多150个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.RemarkCompany">
+            <summary>
+            此用户对外部联系人备注的所属公司名称，最多20个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.RemarkMobiles">
+            <summary>
+            此用户对外部联系人备注的手机号
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerRemarkRequest.RemarkPictureMediaId">
+            <summary>
+            备注图片的mediaid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest">
+            <summary>
+            编辑规则组及其管理范围请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883#%E7%BC%96%E8%BE%91%E8%A7%84%E5%88%99%E7%BB%84%E5%8F%8A%E5%85%B6%E7%AE%A1%E7%90%86%E8%8C%83%E5%9B%B4" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.StrategyName">
+            <summary>
+            规则组名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.AdminList">
+            <summary>
+            规则组管理员userid列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.Privilege">
+            <summary>
+            规则组权限
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.CreateRange">
+            <summary>
+            新增管理范围
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Request.WeChatWorkUpdateCustomerStrategyRequest.DeleteRange">
+            <summary>
+            删除管理范围
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkBulkGetCustomerResponse">
+            <summary>
+            批量获取客户详情响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92994" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkBulkGetCustomerResponse.ExternalUserId">
+            <summary>
+            外部联系人的userid列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkBulkGetCustomerResponse.NextCursor">
+            <summary>
+            分页游标，再下次请求时填写以获取之后分页的记录，如果已经没有更多的数据则返回空
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkBulkGetCustomerResponse.FailInfo">
+            <summary>
+            若请求中所有userid都无有效互通许可，接口直接报错701008。如果部分userid无有效互通许可，接口返回成功
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkBulkGetCustomerFailInfo.UnlicensedUseridList">
+            <summary>
+            无许可的userid列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkCreateCustomerStrategyResponse">
+            <summary>
+            创建新的规则组响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkCreateCustomerStrategyResponse.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerListResponse">
+            <summary>
+            获取客户列表响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92113" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerListResponse.ExternalUserId">
+            <summary>
+            外部联系人的userid列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerResponse">
+            <summary>
+            获取客户详情响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92114" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerResponse.ExternalContact">
+            <summary>
+            外部联系人信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerResponse.FollowUser">
+            <summary>
+            添加了此外部联系人的企业成员
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerResponse.NextCursor">
+            <summary>
+            分页的cursor，当跟进人多于500人时返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyListResponse">
+            <summary>
+            获取规则组列表响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyListResponse.Strategy">
+            <summary>
+            规则组列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyListResponse.NextCursor">
+            <summary>
+            分页游标，用于查询下一个分页的数据，无更多数据时不返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyRangeResponse">
+            <summary>
+            获取规则组管理范围响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyRangeResponse.Range">
+            <summary>
+            规则组管理范围
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyRangeResponse.NextCursor">
+            <summary>
+            分页游标，用于查询下一个分页的数据，无更多数据时不返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyResponse">
+            <summary>
+            获取规则组详情响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94883" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Customers.Response.WeChatWorkGetCustomerStrategyResponse.Strategy">
+            <summary>
+            规则组详情
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Features.WeChatWorkExternalContactFeatureNames">
+            <summary>
+            企业微信客户联系模块功能
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Features.WeChatWorkExternalContactFeatureNames.Enable">
+            <summary>
+            启用企业微信客户联系
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Follows.IWeChatWorkFollowUserProvider">
+            <summary>
+            企业服务人员管理接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Follows.IWeChatWorkFollowUserProvider.GetFollowUserListAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取配置了客户联系功能的成员列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92571" />
+            </remarks>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Follows.Response.WeChatWorkGetFollowUserListResponse">
+            <summary>
+            获取配置了客户联系功能的成员列表响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91853" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Follows.Response.WeChatWorkGetFollowUserListResponse.FollowUser">
+            <summary>
+            配置了客户联系功能的成员userid列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.IWeChatWorkGroupChatProvider">
+            <summary>
+            客户群管理接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.IWeChatWorkGroupChatProvider.GetGroupChatListAsync(LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取客户群列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92120" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.IWeChatWorkGroupChatProvider.GetGroupChatAsync(LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取客户群详情
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92122" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.IWeChatWorkGroupChatProvider.OpengIdToChatIdAsync(LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkOpengIdToChatIdRequest,System.Threading.CancellationToken)">
+            <summary>
+            客户群opengid转换
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94822" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChat">
+            <summary>
+            客户群
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChat.ChatId">
+            <summary>
+            客户群ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChat.Status">
+            <summary>
+            客户群跟进状态
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo">
+            <summary>
+            客户群详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.ChatId">
+            <summary>
+            客户群ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.Name">
+            <summary>
+            群名
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.Owner">
+            <summary>
+            群主ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.CreateTime">
+            <summary>
+            群的创建时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.Notice">
+            <summary>
+            群公告
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.MemberList">
+            <summary>
+            群成员列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.AdminList">
+            <summary>
+            群管理员列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInfo.MemberVersion">
+            <summary>
+            当前群成员版本号。可以配合客户群变更事件减少主动调用本接口的次数
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInvitor">
+            <summary>
+            邀请者
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatInvitor.UserId">
+            <summary>
+            邀请者的userid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatManager">
+            <summary>
+            群管理员
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatManager.UserId">
+            <summary>
+            群管理员userid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember">
+            <summary>
+            群成员
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.UserId">
+            <summary>
+            群成员id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.Type">
+            <summary>
+            成员类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.UnionId">
+            <summary>
+            外部联系人在微信开放平台的唯一身份标识（微信unionid），通过此字段企业可将外部联系人与公众号/小程序用户关联起来。<br />
+            仅当群成员类型是微信用户（包括企业成员未添加好友），且企业绑定了微信开发者ID有此字段
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.JoinTime">
+            <summary>
+            入群时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.JoinScene">
+            <summary>
+            入群方式
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.Invitor">
+            <summary>
+            邀请者。目前仅当是由本企业内部成员邀请入群时会返回该值
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.GroupNickname">
+            <summary>
+            在群里的昵称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMember.Name">
+            <summary>
+            名字。仅当 need_name = 1 时返回<br />
+            如果是微信用户，则返回其在微信中设置的名字<br />
+            如果是企业微信联系人，则返回其设置对外展示的别名或实名
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberJoinScene">
+            <summary>
+            入群方式
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberJoinScene.DirectInvitation">
+            <summary>
+            由群成员邀请入群（直接邀请入群）
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberJoinScene.InvitationLink">
+            <summary>
+            由群成员邀请入群（通过邀请链接入群）
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberJoinScene.ScanQrCode">
+            <summary>
+            通过扫描群二维码入群
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberType">
+            <summary>
+            成员类型
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberType.Internal">
+            <summary>
+            企业成员
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatMemberType.External">
+            <summary>
+            外部联系人
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatStatus">
+            <summary>
+            客户群跟进状态
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatStatus.Normal">
+            <summary>
+            跟进人正常
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatStatus.Leaves">
+            <summary>
+            跟进人离职
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatStatus.Resiging">
+            <summary>
+            离职继承中
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.GroupChatStatus.ResignCompleted">
+            <summary>
+            离职继承完成
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.OwnerFilter">
+            <summary>
+            群主过滤
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.OwnerFilter.UserIdList">
+            <summary>
+            用户ID列表。最多100个
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.StatusFilter">
+            <summary>
+            客户群跟进状态过滤
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.StatusFilter.All">
+            <summary>
+            所有列表
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.StatusFilter.Leaves">
+            <summary>
+            跟进人离职
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.StatusFilter.Resiging">
+            <summary>
+            离职继承中
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Models.StatusFilter.ResignCompleted">
+            <summary>
+            离职继承完成
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest">
+            <summary>
+            获取客户群列表请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92120" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest.StatusFilter">
+            <summary>
+            客户群跟进状态过滤
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest.OwnerFilter">
+            <summary>
+            客户群跟进状态过滤
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest.Cursor">
+            <summary>
+            用于分页查询的游标，字符串类型，由上一次调用返回，首次调用不填
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatListRequest.Limit">
+            <summary>
+            分页，预期请求的数据量，取值范围 1 ~ 1000
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatRequest">
+            <summary>
+            获取客户群详情
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92122" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatRequest.ChatId">
+            <summary>
+            客户群ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkGetGroupChatRequest.NeedName">
+            <summary>
+            是否需要返回群成员的名字group_chat.member_list.name。0-不返回；1-返回。默认不返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkOpengIdToChatIdRequest">
+            <summary>
+            客户群opengid转换请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94822" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Request.WeChatWorkOpengIdToChatIdRequest.OpengId">
+            <summary>
+            小程序在微信获取到的群ID
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkGetGroupChatListResponse">
+            <summary>
+            获取客户群列表响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92120" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkGetGroupChatListResponse.GroupChatList">
+            <summary>
+            客户群列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkGetGroupChatListResponse.NextCursor">
+            <summary>
+            分页游标，下次请求时填写以获取之后分页的记录。如果该字段返回空则表示已没有更多数据
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkGetGroupChatResponse">
+            <summary>
+            获取客户群详情响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92122" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkGetGroupChatResponse.GroupChat">
+            <summary>
+            客户群详情
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkOpengIdToChatIdResponse">
+            <summary>
+            客户群opengid转换响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94822" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.GroupChats.Response.WeChatWorkOpengIdToChatIdResponse.ChatId">
+            <summary>
+            客户群ID，可以用来调用获取客户群详情
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchaDelMemberEvent">
+            <summary>
+            客户群成员退群事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchaDelMemberEvent.QuitScene">
+            <summary>
+            当是成员退群时有值。表示成员的退群方式<br />
+            0 - 自己退群<br />
+            1 - 群主/群管理员移出<br />
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatAddMemberEvent">
+            <summary>
+            客户群成员入群事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatAddMemberEvent.JoinScene">
+            <summary>
+            当是成员入群时有值。表示成员的入群方式<br />
+            0 - 由成员邀请入群（包括直接邀请入群和通过邀请链接入群）<br />
+            3 - 通过扫描群二维码入群<br />
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeEvent">
+            <summary>
+            客户群变更事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeEvent.ChangeType">
+            <summary>
+            变更类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeEvent.ChatId">
+            <summary>
+            群ID
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMemberEvent">
+            <summary>
+            客户群成员变更事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMemberEvent.MemChangeCnt">
+            <summary>
+            成员变更数量
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMemberEvent.MemChangeList">
+            <summary>
+            变更的成员列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMemberEvent.LastMemVer">
+            <summary>
+            变更前的群成员版本号
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMemberEvent.CurMemVer">
+            <summary>
+            变更后的群成员版本号
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeMember.UserId">
+            <summary>
+            成员Id
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeNameEvent">
+            <summary>
+            客户群群名变更事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeNoticeEvent">
+            <summary>
+            客户群群公告变更事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatChangeOwnerEvent">
+            <summary>
+            客户群群主变更事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatCreateEvent">
+            <summary>
+            客户群创建事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatDismissEvent">
+            <summary>
+            客户群解散事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberJoinScene">
+            <summary>
+            成员的入群方式
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberJoinScene.MemberInvitation">
+            <summary>
+            由成员邀请入群
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberJoinScene.ScanQrCode">
+            <summary>
+            通过扫描群二维码入群
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberQuitScene">
+            <summary>
+            成员的退群方式
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberQuitScene.UserSelf">
+            <summary>
+            自己退群
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatMemberQuitScene.Admin">
+            <summary>
+            群主/群管理员移出
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatUpdateEvent">
+            <summary>
+            客户群变更事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalchatUpdateEvent.UpdateDetail">
+            <summary>
+            变更详情。目前有以下几种：<br />
+            add_member : 成员入群<br />
+            del_member : 成员退群<br />
+            change_owner : 群主变更<br />
+            change_name : 群名变更<br />
+            change_notice : 群公告变更
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactChangeEvent">
+            <summary>
+            企业客户变更事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactChangeEvent.ChangeType">
+            <summary>
+            变更类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactChangeEvent.UserId">
+            <summary>
+            企业服务人员的UserID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactChangeEvent.ExternalUserId">
+            <summary>
+            外部联系人的userid，注意不是企业成员的账号
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateEvent">
+            <summary>
+            添加企业客户事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateEvent.State">
+            <summary>
+            添加此用户的「联系我」方式配置的state参数，或在获客链接中指定的customer_channel参数，可用于识别添加此用户的渠道
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateEvent.WelcomeCode">
+            <summary>
+            欢迎语code，可用于发送欢迎语
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateHalfEvent">
+            <summary>
+            外部联系人免验证添加成员事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateHalfEvent.State">
+            <summary>
+            添加此用户的「联系我」方式配置的state参数，或在获客链接中指定的customer_channel参数，可用于识别添加此用户的渠道
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactCreateHalfEvent.WelcomeCode">
+            <summary>
+            欢迎语code，可用于发送欢迎语
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactDeleteEvent">
+            <summary>
+            删除企业客户事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactDeleteEvent.Source">
+            <summary>
+            删除客户的操作来源，DELETE_BY_TRANSFER表示此客户是因在职继承自动被转接成员删除
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactDeleteFollowUserEvent">
+            <summary>
+            删除跟进成员事件
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactMsgAuditApprovedEvent">
+            <summary>
+            客户同意进行聊天内容存档事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactMsgAuditApprovedEvent.WelcomeCode">
+            <summary>
+            欢迎语code，可用于发送欢迎语
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactMsgAuditNotifyEvent">
+            <summary>
+            产生会话回调事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactTransferFailEvent">
+            <summary>
+            客户接替失败事件
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactTransferFailEvent.FailReason">
+            <summary>
+            接替失败的原因, customer_refused-客户拒绝， customer_limit_exceed-接替成员的客户数达到上限
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalContactUpdateEvent">
+            <summary>
+            编辑企业客户事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagChangeEvent">
+            <summary>
+            企业客户标签变更事件推送
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagChangeEvent.ChangeType">
+            <summary>
+            变更类型
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagChangeEvent.StrategyId">
+            <summary>
+            标签或标签组所属的规则组id，只回调给“客户联系”应用
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagCreateEvent">
+            <summary>
+            企业客户标签创建事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagDeleteEvent">
+            <summary>
+            企业客户标签删除事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagShuffleEvent">
+            <summary>
+            企业客户标签重排事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Messages.Models.ExternalTagUpdateEvent">
+            <summary>
+            企业客户标签变更事件推送
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.IWeChatWorkMsgAuditProvider">
+            <summary>
+            会话存档接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.IWeChatWorkMsgAuditProvider.GetPermitUserListAsync(LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取会话内容存档开启成员列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91614" />
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.IWeChatWorkMsgAuditProvider.CheckSingleAgreeAsync(LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckSingleAgreeRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取单聊会话同意情况
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.IWeChatWorkMsgAuditProvider.CheckRoomAgreeAsync(LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckRoomAgreeRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取群聊会话同意情况
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.IWeChatWorkMsgAuditProvider.GetGroupChatAsync(LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetGroupChatRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取会话内容存档内部群信息
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92951" />
+            </remarks>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomAgreeInfo">
+            <summary>
+            群聊同意情况
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomAgreeInfo.ExteranalOpenId">
+            <summary>
+            外部成员的exteranalopenid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomAgreeInfo.AgreeStatus">
+            <summary>
+            同意:"Agree"，不同意:"Disagree"
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomAgreeInfo.StatusChangeTime">
+            <summary>
+            同意状态改变的具体时间，utc时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomMember">
+            <summary>
+            群聊成员
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomMember.MemberId">
+            <summary>
+            roomid群成员的id，userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.RoomMember.JoinTime">
+            <summary>
+            roomid群成员的入群时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.UserAgreeInfo">
+            <summary>
+            单聊同意情况
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.UserAgreeInfo.UserId">
+            <summary>
+            内部成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.UserAgreeInfo.ExteranalOpenId">
+            <summary>
+            外部成员的exteranalopenid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.UserAgreeInfo.AgreeStatus">
+            <summary>
+            同意:"Agree"，不同意:"Disagree"
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Models.UserAgreeInfo.StatusChangeTime">
+            <summary>
+            同意状态改变的具体时间，utc时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckRoomAgreeRequest">
+            <summary>
+            获取群聊会话同意情况请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckRoomAgreeRequest.RoomId">
+            <summary>
+            待查询的roomid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckSingleAgreeRequest">
+            <summary>
+            获取单聊会话同意情况请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckSingleAgreeRequest.UserId">
+            <summary>
+            内部成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkCheckSingleAgreeRequest.ExteranalOpenId">
+            <summary>
+            外部成员的exteranalopenid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetGroupChatRequest">
+            <summary>
+            获取会话内容存档内部群信息请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92951" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetGroupChatRequest.RoomId">
+            <summary>
+            待查询的roomid
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest">
+            <summary>
+            获取会话内容存档开启成员列表请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91614" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest.Type">
+            <summary>
+            拉取对应版本的开启成员列表。1表示办公版；2表示服务版；3表示企业版。非必填，不填写的时候返回全量成员列表
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest.Default">
+            <summary>
+            默认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest.Office">
+            <summary>
+            办公版
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest.Service">
+            <summary>
+            服务版
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Request.WeChatWorkGetPermitUserListRequest.Enterprise">
+            <summary>
+            企业版
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkCheckRoomAgreeResponse">
+            <summary>
+            获取群聊会话同意情况响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkCheckRoomAgreeResponse.AgreeInfo">
+            <summary>
+            同意情况
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkCheckSingleAgreeResponse">
+            <summary>
+            获取单聊会话同意情况响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkCheckSingleAgreeResponse.AgreeInfo">
+            <summary>
+            同意情况
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse">
+            <summary>
+            获取会话内容存档内部群信息响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91782" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse.RoomName">
+            <summary>
+            roomid对应的群名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse.Creator">
+            <summary>
+            roomid对应的群创建者，userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse.RoomCreateTime">
+            <summary>
+            roomid对应的群创建时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse.Notice">
+            <summary>
+            roomid对应的群公告
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetGroupChatResponse.Members">
+            <summary>
+            roomid对应的群成员列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetPermitUserListResponse">
+            <summary>
+            获取会话内容存档开启成员列表响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/91614" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.MsgAudits.Response.WeChatWorkGetPermitUserListResponse.Ids">
+            <summary>
+            设置在开启范围内的成员的userid列表
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Settings.WeChatWorkExternalContactSettingNames.Secret">
+            <summary>
+            客户联系应用Srcret
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider">
+            <summary>
+            客户标签管理
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider.GetCropTagListAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetCropTagListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取企业标签库
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E8%8E%B7%E5%8F%96%E4%BC%81%E4%B8%9A%E6%A0%87%E7%AD%BE%E5%BA%93" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider.CreateCropTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            添加企业客户标签
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E6%B7%BB%E5%8A%A0%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider.UpdateCropTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            编辑企业客户标签
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E7%BC%96%E8%BE%91%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider.DeleteCropTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteCropTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            删除企业客户标签
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E5%88%A0%E9%99%A4%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkCropTagProvider.MarkCropTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            编辑客户企业标签
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92118" />
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkStrategyTagProvider">
+            <summary>
+            规则组标签管理
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkStrategyTagProvider.GetStrategyTagListAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetStrategyTagListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取指定规则组下的企业客户标签
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E4%B8%8B%E7%9A%84%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkStrategyTagProvider.CreateStrategyTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            为指定规则组创建企业客户标签
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E4%B8%8B%E7%9A%84%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkStrategyTagProvider.UpdateStrategyTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateStrategyTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            编辑指定规则组下的企业客户标签
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E7%BC%96%E8%BE%91%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E4%B8%8B%E7%9A%84%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Tags.IWeChatWorkStrategyTagProvider.DeleteStrategyTagAsync(LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteStrategyTagRequest,System.Threading.CancellationToken)">
+            <summary>
+            删除指定规则组下的企业客户标签
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E4%B8%8B%E7%9A%84%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.CropTag.Deleted">
+            <summary>
+            标签是否已经被删除，只在指定tag_id/group_id进行查询时返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.CropTagGroup.Deleted">
+            <summary>
+            标签组是否已经被删除，只在指定tag_id进行查询时返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.CropTagGroup.Tag">
+            <summary>
+            标签列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.StrategyTagGroup.StrategyId">
+            <summary>
+            标签组所属的规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.StrategyTagGroup.Tag">
+            <summary>
+            标签列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.Tag.Id">
+            <summary>
+            标签id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.Tag.Name">
+            <summary>
+            标签名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.Tag.CreateTime">
+            <summary>
+            标签创建时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.Tag.Order">
+            <summary>
+            标签排序的次序值，order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.TagGroup.GroupId">
+            <summary>
+            标签组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.TagGroup.GroupName">
+            <summary>
+            标签组名称
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.TagGroup.CreateTime">
+            <summary>
+            标签组创建时间
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Models.TagGroup.Order">
+            <summary>
+            标签组排序的次序值，order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest">
+            <summary>
+            添加企业客户标签请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E6%B7%BB%E5%8A%A0%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest.GroupId">
+            <summary>
+            标签组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest.GroupName">
+            <summary>
+            标签组名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest.Order">
+            <summary>
+            标签组排序的次序值，order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest.AgentId">
+            <summary>
+            授权方安装的应用agentid。仅旧的第三方多应用套件需要填此参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateCropTagRequest.Tag">
+            <summary>
+            添加的标签组
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.NewCropTag.Name">
+            <summary>
+            添加的标签名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.NewCropTag.Order">
+            <summary>
+            标签次序值。order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest.GroupId">
+            <summary>
+            标签组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest.GroupName">
+            <summary>
+            标签组名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest.Order">
+            <summary>
+            标签组排序的次序值，order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkCreateStrategyTagRequest.Tag">
+            <summary>
+            添加的标签组
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.NewStrategyTag.Name">
+            <summary>
+            添加的标签名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.NewStrategyTag.Order">
+            <summary>
+            标签次序值。order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteCropTagRequest">
+            <summary>
+            删除企业客户标签请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E5%88%A0%E9%99%A4%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteCropTagRequest.GroupId">
+            <summary>
+            标签组的id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteCropTagRequest.TagId">
+            <summary>
+            标签组的id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteCropTagRequest.AgentId">
+            <summary>
+            授权方安装的应用agentid。仅旧的第三方多应用套件需要填此参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteStrategyTagRequest.GroupId">
+            <summary>
+            标签组的id列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkDeleteStrategyTagRequest.TagId">
+            <summary>
+            标签组的id列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetCropTagListRequest">
+            <summary>
+            获取企业标签库请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E8%8E%B7%E5%8F%96%E4%BC%81%E4%B8%9A%E6%A0%87%E7%AD%BE%E5%BA%93" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetCropTagListRequest.TagId">
+            <summary>
+            要查询的标签id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetCropTagListRequest.GroupId">
+            <summary>
+            要查询的标签组id，返回该标签组以及其下的所有标签信息
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetStrategyTagListRequest.StrategyId">
+            <summary>
+            规则组id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetStrategyTagListRequest.TagId">
+            <summary>
+            要查询的标签id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkGetStrategyTagListRequest.GroupId">
+            <summary>
+            要查询的标签组id，返回该标签组以及其下的所有标签信息
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest">
+            <summary>
+            编辑客户企业标签请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92118" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest.UserId">
+            <summary>
+            添加外部联系人的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest.ExternalUserId">
+            <summary>
+            外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest.CreateTag">
+            <summary>
+            要标记的标签列表
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkMarkCropTagRequest.RemoveTag">
+            <summary>
+            要移除的标签列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest">
+            <summary>
+            编辑企业客户标签请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E7%BC%96%E8%BE%91%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest.Id">
+            <summary>
+            标签或标签组的id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest.Name">
+            <summary>
+            新的标签或标签组名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest.Order">
+            <summary>
+            标签/标签组的次序值。order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateCropTagRequest.AgentId">
+            <summary>
+            授权方安装的应用agentid。仅旧的第三方多应用套件需要填此参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateStrategyTagRequest.Id">
+            <summary>
+            标签或标签组的id
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateStrategyTagRequest.Name">
+            <summary>
+            新的标签或标签组名称，最长为30个字符
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Request.WeChatWorkUpdateStrategyTagRequest.Order">
+            <summary>
+            标签/标签组的次序值。order值大的排序靠前。有效的值范围是[0, 2^32)
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkCreateCropTagResponse">
+            <summary>
+            添加企业客户标签响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E6%B7%BB%E5%8A%A0%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkCreateCropTagResponse.TagGroup">
+            <summary>
+            标签组
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkCreateStrategyTagResponse">
+            <summary>
+            为指定规则组创建企业客户标签
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E4%B8%BA%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkCreateStrategyTagResponse.TagGroup">
+            <summary>
+            标签组
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkGetCropTagListResponse">
+            <summary>
+            获取企业标签库响应参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92117#%E8%8E%B7%E5%8F%96%E4%BC%81%E4%B8%9A%E6%A0%87%E7%AD%BE%E5%BA%93" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkGetCropTagListResponse.TagGroup">
+            <summary>
+            标签组列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkGetStrategyTagListResponse">
+            <summary>
+            获取指定规则组下的企业客户标签响应参数
+            </summary>
+            <remarks>
+            详情见: https://developer.work.weixin.qq.com/document/path/94882#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E8%A7%84%E5%88%99%E7%BB%84%E4%B8%8B%E7%9A%84%E4%BC%81%E4%B8%9A%E5%AE%A2%E6%88%B7%E6%A0%87%E7%AD%BE
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Tags.Response.WeChatWorkGetStrategyTagListResponse.TagGroup">
+            <summary>
+            标签组列表
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Token.IWeChatWorkExternalContactTokenProvider">
+            <summary>
+            客户联系应用Token提供者
+            </summary>
+            <remarks>
+            企业微信部分接口需要使用客户联系应用Token
+            </remarks>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Token.IWeChatWorkExternalContactTokenProvider.GetTokenAsync(System.Threading.CancellationToken)">
+            <summary>
+            获取客户联系应用Token
+            </summary>
+            <remarks>
+            参考：https://developer.work.weixin.qq.com/document/path/91039
+            </remarks>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkEmployExtendProvider">
+            <summary>
+            在职继承接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkEmployExtendProvider.TransferCustomerAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest,System.Threading.CancellationToken)">
+            <summary>
+            分配在职成员的客户
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92124"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkEmployExtendProvider.GetTransferResultAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetTransferResultRequest,System.Threading.CancellationToken)">
+            <summary>
+            查询客户接替状态
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94088"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkEmployExtendProvider.GroupChatOnjobTransferAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatOnjobTransferRequest,System.Threading.CancellationToken)">
+            <summary>
+            分配在职成员的客户群
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/95703"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkResignExtendProvider">
+            <summary>
+            离职继承接口
+            </summary>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkResignExtendProvider.GetUnassignedListAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetUnassignedListRequest,System.Threading.CancellationToken)">
+            <summary>
+            获取待分配的离职成员列表
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92124"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkResignExtendProvider.ResignedTransferCustomerAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkResignedTransferCustomerRequest,System.Threading.CancellationToken)">
+            <summary>
+            分配离职成员的客户
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94081"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkResignExtendProvider.GetResignedTransferResultAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetResignedTransferResultRequest,System.Threading.CancellationToken)">
+            <summary>
+            查询客户接替状态
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94082"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LCH.Abp.WeChat.Work.ExternalContact.Transfers.IWeChatWorkResignExtendProvider.GroupChatTransferAsync(LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatTransferRequest,System.Threading.CancellationToken)">
+            <summary>
+            分配离职成员的客户群
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92127"/>
+            </remarks>
+            <param name="request">请求参数</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.GroupChatTransferFailed">
+            <summary>
+            没能成功继承的群详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.GroupChatTransferFailed.ChatId">
+            <summary>
+            没能成功继承的群ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.GroupChatTransferFailed.ErrCode">
+            <summary>
+            没能成功继承的群，错误码
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.GroupChatTransferFailed.ErrMsg">
+            <summary>
+            没能成功继承的群，错误描述
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferCustomer.ExternalUserid">
+            <summary>
+            客户的外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferCustomer.ErrCode">
+            <summary>
+            对此客户进行分配的结果, 具体可参考全局错误码, 0表示成功发起接替,待24小时后自动接替,并不代表最终接替成功
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferCustomerResult.ExternalUserid">
+            <summary>
+            客户的外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferCustomerResult.Status">
+            <summary>
+            接替状态
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferCustomerResult.TakeoverTime">
+            <summary>
+            接替客户的时间，如果是等待接替状态，则为未来的自动接替时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferStatus">
+            <summary>
+            接替状态
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferStatus.Completed">
+            <summary>
+            接替完毕
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferStatus.Pending">
+            <summary>
+            等待接替
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferStatus.CustomerReject">
+            <summary>
+            客户拒绝
+            </summary>
+        </member>
+        <member name="F:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.TransferStatus.ReachesLimit">
+            <summary>
+            接替成员客户达到上限
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedCustomerInfo.HandoverUserid">
+            <summary>
+            离职成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedCustomerInfo.ExternalUserid">
+            <summary>
+            外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedCustomerInfo.DimissionTime">
+            <summary>
+            成员离职时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomer">
+            <summary>
+            分配离职成员客户详情
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomer.ExternalUserid">
+            <summary>
+            客户的外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomer.ErrCode">
+            <summary>
+            对此客户进行分配的结果,0表示开始分配流程,待24小时后自动接替,并不代表最终分配成功
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomerResult">
+            <summary>
+            分配离职成员客户接替状态结果
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomerResult.ExternalUserid">
+            <summary>
+            转接客户的外部联系人userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomerResult.Status">
+            <summary>
+            接替状态
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Models.UnassignedTransferCustomerResult.TakeoverTime">
+            <summary>
+            接替客户的时间，如果是等待接替状态，则为未来的自动接替时间
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetResignedTransferResultRequest">
+            <summary>
+            查询离职成员的客户接替状态请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94082" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetResignedTransferResultRequest.HandOverUserId">
+            <summary>
+            原添加成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetResignedTransferResultRequest.TakeOverUserId">
+            <summary>
+            接替成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetResignedTransferResultRequest.Cursor">
+            <summary>
+            分页查询的cursor，每个分页返回的数据不会超过1000条；不填或为空表示获取第一个分页
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetTransferResultRequest">
+            <summary>
+            查询客户接替状态请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94088" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetTransferResultRequest.HandOverUserId">
+            <summary>
+            原跟进成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetTransferResultRequest.TakeOverUserId">
+            <summary>
+            接替成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetTransferResultRequest.Cursor">
+            <summary>
+            分页查询的cursor，每个分页返回的数据不会超过1000条；不填或为空表示获取第一个分页
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetUnassignedListRequest.Cursor">
+            <summary>
+            分页查询游标，字符串类型，适用于数据量较大的情况，如果使用该参数则无需填写page_id，该参数由上一次调用返回
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGetUnassignedListRequest.PageSize">
+            <summary>
+            每次返回的最大记录数，默认为1000，最大值为1000
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatOnjobTransferRequest">
+            <summary>
+            分配在职成员的客户群请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/95703" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatOnjobTransferRequest.NewOwner">
+            <summary>
+            新群主ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatOnjobTransferRequest.ChatIdList">
+            <summary>
+            需要转群主的客户群ID列表。取值范围： 1 ~ 100
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatTransferRequest">
+            <summary>
+            分配离职成员的客户群请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92127" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatTransferRequest.NewOwner">
+            <summary>
+            新群主ID
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkGroupChatTransferRequest.ChatIdList">
+            <summary>
+            需要转群主的客户群ID列表。取值范围： 1 ~ 100
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkResignedTransferCustomerRequest">
+            <summary>
+            分配离职成员的客户请求参数
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkResignedTransferCustomerRequest.HandoverUserId">
+            <summary>
+            原跟进成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkResignedTransferCustomerRequest.TakeoverUserId">
+            <summary>
+            接替成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkResignedTransferCustomerRequest.ExternalUserId">
+            <summary>
+            客户的external_userid列表，每次最多分配100个客户
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest">
+            <summary>
+            分配在职成员的客户请求参数
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92125" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest.HandoverUserId">
+            <summary>
+            原跟进成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest.TakeoverUserId">
+            <summary>
+            接替成员的userid
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest.ExternalUserId">
+            <summary>
+            客户的external_userid列表，每次最多分配100个客户
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Request.WeChatWorkTransferCustomerRequest.TransferSuccessMsg">
+            <summary>
+            转移成功后发给客户的消息，最多200个字符，不填则使用默认文案
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetResignedTransferResultResponse">
+            <summary>
+            查询离职人员客户接替状态响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94082" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetResignedTransferResultResponse.Customer">
+            <summary>
+            转接客户
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetResignedTransferResultResponse.NextCursor">
+            <summary>
+            下个分页的起始cursor
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetTransferResultResponse">
+            <summary>
+            查询客户接替状态响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94088" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetTransferResultResponse.Customer">
+            <summary>
+            分配客户
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetTransferResultResponse.NextCursor">
+            <summary>
+            下个分页的起始cursor
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetUnassignedListResponse">
+            <summary>
+            获取待分配的离职成员列表响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92124" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetUnassignedListResponse.Info">
+            <summary>
+            待分配离职成员的客户
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetUnassignedListResponse.IsLast">
+            <summary>
+            是否是最后一条记录
+            </summary>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGetUnassignedListResponse.NextCursor">
+            <summary>
+            分页查询游标,已经查完则返回空("")，使用page_id作为查询参数时不返回
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGroupChatOnjobTransferResponse">
+            <summary>
+            分配在职成员的客户群响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/95703" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGroupChatOnjobTransferResponse.FailedChatList">
+            <summary>
+            没能成功继承的群
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGroupChatTransferResponse">
+            <summary>
+            分配离职成员的客户群响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92127" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkGroupChatTransferResponse.FailedChatList">
+            <summary>
+            没能成功继承的群
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkResignedTransferCustomerResponse">
+            <summary>
+            分配离职成员的客户响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/94081" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkResignedTransferCustomerResponse.Customer">
+            <summary>
+            分配离职成员客户结果
+            </summary>
+        </member>
+        <member name="T:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkTransferCustomerResponse">
+            <summary>
+            分配在职成员的客户响应结果
+            </summary>
+            <remarks>
+            详情见: <see href="https://developer.work.weixin.qq.com/document/path/92125" />
+            </remarks>
+        </member>
+        <member name="P:LCH.Abp.WeChat.Work.ExternalContact.Transfers.Response.WeChatWorkTransferCustomerResponse.Customer">
+            <summary>
+            分配客户
+            </summary>
+        </member>
+    </members>
+</doc>

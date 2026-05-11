@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<Version>9.3.6</Version>
+		<Copyright>colin</Copyright>
+		<Description>Use LCH.MicroService.Templates command line</Description>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>labp</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/colinin/abp-next-admin</PackageProjectUrl>
+		<PackReadmeFile>README.md</PackReadmeFile>
+		<RootNamespace />
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+		<None Remove="LCH\Abp\Cli\UI\Vben\Templates\*.tpl" />
+		<EmbeddedResource Include="LCH\Abp\Cli\UI\Vben\Templates\*.tpl" />
+		<None Remove="LCH\Abp\Cli\UI\Flutter\GetX\Templates\*.tpl" />
+		<EmbeddedResource Include="LCH\Abp\Cli\UI\Flutter\GetX\Templates\*.tpl" />
+		<EmbeddedResource Include="README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CSharp" />
+		<!--<PackageReference Include="NETStandard.Library" Version="2.0.3" />-->
+		<PackageReference Include="Serilog.Extensions.Logging" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.Cli.Core" />
+		<PackageReference Include="Volo.Abp.TextTemplating.Scriban" />
+	</ItemGroup>
+
+</Project>

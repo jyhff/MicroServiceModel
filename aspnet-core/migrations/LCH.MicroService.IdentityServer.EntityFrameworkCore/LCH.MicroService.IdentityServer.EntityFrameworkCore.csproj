@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>LCH.MicroService.IdentityServer.EntityFrameworkCore</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.MySql.Pomelo" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\framework\wechat\LCH.Abp.WeChat\LCH.Abp.WeChat.csproj" />
+		<ProjectReference Include="..\..\modules\gdpr\LCH.Abp.Gdpr.EntityFrameworkCore\LCH.Abp.Gdpr.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\identityServer\LCH.Abp.IdentityServer.EntityFrameworkCore\LCH.Abp.IdentityServer.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.Application.Contracts\LCH.Abp.Identity.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.EntityFrameworkCore\LCH.Abp.Identity.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\localization-management\LCH.Abp.LocalizationManagement.EntityFrameworkCore\LCH.Abp.LocalizationManagement.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Platform.EntityFrameworkCore\LCH.Platform.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.EntityFrameworkCore\LCH.Abp.Saas.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.EntityFrameworkCore\LCH.Abp.TextTemplating.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>

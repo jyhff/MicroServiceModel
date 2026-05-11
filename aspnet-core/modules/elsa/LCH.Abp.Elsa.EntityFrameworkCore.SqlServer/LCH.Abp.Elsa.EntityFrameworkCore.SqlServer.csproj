@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Elsa.EntityFrameworkCore.SqlServer</AssemblyName>
+		<PackageId>LCH.Abp.Elsa.EntityFrameworkCore.SqlServer</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\Elsa\EntityFrameworkCore\SqlServer\Migrations\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\Elsa\EntityFrameworkCore\SqlServer\Migrations\Initial.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Elsa.Webhooks.Persistence.EntityFramework.SqlServer" />
+		<PackageReference Include="Elsa.WorkflowSettings.Persistence.EntityFramework.SqlServer" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.Elsa.EntityFrameworkCore\LCH.Abp.Elsa.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Elsa\LCH.Abp.Elsa.csproj" />
+	</ItemGroup>
+
+</Project>

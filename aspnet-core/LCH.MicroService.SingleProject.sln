@@ -1,0 +1,89 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11716.218
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{B4247B78-34BC-4A3F-91A4-661F7DCD6E10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "migrations", "migrations", "{DE48451F-D4CB-4C9F-B300-4CA0B8ED9E1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1A85853-3504-45A8-A745-5091E9240682}"
+	ProjectSection(SolutionItems) = preProject
+		..\common.props = ..\common.props
+		..\common.secrets.props = ..\common.secrets.props
+		..\configureawait.props = ..\configureawait.props
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\Directory.Packages.props = ..\Directory.Packages.props
+		..\NuGet.Config = ..\NuGet.Config
+		..\README.en.md = ..\README.en.md
+		..\README.md = ..\README.md
+		..\docs\startup-aio-readme.md = ..\docs\startup-aio-readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "single-project", "single-project", "{0D69B63D-F082-4D57-9FF0-355642C56993}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCH.MicroService.Applications.Single.EntityFrameworkCore", "migrations\LCH.MicroService.Applications.Single.EntityFrameworkCore\LCH.MicroService.Applications.Single.EntityFrameworkCore.csproj", "{7623D363-F0BD-400C-B8AB-3FD9699D92D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCH.MicroService.Applications.Single.DbMigrator", "migrations\LCH.MicroService.Applications.Single.DbMigrator\LCH.MicroService.Applications.Single.DbMigrator.csproj", "{E2BA59EA-769B-4D5B-8032-CB9682D0D73A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCH.MicroService.Applications.Single.EntityFrameworkCore.SqlServer", "migrations\LCH.MicroService.Applications.Single.EntityFrameworkCore.SqlServer\LCH.MicroService.Applications.Single.EntityFrameworkCore.SqlServer.csproj", "{30EEF879-CFF7-4661-89CB-9CB68328D008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCH.AIO.Applications.Single", "services\LCH.AIO.Applications.Single\LCH.AIO.Applications.Single.csproj", "{37740138-D088-46F5-83A8-8A8180FE65D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCH.MicroService.Applications.Single.EntityFrameworkCore.MySql", "migrations\LCH.MicroService.Applications.Single.EntityFrameworkCore.MySql\LCH.MicroService.Applications.Single.EntityFrameworkCore.MySql.csproj", "{746813A9-4221-42D8-AAB5-66CB69EC844F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCH.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql", "migrations\LCH.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql\LCH.MicroService.Applications.Single.EntityFrameworkCore.PostgreSql.csproj", "{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCH.Abp.UI.Navigation.VueVbenAdmin5", "modules\platform\LCH.Abp.UI.Navigation.VueVbenAdmin5\LCH.Abp.UI.Navigation.VueVbenAdmin5.csproj", "{113167DA-602A-4EBE-9357-D83C090DBA3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7623D363-F0BD-400C-B8AB-3FD9699D92D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7623D363-F0BD-400C-B8AB-3FD9699D92D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7623D363-F0BD-400C-B8AB-3FD9699D92D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7623D363-F0BD-400C-B8AB-3FD9699D92D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2BA59EA-769B-4D5B-8032-CB9682D0D73A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BA59EA-769B-4D5B-8032-CB9682D0D73A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2BA59EA-769B-4D5B-8032-CB9682D0D73A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2BA59EA-769B-4D5B-8032-CB9682D0D73A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EEF879-CFF7-4661-89CB-9CB68328D008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EEF879-CFF7-4661-89CB-9CB68328D008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EEF879-CFF7-4661-89CB-9CB68328D008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EEF879-CFF7-4661-89CB-9CB68328D008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37740138-D088-46F5-83A8-8A8180FE65D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37740138-D088-46F5-83A8-8A8180FE65D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37740138-D088-46F5-83A8-8A8180FE65D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37740138-D088-46F5-83A8-8A8180FE65D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{746813A9-4221-42D8-AAB5-66CB69EC844F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{746813A9-4221-42D8-AAB5-66CB69EC844F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{746813A9-4221-42D8-AAB5-66CB69EC844F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{746813A9-4221-42D8-AAB5-66CB69EC844F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113167DA-602A-4EBE-9357-D83C090DBA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113167DA-602A-4EBE-9357-D83C090DBA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113167DA-602A-4EBE-9357-D83C090DBA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113167DA-602A-4EBE-9357-D83C090DBA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D69B63D-F082-4D57-9FF0-355642C56993} = {DE48451F-D4CB-4C9F-B300-4CA0B8ED9E1C}
+		{7623D363-F0BD-400C-B8AB-3FD9699D92D9} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+		{E2BA59EA-769B-4D5B-8032-CB9682D0D73A} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+		{30EEF879-CFF7-4661-89CB-9CB68328D008} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+		{37740138-D088-46F5-83A8-8A8180FE65D8} = {B4247B78-34BC-4A3F-91A4-661F7DCD6E10}
+		{746813A9-4221-42D8-AAB5-66CB69EC844F} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+		{FCD95DCE-9DF4-403C-966C-FF19ADD2EA43} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+		{113167DA-602A-4EBE-9357-D83C090DBA3F} = {0D69B63D-F082-4D57-9FF0-355642C56993}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {711A43C0-A2F8-4E5C-9B9F-F2551E4B3FF1}
+	EndGlobalSection
+EndGlobal

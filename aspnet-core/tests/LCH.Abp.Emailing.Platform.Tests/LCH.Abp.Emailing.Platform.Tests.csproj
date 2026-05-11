@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace />
+		<IsPackable>false</IsPackable>
+		<Configurations>Debug;Release</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\platform\LCH.Abp.Emailing.Platform\LCH.Abp.Emailing.Platform.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Platform.HttpApi.Client\LCH.Platform.HttpApi.Client.csproj" />
+		<ProjectReference Include="..\LCH.Abp.TestBase\LCH.Abp.TestsBase.csproj" />
+	</ItemGroup>
+
+</Project>

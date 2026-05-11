@@ -1,0 +1,31 @@
+﻿using LCH.Abp.Account.Emailing.Localization;
+using System;
+using Volo.Abp.Emailing;
+using Volo.Abp.Localization;
+using Volo.Abp.Modularity;
+using Volo.Abp.UI.Navigation;
+using Volo.Abp.VirtualFileSystem;
+
+namespace LCH.Abp.Account.Emailing;
+
+[DependsOn(
+    typeof(AbpEmailingModule),
+    typeof(AbpUiNavigationModule))]
+[Obsolete("This module has been deprecated. Please use AbpAccountSecurityModule.")]
+public class AbpAccountEmailingModule : AbpModule
+{
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        Configure<AbpVirtualFileSystemOptions>(options =>
+        {
+            options.FileSets.AddEmbedded<AbpAccountEmailingModule>();
+        });
+
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Resources
+                .Add<AccountEmailingResource>("en")
+                .AddVirtualJson("/LCH/Abp/Account/Emailing/Localization/Resources");
+        });
+    }
+}

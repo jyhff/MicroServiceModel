@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.OssManagement.Tencent</AssemblyName>
+		<PackageId>LCH.Abp.OssManagement.Tencent</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\cloud-tencent\LCH.Abp.BlobStoring.Tencent\LCH.Abp.BlobStoring.Tencent.csproj" />
+		<ProjectReference Include="..\LCH.Abp.OssManagement.Domain\LCH.Abp.OssManagement.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

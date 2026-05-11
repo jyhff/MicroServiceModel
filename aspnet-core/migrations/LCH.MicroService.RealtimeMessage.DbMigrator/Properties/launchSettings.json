@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "LCH.MicroService.RealtimeMessage.DbMigrator": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

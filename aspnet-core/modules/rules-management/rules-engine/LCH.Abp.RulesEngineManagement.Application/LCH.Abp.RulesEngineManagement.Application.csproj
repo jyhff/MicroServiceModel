@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.RulesEngineManagement.Application</AssemblyName>
+		<PackageId>LCH.Abp.RulesEngineManagement.Application</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Ddd.Application" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LCH.Abp.RulesEngineManagement.Application.Contracts\LCH.Abp.RulesEngineManagement.Application.Contracts.csproj" />
+    <ProjectReference Include="..\LCH.Abp.RulesEngineManagement.Domain\LCH.Abp.RulesEngineManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

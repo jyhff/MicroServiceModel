@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.PermissionManagement.Domain.OrganizationUnits</AssemblyName>
+		<PackageId>LCH.Abp.PermissionManagement.Domain.OrganizationUnits</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\framework\authorization\LCH.Abp.Authorization.OrganizationUnits\LCH.Abp.Authorization.OrganizationUnits.csproj" />
+		<ProjectReference Include="..\..\identity\LCH.Abp.Identity.Domain\LCH.Abp.Identity.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Saas.Jobs</AssemblyName>
+		<PackageId>LCH.Abp.Saas.Jobs</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="LCH\Abp\Saas\Jobs\Localization\Resources\en.json" />
+	  <None Remove="LCH\Abp\Saas\Jobs\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="LCH\Abp\Saas\Jobs\Localization\Resources\en.json" />
+	  <EmbeddedResource Include="LCH\Abp\Saas\Jobs\Localization\Resources\zh-Hans.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Emailing" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\task-management\LCH.Abp.BackgroundTasks.Abstractions\LCH.Abp.BackgroundTasks.Abstractions.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Saas.Domain\LCH.Abp.Saas.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

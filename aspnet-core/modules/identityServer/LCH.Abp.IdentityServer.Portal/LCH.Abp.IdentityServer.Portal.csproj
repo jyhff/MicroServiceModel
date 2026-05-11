@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.IdentityServer.Portal</AssemblyName>
+		<PackageId>LCH.Abp.IdentityServer.Portal</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.IdentityServer.Domain" />
+		<PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\platform\LCH.Platform.Domain\LCH.Platform.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

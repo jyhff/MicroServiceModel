@@ -1,0 +1,40 @@
+﻿<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UserSecretsId>13c67981-84b2-4284-81fc-61ede65252c3</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.Hosting.Elasticsearch" />
+		<PackageReference Include="Aspire.Hosting.JavaScript" />
+		<PackageReference Include="Aspire.Hosting.PostgreSQL" />
+		<PackageReference Include="Aspire.Hosting.RabbitMQ" />
+		<PackageReference Include="Aspire.Hosting.Redis" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.MicroService.AdminService.DbMigrator\LCH.Abp.MicroService.AdminService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.AdminService\LCH.Abp.MicroService.AdminService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.AuthServer.DbMigrator\LCH.Abp.MicroService.AuthServer.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.AuthServer\LCH.Abp.MicroService.AuthServer.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.IdentityService\LCH.Abp.MicroService.IdentityService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.PlatformService.DbMigrator\LCH.Abp.MicroService.PlatformService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.PlatformService\LCH.Abp.MicroService.PlatformService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.LocalizationService.DbMigrator\LCH.Abp.MicroService.LocalizationService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.LocalizationService\LCH.Abp.MicroService.LocalizationService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.MessageService.DbMigrator\LCH.Abp.MicroService.MessageService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.MessageService\LCH.Abp.MicroService.MessageService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.TaskService.DbMigrator\LCH.Abp.MicroService.TaskService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.TaskService\LCH.Abp.MicroService.TaskService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.WebhookService.DbMigrator\LCH.Abp.MicroService.WebhookService.DbMigrator.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.WebhookService\LCH.Abp.MicroService.WebhookService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.WeChatService\LCH.Abp.MicroService.WeChatService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.WorkflowService\LCH.Abp.MicroService.WorkflowService.csproj" />
+		<ProjectReference Include="..\LCH.Abp.MicroService.ApiGateway\LCH.Abp.MicroService.ApiGateway.csproj" />
+	</ItemGroup>
+
+</Project>

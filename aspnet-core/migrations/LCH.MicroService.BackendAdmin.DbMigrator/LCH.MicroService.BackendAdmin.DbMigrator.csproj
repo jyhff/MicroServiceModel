@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\common.secrets.props" />
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Configurations>Debug;Release</Configurations>
+		<Platforms>AnyCPU</Platforms>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog.Extensions.Logging" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Logs\**" />
+		<Content Remove="Logs\**" />
+		<EmbeddedResource Remove="Logs\**" />
+		<None Remove="Logs\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\webhooks\LCH.Abp.WebhooksManagement.Application.Contracts\LCH.Abp.WebhooksManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\task-management\LCH.Abp.TaskManagement.Application.Contracts\LCH.Abp.TaskManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-notifications\LCH.Abp.Notifications.Application.Contracts\LCH.Abp.Notifications.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\realtime-message\LCH.Abp.MessageService.Application.Contracts\LCH.Abp.MessageService.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Platform.Application.Contracts\LCH.Platform.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\oss-management\LCH.Abp.OssManagement.Application.Contracts\LCH.Abp.OssManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\localization-management\LCH.Abp.LocalizationManagement.Application.Contracts\LCH.Abp.LocalizationManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\identityServer\LCH.Abp.IdentityServer.Application.Contracts\LCH.Abp.IdentityServer.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.Application.Contracts\LCH.Abp.Identity.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\openiddict\LCH.Abp.OpenIddict.Application.Contracts\LCH.Abp.OpenIddict.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\framework\settings\LCH.Abp.SettingManagement.Application.Contracts\LCH.Abp.SettingManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\auditing\LCH.Abp.Auditing.Application.Contracts\LCH.Abp.Auditing.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\caching-management\LCH.Abp.CachingManagement.Application.Contracts\LCH.Abp.CachingManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\feature-management\LCH.Abp.FeatureManagement.Application.Contracts\LCH.Abp.FeatureManagement.Application.Contracts.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.Application.Contracts\LCH.Abp.TextTemplating.Application.Contracts.csproj" />
+		<ProjectReference Include="..\LCH.MicroService.BackendAdmin.EntityFrameworkCore\LCH.MicroService.BackendAdmin.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>

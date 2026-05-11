@@ -1,0 +1,146 @@
+version: '3.4'
+
+services:
+  agile-config:
+    image: kklldog/agile_config:latest
+    container_name: agile-config
+    environment:
+      - adminConsole=true
+      - db:provider=mysql
+      - db:conn=Server=abp-mysql;Database=agile;User Id=root;Password=123456;Character Set=utf8mb4
+      - TZ=Asia/Shanghai
+    ports:
+      - "5000:5000"
+
+  sts-server:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.AuthServer
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=AuthServer
+      - AgileConfig__tag=AuthServer
+    depends_on:
+      - agile-config
+
+  sts-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.IdentityServer.Admin
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=IdentityServer.Admin
+      - AgileConfig__tag=IdentityServer.Admin
+    depends_on:
+      - agile-config
+
+  admin-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Backend.Admin
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=BackendAdmin
+      - AgileConfig__tag=BackendAdmin
+    depends_on:
+      - agile-config
+
+  localization-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Localization
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Localization
+      - AgileConfig__tag=Localization
+    depends_on:
+      - agile-config
+
+  platform-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Platform
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Platform
+      - AgileConfig__tag=Platform
+    depends_on:
+      - agile-config
+
+  messages-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Message
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Message
+      - AgileConfig__tag=Message
+    depends_on:
+      - agile-config
+
+  task-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Task
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Task
+      - AgileConfig__tag=Task
+    depends_on:
+      - agile-config
+
+  webhook-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Webhooks
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Webhooks
+      - AgileConfig__tag=Webhooks
+    depends_on:
+      - agile-config
+
+  workflow-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Workflow
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Workflow
+      - AgileConfig__tag=Workflow
+    depends_on:
+      - agile-config
+
+  wechat-api:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Abp.Wechat
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=Wechat
+      - AgileConfig__tag=Wechat
+    depends_on:
+      - agile-config
+
+  internal-apigateway:
+    environment:
+      - AgileConfig__IsEnabled=true
+      - AgileConfig__env=DEV
+      - AgileConfig__appId=LCH.Internal.ApiGateway
+      - AgileConfig__secret=1q2w3E*
+      - AgileConfig__nodes=http://agile-config:5000
+      - AgileConfig__name=ApiGateway
+      - AgileConfig__tag=ApiGateway
+      - TZ=Asia/Shanghai
+    depends_on:
+      - agile-config

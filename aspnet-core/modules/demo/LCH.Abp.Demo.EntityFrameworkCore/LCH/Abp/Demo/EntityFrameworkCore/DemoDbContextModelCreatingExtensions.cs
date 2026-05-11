@@ -1,0 +1,48 @@
+﻿using LCH.Abp.DataProtection.EntityFrameworkCore;
+using LCH.Abp.Demo.Authors;
+using LCH.Abp.Demo.Books;
+using Microsoft.EntityFrameworkCore;
+using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
+
+namespace LCH.Abp.Demo.EntityFrameworkCore;
+public static class DemoDbContextModelCreatingExtensions
+{
+    public static void ConfigureDemo(
+        this ModelBuilder builder,
+        Action<DemoModelBuilderConfigurationOptions>? optionsAction = null)
+    {
+        Check.NotNull(builder, nameof(builder));
+
+        var options = new DemoModelBuilderConfigurationOptions(
+            DemoDbProterties.DbTablePrefix,
+            DemoDbProterties.DbSchema
+        );
+        optionsAction?.Invoke(options);
+
+        builder.Entity<Book>(b =>
+        {
+            b.ToTable(options.TablePrefix + "Books", options.Schema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+
+            // ADD THE MAPPING FOR THE RELATION
+            b.HasOne<Author>().WithMany().HasForeignKey(x => x.AuthorId).IsRequired();
+        });
+
+        builder.Entity<Author>(b =>
+        {
+            b.ToTable(options.TablePrefix + "Authors", options.Schema);
+
+            b.ConfigureByConvention();
+
+            b.Property(x => x.Name)
+                .IsRequired()
+                .HasMaxLength(AuthorConsts.MaxNameLength);
+
+            b.HasIndex(x => x.Name);
+        });
+
+        builder.ConfigureEntityAuth<Book, Guid, BookAuth>();
+    }
+}

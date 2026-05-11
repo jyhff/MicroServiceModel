@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>LCH.Abp.MicroService.AdminService</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AgileConfig.Client" />
+		<PackageReference Include="DotNetCore.CAP.Dashboard" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" />
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
+		<PackageReference Include="DistributedLock.Redis" />
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" />
+		<PackageReference Include="Serilog.AspNetCore" />
+		<PackageReference Include="Serilog.Enrichers.Environment" />
+		<PackageReference Include="Serilog.Enrichers.Assembly" />
+		<PackageReference Include="Serilog.Enrichers.Process" />
+		<PackageReference Include="Serilog.Enrichers.Thread" />
+		<PackageReference Include="Serilog.Settings.Configuration" />
+		<PackageReference Include="Serilog.Sinks.Async" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Application" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" />
+		<PackageReference Include="Volo.Abp.Http.Client" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" />
+		<PackageReference Include="Volo.Abp.Swashbuckle" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\auditing\LCH.Abp.AuditLogging.Elasticsearch\LCH.Abp.AuditLogging.Elasticsearch.csproj" />
+		<ProjectReference Include="..\..\framework\cloud-aliyun\LCH.Abp.Aliyun.SettingManagement\LCH.Abp.Aliyun.SettingManagement.csproj" />
+		<ProjectReference Include="..\..\framework\cloud-tencent\LCH.Abp.Tencent.SettingManagement\LCH.Abp.Tencent.SettingManagement.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.AspNetCore.HttpOverrides\LCH.Abp.AspNetCore.HttpOverrides.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.EventBus.CAP\LCH.Abp.EventBus.CAP.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.ExceptionHandling.Emailing\LCH.Abp.ExceptionHandling.Emailing.csproj" />
+		<ProjectReference Include="..\..\framework\features\LCH.Abp.FeatureManagement.Client\LCH.Abp.FeatureManagement.Client.csproj" />
+		<ProjectReference Include="..\..\framework\localization\LCH.Abp.AspNetCore.Mvc.Localization\LCH.Abp.AspNetCore.Mvc.Localization.csproj" />
+		<ProjectReference Include="..\..\framework\localization\LCH.Abp.Localization.CultureMap\LCH.Abp.Localization.CultureMap.csproj" />
+		<ProjectReference Include="..\..\framework\logging\LCH.Abp.Logging.Serilog.Elasticsearch\LCH.Abp.Logging.Serilog.Elasticsearch.csproj" />
+		<ProjectReference Include="..\..\framework\logging\LCH.Abp.Serilog.Enrichers.Application\LCH.Abp.Serilog.Enrichers.Application.csproj" />
+		<ProjectReference Include="..\..\framework\logging\LCH.Abp.Serilog.Enrichers.UniqueId\LCH.Abp.Serilog.Enrichers.UniqueId.csproj" />
+		<ProjectReference Include="..\..\framework\mvc\LCH.Abp.AspNetCore.Mvc.Wrapper\LCH.Abp.AspNetCore.Mvc.Wrapper.csproj" />
+		<ProjectReference Include="..\..\framework\security\LCH.Abp.Claims.Mapping\LCH.Abp.Claims.Mapping.csproj" />
+		<ProjectReference Include="..\..\framework\wx-pusher\LCH.Abp.WxPusher.SettingManagement\LCH.Abp.WxPusher.SettingManagement.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.MicroService.AdminService.EntityFrameworkCore\LCH.Abp.MicroService.AdminService.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\auditing\LCH.Abp.Auditing.Application\LCH.Abp.Auditing.Application.csproj" />
+		<ProjectReference Include="..\..\modules\auditing\LCH.Abp.Auditing.HttpApi\LCH.Abp.Auditing.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\caching-management\LCH.Abp.CachingManagement.Application\LCH.Abp.CachingManagement.Application.csproj" />
+		<ProjectReference Include="..\..\modules\caching-management\LCH.Abp.CachingManagement.HttpApi\LCH.Abp.CachingManagement.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\caching-management\LCH.Abp.CachingManagement.StackExchangeRedis\LCH.Abp.CachingManagement.StackExchangeRedis.csproj" />
+		<ProjectReference Include="..\..\modules\data-protection\LCH.Abp.DataProtectionManagement.Application\LCH.Abp.DataProtectionManagement.Application.csproj" />
+		<ProjectReference Include="..\..\modules\data-protection\LCH.Abp.DataProtectionManagement.HttpApi\LCH.Abp.DataProtectionManagement.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\feature-management\LCH.Abp.FeatureManagement.Application\LCH.Abp.FeatureManagement.Application.csproj" />
+		<ProjectReference Include="..\..\modules\feature-management\LCH.Abp.FeatureManagement.HttpApi\LCH.Abp.FeatureManagement.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\identity\LCH.Abp.Identity.Session.AspNetCore\LCH.Abp.Identity.Session.AspNetCore.csproj" />
+		<ProjectReference Include="..\..\modules\oss-management\LCH.Abp.OssManagement.SettingManagement\LCH.Abp.OssManagement.SettingManagement.csproj" />
+		<ProjectReference Include="..\..\modules\permissions-management\LCH.Abp.PermissionManagement.Application\LCH.Abp.PermissionManagement.Application.csproj" />
+		<ProjectReference Include="..\..\modules\permissions-management\LCH.Abp.PermissionManagement.Domain.OrganizationUnits\LCH.Abp.PermissionManagement.Domain.OrganizationUnits.csproj" />
+		<ProjectReference Include="..\..\modules\permissions-management\LCH.Abp.PermissionManagement.HttpApi\LCH.Abp.PermissionManagement.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Abp.Emailing.Platform\LCH.Abp.Emailing.Platform.csproj" />
+		<ProjectReference Include="..\..\modules\platform\LCH.Abp.Sms.Platform\LCH.Abp.Sms.Platform.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.Application\LCH.Abp.Saas.Application.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.DbChecker\LCH.Abp.Saas.DbChecker.csproj" />
+		<ProjectReference Include="..\..\modules\saas\LCH.Abp.Saas.HttpApi\LCH.Abp.Saas.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\settings\LCH.Abp.SettingManagement.Application\LCH.Abp.SettingManagement.Application.csproj" />
+		<ProjectReference Include="..\..\modules\settings\LCH.Abp.SettingManagement.HttpApi\LCH.Abp.SettingManagement.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.Application\LCH.Abp.TextTemplating.Application.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.HttpApi\LCH.Abp.TextTemplating.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\text-templating\LCH.Abp.TextTemplating.Scriban\LCH.Abp.TextTemplating.Scriban.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LCH.Abp.MicroService.ServiceDefaults\LCH.Abp.MicroService.ServiceDefaults.csproj" />
+	</ItemGroup>
+
+</Project>

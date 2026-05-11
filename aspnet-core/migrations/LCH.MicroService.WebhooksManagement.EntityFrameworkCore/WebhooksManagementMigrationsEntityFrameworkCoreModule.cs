@@ -1,0 +1,39 @@
+﻿using LCH.Abp.Data.DbMigrator;
+using LCH.Abp.Saas.EntityFrameworkCore;
+using LCH.Abp.WebhooksManagement.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.MySQL;
+using Volo.Abp.FeatureManagement.EntityFrameworkCore;
+using Volo.Abp.Modularity;
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+using Volo.Abp.SettingManagement.EntityFrameworkCore;
+
+namespace LCH.MicroService.WebhooksManagement.EntityFrameworkCore;
+
+[DependsOn(
+    typeof(AbpSaasEntityFrameworkCoreModule),
+    typeof(WebhooksManagementEntityFrameworkCoreModule),
+    typeof(AbpEntityFrameworkCoreMySQLPomeloModule),
+    typeof(AbpSettingManagementEntityFrameworkCoreModule),
+    typeof(AbpPermissionManagementEntityFrameworkCoreModule),
+    typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+    typeof(AbpDataDbMigratorModule)
+    )]
+public class WebhooksManagementMigrationsEntityFrameworkCoreModule : AbpModule
+{
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        context.Services.AddAbpDbContext<WebhooksManagementMigrationsDbContext>();
+
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseMySQL(
+                mysql =>
+                {
+                    // see: https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql/issues/1960
+                    mysql.TranslateParameterizedCollectionsToConstants();
+                });
+        });
+    }
+}

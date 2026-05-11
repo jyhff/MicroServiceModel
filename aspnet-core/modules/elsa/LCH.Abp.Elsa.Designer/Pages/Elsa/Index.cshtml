@@ -1,0 +1,51 @@
+﻿@page
+@using LCH.Abp.Elsa.Localization;
+@using LCH.Abp.Elsa.Designer.Bundling;
+@using LCH.Abp.Elsa.Designer.Navigation;
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Configuration
+@inject IPageLayout PageLayout
+@inject IConfiguration Configuration;
+@inject IHtmlLocalizer<ElsaResource> L
+@{
+    var serverUrl = Configuration["Elsa:Server:BaseUrl"];
+    var basePath = Request.PathBase.Value;
+
+    PageLayout.Content.Title = L["Elsa:Designer"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Elsa:Designer"].Value);
+    PageLayout.Content.MenuItemName = AbpElsaDesignerMenuNames.Index;
+}
+
+@section styles {
+    <abp-style-bundle name="@AbpElsaBundles.Styles.Global" />
+}
+
+@section scripts {
+    <abp-script-bundle name="@AbpElsaBundles.Scripts.Global" />
+}
+
+<script type="module" src="/_content/Elsa.Designer.Components.Web/elsa-workflows-studio/elsa-workflows-studio.esm.js"></script>
+
+<elsa-studio-root server-url="@serverUrl" monaco-lib-path="_content/Elsa.Designer.Components.Web/monaco-editor/min">
+    <elsa-studio-dashboard></elsa-studio-dashboard>
+</elsa-studio-root>
+
+<script type="module">
+    // Import publicly exposed services.
+    import { WebhooksPlugin } from "@basePath/_content/Elsa.Designer.Components.Web/elsa-workflows-studio/index.esm.js";
+
+    // Get a handle to the elsa-studio-root element.
+    const elsaStudioRoot = document.querySelector('elsa-studio-root');
+
+    // Configure Elsa during the 'initializing' event.
+    elsaStudioRoot.addEventListener('initializing', e => {
+        const elsa = e.detail;
+        elsa.pluginManager.registerPlugin(WebhooksPlugin);
+    });
+
+    // Some components publish DOM events that we can handle directly:
+    elsaStudioRoot.addEventListener('workflow-changed', e => {
+        console.log('Workflow model changed! New model: ${e.detail}');
+    })
+</script>

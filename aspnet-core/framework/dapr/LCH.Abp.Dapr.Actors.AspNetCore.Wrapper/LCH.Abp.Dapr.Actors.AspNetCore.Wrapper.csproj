@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Abp.Dapr.Actors.AspNetCore.Wrapper</AssemblyName>
+		<PackageId>LCH.Abp.Dapr.Actors.AspNetCore.Wrapper</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\common\LCH.Abp.Wrapper\LCH.Abp.Wrapper.csproj" />
+		<ProjectReference Include="..\LCH.Abp.Dapr.Actors.AspNetCore\LCH.Abp.Dapr.Actors.AspNetCore.csproj" />
+	</ItemGroup>
+
+</Project>
