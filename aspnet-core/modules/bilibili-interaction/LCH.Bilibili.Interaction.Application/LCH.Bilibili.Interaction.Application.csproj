@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\configureawait.props" />
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.Bilibili.Interaction.Application</AssemblyName>
+		<PackageId>LCH.Bilibili.Interaction.Application</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Ddd.Application" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LCH.Bilibili.Interaction.Application.Contracts\LCH.Bilibili.Interaction.Application.Contracts.csproj" />
+	  <ProjectReference Include="..\LCH.Bilibili.Interaction.Domain\LCH.Bilibili.Interaction.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

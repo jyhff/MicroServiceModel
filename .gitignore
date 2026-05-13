@@ -50,5 +50,15 @@ yarn-error.log*
 *.sw*
 
 */wwwroot/libs/
-FodyWeavers.xml
-FodyWeavers.xsd
+ FodyWeavers.xml
+ FodyWeavers.xsd
+
+# Sisyphus AI working directory
+.sisyphus/
+
+# Local Nuget packages
+LocalNuget/
+**/LocalNuget/
+
+# Build outputs
+LCH/
