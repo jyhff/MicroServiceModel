@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>LCH.Bilibili.Recommend</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\bilibili-recommend\LCH.Bilibili.Recommend.HttpApi\LCH.Bilibili.Recommend.HttpApi.csproj" />
+    <ProjectReference Include="..\..\modules\bilibili-recommend\LCH.Bilibili.Recommend.Application\LCH.Bilibili.Recommend.Application.csproj" />
+    <ProjectReference Include="..\..\modules\bilibili-recommend\LCH.Bilibili.Recommend.EntityFrameworkCore\LCH.Bilibili.Recommend.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\modules\bilibili-recommend\LCH.Bilibili.Recommend.HttpApi.Client\LCH.Bilibili.Recommend.HttpApi.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="10.0.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="10.0.2" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="10.0.2" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="10.0.2" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="10.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

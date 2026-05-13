@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+	<RootNamespace />
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="NSubstitute" />
+		<PackageReference Include="Shouldly" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\modules\bilibili-user\LCH.Bilibili.User.EntityFrameworkCore\LCH.Bilibili.User.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\LCH.Abp.EntityFrameworkCore.Tests\LCH.Abp.EntityFrameworkCore.Tests.csproj" />
+    <ProjectReference Include="..\LCH.Bilibili.User.Domain.Tests\LCH.Bilibili.User.Domain.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

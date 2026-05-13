@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="..\..\..\configureawait.props" />
+	<Import Project="..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<AssemblyName>LCH.MicroService.Search.HttpApi.Host</AssemblyName>
+		<PackageId>LCH.MicroService.Search.HttpApi.Host</PackageId>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<RootNamespace>LCH.MicroService.Search</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.BasicTheme" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" />
+		<PackageReference Include="Volo.Abp.Swashbuckle" />
+		<PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.15.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\modules\bilibili-search\LCH.Bilibili.Search.HttpApi\LCH.Bilibili.Search.HttpApi.csproj" />
+		<ProjectReference Include="..\..\modules\bilibili-search\LCH.Bilibili.Search.Application\LCH.Bilibili.Search.Application.csproj" />
+		<ProjectReference Include="..\..\modules\bilibili-search\LCH.Bilibili.Search.EntityFrameworkCore\LCH.Bilibili.Search.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\modules\bilibili-search\LCH.Bilibili.Search.HttpApi.Client\LCH.Bilibili.Search.HttpApi.Client.csproj" />
+	</ItemGroup>
+
+</Project>

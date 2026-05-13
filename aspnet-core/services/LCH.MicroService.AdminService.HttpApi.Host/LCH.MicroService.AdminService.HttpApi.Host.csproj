@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="..\..\..\common.secrets.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>LCH.MicroService.AdminService</RootNamespace>
+		<Configurations>Debug;Release;PostgreSQL</Configurations>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetCore.CAP.Dashboard" />
+		<PackageReference Include="DotNetCore.CAP.PostgreSql" />
+		<PackageReference Include="DotNetCore.CAP.RabbitMQ" />
+		<PackageReference Include="DistributedLock.Redis" />
+		<PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" />
+		<PackageReference Include="Serilog.AspNetCore" />
+		<PackageReference Include="Serilog.Settings.Configuration" />
+		<PackageReference Include="Serilog.Sinks.File" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" />
+		<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" />
+		<PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" />
+		<PackageReference Include="Volo.Abp.Autofac" />
+		<PackageReference Include="Volo.Abp.Identity.HttpApi.Client" />
+		<PackageReference Include="Volo.Abp.Http.Client.IdentityModel.Web" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+		<PackageReference Include="Volo.Abp.Swashbuckle" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\framework\auditing\LCH.Abp.AuditLogging.Elasticsearch\LCH.Abp.AuditLogging.Elasticsearch.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.AspNetCore.HttpOverrides\LCH.Abp.AspNetCore.HttpOverrides.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Data.DbMigrator\LCH.Abp.Data.DbMigrator.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.EventBus.CAP\LCH.Abp.EventBus.CAP.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.ExceptionHandling.Emailing\LCH.Abp.ExceptionHandling.Emailing.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Localization.CultureMap\LCH.Abp.Localization.CultureMap.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Serilog.Enrichers.Application\LCH.Abp.Serilog.Enrichers.Application.csproj" />
+		<ProjectReference Include="..\..\framework\common\LCH.Abp.Serilog.Enrichers.UniqueId\LCH.Abp.Serilog.Enrichers.UniqueId.csproj" />
+		<ProjectReference Include="..\..\framework\localization-management\LCH.Abp.LocalizationManagement.EntityFrameworkCore\LCH.Abp.LocalizationManagement.EntityFrameworkCore.csproj" />
+		<ProjectReference Include="..\..\framework\notifications\LCH.Abp.Notifications\LCH.Abp.Notifications.csproj" />
+		<ProjectReference Include="..\..\framework\saas\LCH.Abp.Saas.EntityFrameworkCore\LCH.Abp.Saas.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+</Project>
