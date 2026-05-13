@@ -62,3 +62,7 @@ LocalNuget/
 
 # Build outputs
 LCH/
+
+# Fody Weaver files (already in .gitignore but ensure proper matching)
+**/FodyWeavers.xml
+**/FodyWeavers.xsd
